@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ShirlyOrt5to\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj": {}
+    "C:\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj": {}
   },
   "projects": {
-    "C:\\ShirlyOrt5to\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj": {
+    "C:\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ShirlyOrt5to\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj",
+        "projectUniqueName": "C:\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj",
         "projectName": "Diabetex.API",
-        "projectPath": "C:\\ShirlyOrt5to\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj",
-        "packagesPath": "C:\\Users\\ricky\\.nuget\\packages\\",
-        "outputPath": "C:\\ShirlyOrt5to\\Diabetex\\Diabetex\\Diabetex.API\\obj\\",
+        "projectPath": "C:\\Diabetex\\Diabetex\\Diabetex.API\\Diabetex.API.csproj",
+        "packagesPath": "C:\\Users\\46875521\\.nuget\\packages\\",
+        "outputPath": "C:\\Diabetex\\Diabetex\\Diabetex.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ricky\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\46875521\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +44,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -47,6 +55,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
@@ -68,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
