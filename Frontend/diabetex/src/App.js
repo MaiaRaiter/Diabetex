@@ -1,14 +1,14 @@
 
 import './App.css';
-
-function App() {
+import React, { useState } from "react";
+import LoginPage from './Componentes/LoginPage';
+ 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <React.Fragment>
+        <LoginPage/>
+    </React.Fragment>
   );
 }
-
+ 
 export default App;
