@@ -1,0 +1,24 @@
+{
+  "name": "diabetex",
+  "version": "1.0.0",
+  "description": "Proyecto Final",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShirJu/Diabetex.git"
+  },
+  "author": "Shirly Jusid y Maia Raiter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShirJu/Diabetex/issues"
+  },
+  "homepage": "https://github.com/ShirJu/Diabetex#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mssql": "^9.1.1"
+  }
+}
