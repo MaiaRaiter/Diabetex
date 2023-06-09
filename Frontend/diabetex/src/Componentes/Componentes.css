@@ -1,8 +1,21 @@
-
 .Formulario
 {
 border-color: #33847E;
-border-radius: 50px;
+height: 35px;
+width: 300px;
+border-radius: 15px;
+font-family: reboto;
 
+}
 
+.Boton
+{
+    color: white;
+    border: 3px solid #316F6A;
+    border-radius: 15px;
+    background-color: #316F6A;
+    height: 35px;
+    width: 300px;
+    font-family: reboto;
+   
 }

@@ -6,6 +6,7 @@ import LoginPage from './Componentes/LoginPage';
 const App = () => {
   return (
     <React.Fragment>
+          <LoginPage/>
         <Scanner/>
     </React.Fragment>
   );
