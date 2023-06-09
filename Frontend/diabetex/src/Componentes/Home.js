@@ -1,7 +1,16 @@
 import React from "react";
 
-function App(props) {
-   return <h1>Hello world {props.name}!</h1>;
-}
 
-export default App;
+    function CargarDatos() {
+        axios
+          .get("https://randomuser.me/api/")
+          .then((result) => {
+            console.log(result.data.results[0]);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+
+export default CargarDatos ;
