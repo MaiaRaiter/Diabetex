@@ -16,11 +16,13 @@ const BarcodeScanner = () => {
 
   return (
     <div>
-      <QrReader
+      <QrReader 
         delay={300}
         onError={handleError}
         onScan={handleScan}
-        style={{ width: '100%' }}
+        style={{ height: '100%'}}
+       
+
       />
       <p>{barcode && `Código de barras: ${barcode}`}</p>
     </div>
