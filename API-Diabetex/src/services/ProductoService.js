@@ -1,17 +1,13 @@
 import config from '../../dbconfig.js';
 import sql from 'mssql';
 import axios from 'axios';
-import off  from 'openfoodfacts-nodejs';
-
 
 export default class ProductoService{
 
     getAllProductos = async() => {
 
         let returnEntity = null;
-        const client = new off();
-        console.log('Estoy en: ProductoSErvice.GetAll');
-        returnEntity = await client.getProduct('5000112546415');
+        
         return returnEntity;
         /*
         axios
