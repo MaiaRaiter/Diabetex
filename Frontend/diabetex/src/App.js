@@ -2,12 +2,13 @@
 import './App.css';
 import React, { useState } from "react";
 import LoginPage from './Componentes/LoginPage';
- import Scanner from './Componentes/Scanner.js';
+ import Scanner2 from './Componentes/Scanner2.js';
 const App = () => {
   return (
     <React.Fragment>
+      <Scanner2/>
           <LoginPage/>
-        <Scanner/>
+      
     </React.Fragment>
   );
 }
