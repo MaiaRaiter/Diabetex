@@ -1,21 +1,30 @@
-// van los router que direccionn los endpoints haciendolo clases separadas
+
 import { Router} from 'express';
 import ProductoService from '../services/productoService.js';
-import off  from 'openfoodfacts-nodejs';
-
-//import { ReasonPhrases, StatusCodes} from 'http-status-codes';
 
 const ProductoRouter = Router();
 const productoService = new ProductoService();
 
-ProductoRouter.get('', async (req, res) => {
-  console.log('Estoy en: productoController get /');
-  
-  const client = new off();
-  let producto = await client.getProduct('5000112546415');
-
-  return res.status(200).json(producto);
+ProductoRouter.get('/:codebar', async (req, res) => {
+    console.log('Estoy en: ProductoController get /:codebar', req.params.codebar);
+    let producto = await productoService.getProduct(req.params.codebar);
+    console.log('2');
+    
+    return producto;
 });
+
+/*
+data: {
+    code: '7622210449285',
+    status: 0,
+    status_verbose: 'product not found'
+  }
+
+  data: {
+    code: '7622210449285',
+    status: 1,
+    status_verbose: 'product found'
+  }
 
 /*
 PizzaRouter.get('/:id', async (req, res) => {

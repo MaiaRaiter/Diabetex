@@ -2,23 +2,27 @@ import config from '../../dbconfig.js';
 import sql from 'mssql';
 import axios from 'axios';
 
+const URL_PRODUCT = "http://world.openfoodfacts.org/api/v0/product/";
 export default class ProductoService{
 
-    getAllProductos = async() => {
+    getProduct = async(codebar) => {
 
         let returnEntity = null;
-        
-        return returnEntity;
-        /*
+        let url = `${URL_PRODUCT}${codebar}.json`;
+        console.log(url);
+        //http://world.openfoodfacts.org/api/v0/product/7622210288257.json
         axios
-          .get("https://world.openfoodfacts.net/api/v2/product/5449000214799")
+          .get(url)
           .then((result) => {
-            console.log(result.data.results[0]);
+                //console.log(result.data.results[0][0]);
+                console.log(result);
+                returnEntity = result;
           })
           .catch((error) => {
-            console.log(error);
+                console.log(error);
           });
-          */
+          
+          return returnEntity;
           
     }
     /*
