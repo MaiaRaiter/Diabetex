@@ -1,13 +1,14 @@
 
 import './App.css';
 import React from "react";
-import IniciarSesion from './Componentes/InciarSesion';
+
+import Home from './Componentes/Screens/Home'
 
 
 const App = () => {
   return (
     <React.Fragment>
-    <IniciarSesion/>
+    <Home/>
       
     </React.Fragment>
   );
