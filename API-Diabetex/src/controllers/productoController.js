@@ -5,7 +5,9 @@ import ProductoService from '../services/productoService.js';
 const ProductoRouter = Router();
 const productoService = new ProductoService();
 
-ProductoRouter.get('/:codebar', async (req, res) => {
+
+
+/*ProductoRouter.get('/:codebar', async (req, res) => {
     console.log('Estoy en: ProductoController get /:codebar', req.params.codebar);
     let producto = await productoService.getProduct(req.params.codebar);
     console.log('2');
@@ -25,25 +27,37 @@ data: {
     status: 1,
     status_verbose: 'product found'
   }
+*/
 
-/*
-PizzaRouter.get('/:id', async (req, res) => {
-  console.log('Estoy en: pizzaController get /:id', req.params.id);
+
+ProductoRouter.get('/', async (req, res) => {
+  console.log('Estoy en: ProductoController get /');
+  
+  const producto = await productoService.getAll();
+
+  //return res.status(StatusCodes.OK).json(pizzas);
+  return res.status(200).json(producto);
+});
+
+
+ProductoRouter.get('/:id', async (req, res) => {
+  console.log('Estoy en: ProductoController get /:id', req.params.id);
   let respuesta;
   
-  const pizza = await pizzaService.getById(req.params.id);
-  console.log('pizza', pizza);
-  if (pizza!=null){
+  const producto = await productoService.getById(req.params.id);
+  console.log('producto', producto);
+  if (producto!=null){
     console.log('1');
-    respuesta = res.status(200).json(pizza);
+    respuesta = res.status(200).json(producto);
   } else {
     console.log('2');
-    respuesta = res.status(404).send("No se encontro la Pizza.");
+    respuesta = res.status(404).send("No se encontro el producto.");
   }
 
   return respuesta;
 });
 
+/*
 PizzaRouter.post('', async (req, res) => {
   let cuerpo = req.body;
   console.log('Estoy en: pizzaController post /', cuerpo);

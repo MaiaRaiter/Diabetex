@@ -25,21 +25,44 @@ export default class ProductoService{
           return returnEntity;
           
     }
-    /*
+
+    getAll = async() => {
+
+        let returnEntity = null;
+
+        console.log('Estoy en: ProductoErvice.GetAll');
+
+        try{
+            
+            let pool= await sql.connect(config);
+           
+            let result = await pool.request().query("SELECT * FROM Productos")
+
+            returnEntity = result.recordsets[0];
+
+        } 
+        catch(error) {
+            console.log(error);
+        }
+        return returnEntity;
+        }
+    
     getById=async(id)=>{
     let returnEntity=null;
-    console.log('Estoy en: PizzaSErvice.GetById(id)');
+    console.log('Estoy en: ProductoErvice.GetById(id)');
     try{
+        console.log(config);
        
         let pool= await sql.connect(config);
         
         let result = await pool.request()
        
                             .input('pId', sql.Int, id)
-                            .query('SELECT * FROM Pizzas WHERE id=@pId')
+                            .query('SELECT * FROM Producto WHERE id=@pId')
+                            
 
         returnEntity=result.recordsets[0][0];
-        returnEntity.Ingredientes = await iXpS.getByIdPizza(id);
+        //returnEntity.Ingredientes = await iXpS.getByIdPizza(id);
         
     } 
     catch(error) {
@@ -47,6 +70,7 @@ export default class ProductoService{
     }
    return returnEntity;
     }
+    /*
 
     insert = async (cuerpo) => {
         let returnEntity=null;

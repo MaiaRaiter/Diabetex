@@ -3,11 +3,16 @@ class Producto
         Id;
         Nombre;
         Ingredientes;
-        TamanoPorcion;
-        InfoNutricional;
-        EfectoNutricional;
+        Cantidad;
         CantMeGusta;
-        FechaCreacion;
         Marca;
+        EspeciesAmenazadas;
+        HCAgricultura;
+        HCProcesado;
+        HCEmbalaje;
+        HCTransporte;
+        HCDistribución;
+        HCConsumo;
+        HCTotal;
     }
     export default Producto;
