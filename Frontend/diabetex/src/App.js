@@ -1,13 +1,13 @@
 
 import './App.css';
-import React, { useState } from "react";
-import LoginPage from './Componentes/LoginPage';
- import Scanner2 from './Componentes/Scanner2.js';
+import React from "react";
+import IniciarSesion from './Componentes/InciarSesion';
+
+
 const App = () => {
   return (
     <React.Fragment>
-      <Scanner2/>
-          <LoginPage/>
+    <IniciarSesion/>
       
     </React.Fragment>
   );

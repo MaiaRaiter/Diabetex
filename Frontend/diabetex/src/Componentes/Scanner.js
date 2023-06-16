@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QrReader } from 'react-qr-reader';
+/*import { QrReader } from 'react-qr-reader';
 
 const BarcodeScanner = () => {
   const [barcode, setBarcode] = useState('');
@@ -31,3 +31,4 @@ const BarcodeScanner = () => {
 
 export default BarcodeScanner;
 
+*/

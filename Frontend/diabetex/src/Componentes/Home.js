@@ -1,4 +1,6 @@
 import React from "react";
+ /*
+import {axios} from axios
 
 
     function CargarDatos() {
@@ -14,3 +16,4 @@ import React from "react";
 
 
 export default CargarDatos ;
+*/
