@@ -10,7 +10,6 @@ const config= {
         trustedConnection : true
     }
 }
-console.log("config")
-console.log(config);
+
 
 export default config;

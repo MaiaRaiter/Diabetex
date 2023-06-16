@@ -5,14 +5,12 @@ import ProductoService from '../services/productoService.js';
 const ProductoRouter = Router();
 const productoService = new ProductoService();
 
-
-
-/*ProductoRouter.get('/:codebar', async (req, res) => {
+ProductoRouter.get('/:codebar', async (req, res) => {
     console.log('Estoy en: ProductoController get /:codebar', req.params.codebar);
     let producto = await productoService.getProduct(req.params.codebar);
     console.log('2');
+    return res.status(200).json(producto);
     
-    return producto;
 });
 
 /*
@@ -29,7 +27,7 @@ data: {
   }
 */
 
-
+/*
 ProductoRouter.get('/', async (req, res) => {
   console.log('Estoy en: ProductoController get /');
   

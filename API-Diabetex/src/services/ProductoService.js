@@ -3,40 +3,36 @@ import sql from 'mssql';
 import axios from 'axios';
 
 const URL_PRODUCT = "http://world.openfoodfacts.org/api/v0/product/";
+const URL_FIELDS = "?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data";
 export default class ProductoService{
 
     getProduct = async(codebar) => {
-
-        let returnEntity = null;
-        let url = `${URL_PRODUCT}${codebar}.json`;
+        let data;
+        let url = `http://world.openfoodfacts.org/api/v0/product/${codebar}?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data.json`;
         console.log(url);
         //http://world.openfoodfacts.org/api/v0/product/7622210288257.json
-        axios
-          .get(url)
-          .then((result) => {
-                //console.log(result.data.results[0][0]);
-                console.log(result);
-                returnEntity = result;
-          })
-          .catch((error) => {
-                console.log(error);
-          });
-          
-          return returnEntity;
-          
+        try{
+            const result = await axios.get(url)
+            data = await result.data;
+        }
+        catch(e){
+            console.log(e);
+        }
+        return data;
     }
+    
 
     getAll = async() => {
 
         let returnEntity = null;
 
-        console.log('Estoy en: ProductoErvice.GetAll');
+        console.log('Estoy en: ProductoSrvice.GetAll');
 
         try{
             
             let pool= await sql.connect(config);
            
-            let result = await pool.request().query("SELECT * FROM Productos")
+            let result = await pool.request().query("SELECT * FROM Producto")
 
             returnEntity = result.recordsets[0];
 
@@ -46,10 +42,11 @@ export default class ProductoService{
         }
         return returnEntity;
         }
+    /*
     
     getById=async(id)=>{
     let returnEntity=null;
-    console.log('Estoy en: ProductoErvice.GetById(id)');
+    console.log('Estoy en: ProductoSrvice.GetById(id)');
     try{
         console.log(config);
        
@@ -70,8 +67,8 @@ export default class ProductoService{
     }
    return returnEntity;
     }
-    /*
 
+    /*
     insert = async (cuerpo) => {
         let returnEntity=null;
         console.log('Estoy en: PizzaService.insert');
@@ -126,7 +123,4 @@ export default class ProductoService{
     }
     return rowsAffected;
     */
-    
-    
-
 }
