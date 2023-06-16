@@ -1,12 +1,16 @@
 import 'dotenv/config'
+
 const config= {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    server: process.env.DB_SERVER,
-    database: process.env.DB_DATABASE,
+    user    : "Diabetex"    , //process.env.DB_USER,
+    password: "Diabetex"    , //process.env.DB_PASSWORD,
+    server  : "localhost"   , //process.env.DB_SERVER,
+    database: "Diabetex"    , //process.env.DB_DATABASE,
     options: {
         trustServerCertificate: true,
         trustedConnection : true
     }
 }
+console.log("config")
+console.log(config);
+
 export default config;
