@@ -2,21 +2,21 @@ import config from '../../dbconfig.js';
 import sql from 'mssql';
 import axios from 'axios';
 
-const URL_PRODUCT = "http://world.openfoodfacts.org/api/v0/product/";
-const URL_FIELDS = "?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data";
+//const URL_PRODUCT = "http://world.openfoodfacts.org/api/v0/product/";
+//const URL_FIELDS = "?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data";
 export default class ProductoService{
 
     getProduct = async(codebar) => {
         let data;
         let url = `http://world.openfoodfacts.org/api/v0/product/${codebar}?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data.json`;
         console.log(url);
-        //http://world.openfoodfacts.org/api/v0/product/7622210288257.json
+        
         try{
             const result = await axios.get(url)
             data = await result.data;
         }
-        catch(e){
-            console.log(e);
+        catch(error){
+            console.log(error);
         }
         return data;
     }
