@@ -7,20 +7,38 @@ import axios from 'axios';
 export default class ProductoService{
 
     getProduct = async(codebar) => {
-        let data;
+        let Productodata;
         let url = `http://world.openfoodfacts.org/api/v0/product/${codebar}?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data.json`;
         console.log(url);
-        
+        let returnEntity=null;
         try{
             const result = await axios.get(url)
-            data = await result.data;
+            Productodata = await result.data;
+
+            if (Productodata!=null){
+
+              console.log('Insertando producto de api externa en bd');
+              console.log(Productodata.code);
+              
+              let pool= await sql.connect(config);
+              let result = await pool.request()
+                                .input('pCodigoBarra',sql.VarChar, Productodata.code)
+                                .input('pNombre',sql.VarChar, Productodata.product_name_es)
+                                .query("INSERT INTO Producto(CodigoBarra,Nombre) VALUES (@pCodigoBarra,@pNombre)");
+              
+            returnEntity=result.rowsAffected;
+            console.log(returnEntity);
+                                
+            } else {
+
+              console.log('No se ha insertado ningun produvto de api externa en bd');
+            }
         }
         catch(error){
             console.log(error);
         }
-        return data;
+        return Productodata;
     }
-    
 
     getAll = async() => {
 
@@ -42,8 +60,13 @@ export default class ProductoService{
         }
         return returnEntity;
         }
+
+
+        
     /*
-    
+
+    //PARA QUE FUNCIONE CON LA NUEVA FUNCION TENGO QUE CAMBIAR ID POR CODIGOBARRA
+
     getById=async(id)=>{
     let returnEntity=null;
     console.log('Estoy en: ProductoSrvice.GetById(id)');
@@ -67,19 +90,16 @@ export default class ProductoService{
     }
    return returnEntity;
     }
-
-    /*
+    
     insert = async (cuerpo) => {
         let returnEntity=null;
-        console.log('Estoy en: PizzaService.insert');
+        console.log('Estoy en: ProductoSrvice.insert');
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
+                                .input('pCodigoBarra',sql.VarChar, Productodata.code)
                                 .input('pNombre',sql.VarChar, cuerpo.Nombre)
-                                .input('pLibreGluten',sql.Bit, cuerpo.LibreGluten)
-                                .input('pImporte', sql.Float,cuerpo.Importe)
-                                .input('pDescripcion', sql.VarChar,cuerpo.Descripcion)
-                                .query("INSERT INTO Pizzas(Nombre,LibreGluten,Importe,Descripcion) VALUES (@pNombre,@pLibreGluten,@pImporte,@pDescripcion)");
+                                .query("INSERT INTO Producto(CodigoBarra,Nombre) VALUES (@pCodigoBarra,@pNombre)");
             returnEntity=result.rowsAffected;
         } 
         catch(error) {
@@ -87,40 +107,6 @@ export default class ProductoService{
         }
         return returnEntity;
     }
-
-
-    update=async(cuerpo)=>{
-            let returnEntity=null;
-            console.log('Estoy en: PizzaService.update');
-            try{
-                let pool= await sql.connect(config);
-                let result = await pool.request()
-                                    .input('pId', sql.Int, cuerpo.Id)
-                                    .input('pNombre',sql.VarChar, cuerpo.Nombre)
-                                    .input('pLibreGluten',sql.Bit, cuerpo.LibreGluten)
-                                    .input('pImporte', sql.Float,cuerpo.Importe)
-                                    .input('pDescripcion', sql.VarChar,cuerpo.Descripcion)
-                                    .query("UPDATE Pizzas SET Nombre=@pNombre,LibreGluten=@pLibreGluten,Importe=@pImporte,Descripcion=@pDescripcion WHERE Id=@pId");
-              returnEntity=result.rowsAffected;
-            } 
-            catch(error) {
-                console.log(error);
-            }
-           return returnEntity;
-            }
-
-    deleteById=async(id)=>{
-    let rowsAffected=0;
-    console.log('Estoy en: PizzaService.deleteById(id)');
-    try {
-        let pool = await sql.connect(config)
-        let result= await pool.request()
-                          .input('pId', sql.Int , id)
-                          .query('DELETE FROM Pizzas WHERE Id=@pId');
-      rowsAffected=result.rowsAffected;                    
-    } catch (error) {
-        console.log(error)
-    }
-    return rowsAffected;
     */
+
 }

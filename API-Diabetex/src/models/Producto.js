@@ -14,5 +14,16 @@ class Producto
         HCDistribución;
         HCConsumo;
         HCTotal;
+        NAlcohol100g;
+        NCarbohidratos100g;
+        NEnergia100g;
+        NGrasa100g;
+        NFibra100g;
+        NProteinas100g;
+        NSal100g;
+        NGrasasSaturadas100g;
+        NSodio100g;
+        NAzucar100g;
+        Foto;
     }
     export default Producto;
