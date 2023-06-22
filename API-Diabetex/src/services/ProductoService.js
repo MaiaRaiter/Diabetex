@@ -16,6 +16,13 @@ export default class ProductoService{
             Productodata = await result.data;
 
             if (Productodata!=null){
+                
+                //si el producto no esta repetido en bd
+                
+
+                let productAInstertar = Productodata.code.map(function(element){
+                    return `${element.firstName} ${element.lastName}`;
+                })        
 
               console.log('Insertando producto de api externa en bd');
               console.log(Productodata.code);
@@ -91,7 +98,7 @@ export default class ProductoService{
    return returnEntity;
     }
     
-    insert = async (cuerpo) => {
+    insertProducto = async (cuerpo) => {
         let returnEntity=null;
         console.log('Estoy en: ProductoSrvice.insert');
         try{
