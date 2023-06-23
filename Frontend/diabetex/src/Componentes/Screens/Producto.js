@@ -35,28 +35,16 @@ const MostrarProducto = (producto, huboUnerror) =>
 
 
 
-
-
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
   }
+  return (
 
+    <center><button type="button" className="btn btn-success boton" onClick={() => CargarProductoxCodigo()}> Buscar por Codigo de Barra</button> </center>
+
+  );
+  }
+  export default Producto;
 
 
 
@@ -118,10 +106,4 @@ const MostrarProducto = (producto, huboUnerror) =>
       }
   }
 */
-  return (
 
-    <center><button type="button" className="btn btn-success boton" onClick={() => CargarProductoxCodigo()}> Buscar por Codigo de Barra</button> </center>
-
-  );
-  }
-  export default Producto;
