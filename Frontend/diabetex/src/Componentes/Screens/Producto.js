@@ -3,18 +3,20 @@ import axios from 'axios'
 const Producto = () => {
 
   const CargarProductoxCodigo = async() => {
-    const CodigoB =3175680011480;
+    const CodigoB = "3175680011480";
+    let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB;
+    console.log( url);
     axios
-      .get("http://a-phz2-cidi-021:3000/api/producto/" + CodigoB)
+      .get(url)
       .then((result) => {
-        if (result.data.status === 1){
+        if (result.data!=null){
           //setPost(result.data.product]);
-          console.log(result.data.brands);
-          MostrarProducto(result.data.brands,false)
+          console.log(result.data.Ingredientes);
+          MostrarProducto(result.data,false)
         }else{
          // no se encontro
          console.log('No se encontro');
-         MostrarProducto(result.data.brands,true)
+         MostrarProducto(result.data,true)
         }
         
       })
@@ -26,11 +28,16 @@ const Producto = () => {
      
 const MostrarProducto = (producto, huboUnerror) =>
 {
-  const huboError=false;
-  if (huboError){
+  if (huboUnerror){
   //Pantalla de que no se encontro el producto y que se agregue uno
   }
-<p> ${producto.Nombre}</p>
+  else{
+    <>
+  <p> ${producto.Nombre}</p>
+  <p>Ingredientes: ${producto.Ingredientes}</p>
+  <p>Cantidad: ${producto.Cantidad}</p>
+  </>
+  }
 
 
 
@@ -40,8 +47,10 @@ const MostrarProducto = (producto, huboUnerror) =>
   }
   return (
 
+    <>
     <center><button type="button" className="btn btn-success boton" onClick={() => CargarProductoxCodigo()}> Buscar por Codigo de Barra</button> </center>
-
+   
+    </>
   );
   }
   export default Producto;
