@@ -24,7 +24,7 @@ const Registrarse = () => {
 
             <div className="App-header">
                 <img src="/img/logo.jpg" className="logo" alt=""></img>
-                <p> < BiChevronLeft /></p>
+               <p className="Volver">  <Link to="/" >< BiChevronLeft /> </Link> </p>
               
                 <br></br>
                 <p className="IngreseDatos">Ingrese sus datos porfavor</p>
@@ -76,7 +76,7 @@ const Registrarse = () => {
                         onChange={({ target }) => setDia(target.value)}>
                       </input>  </center>
                     <br></br><br></br>
-                    <center><button type="submit" className="boton">Registrarse</button></center>
+                    <center><Link to={"/Home" }><button type="submit" className="boton">Creart Cuenta </button> </Link></center>
 
 
                 </form>

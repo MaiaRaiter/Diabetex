@@ -44,7 +44,7 @@ const IniciarSesion = () => {
                     onChange={({ target }) => setPassword(target.value)}>
                 </input>
                 <br></br><br></br>
-                <center> <button type="submit" className="boton">Iniciar Sesion</button></center>
+                <center> <Link to={"/Home" }><button type="submit" className="boton">Iniciar Sesion</button></Link></center>
                 <br></br><br></br>
                 <center> <Link to="/Registrarse"> Registrarse</Link> </center>
 

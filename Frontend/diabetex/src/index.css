@@ -42,10 +42,10 @@ margin-bottom: 10px;
 {
     color: white;
     border: 3px solid #316F6A;
-    border-radius: 15px;
+    border-radius: 50px;
     background-color: #316F6A;
-    height: 35px;
-    width: 300px;
+    height: 52px;
+    width: 231px;
     font-family: reboto;
    
 }
@@ -85,7 +85,7 @@ left: -2Spx;
 }
 .formularioRegistarse
 {
-  border-color: #33847E;
+border-color: #33847E;
 height: 35px;
 width: 170px;
 border-radius: 15px;
@@ -99,4 +99,12 @@ margin-bottom: 10px;
   line-height: 100px;/* Centrado vertical */
 }
 
+.Volver
+{
+color: #316F6A;
+position: relative;
+left: -180px;
+margin-top: -60px;
+
+}
 

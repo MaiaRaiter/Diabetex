@@ -48,6 +48,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<IniciarSesion />}> </Route>
       <Route path='/Registrarse' element={<Registrarse />}> </Route>
+      <Route path='/Home' element={<Home />}> </Route>
     </Routes>
 
   );
