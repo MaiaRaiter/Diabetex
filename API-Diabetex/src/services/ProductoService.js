@@ -34,7 +34,7 @@ export default class ProductoService{
     getProduct = async(codebar) => {
         let Productodata;
         console.log('getProduct');
-        let url = `http://world.openfoodfacts.org/api/v0/product/${codebar}.json?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data,selected_images`;
+        let url = `http://ar.openfoodfacts.org/api/v0/product/${codebar}.json?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data,selected_images`;
         console.log(url);
         let returnEntity=null;
         try{
@@ -77,9 +77,9 @@ export default class ProductoService{
                                 .input('pNGrasasSaturadas100g',sql.Float, Productodata.product.nutriments["saturated-fat_100g"])
                                 .input('pNSodio100g',sql.Float, Productodata.product.nutriments.sodium_100g)
                                 .input('pNAzucar100g',sql.Float, Productodata.product.nutriments.sugars_100g)
-                                .input('pFoto',sql.VarChar, Productodata.product.selected_images.front.display.fr)
+                                .input('pFoto',sql.VarChar, Productodata.product.selected_images.front.display.es)
                                 .input('pCodigoBarra',sql.VarChar, Productodata.code)
-                                
+
                                 .query("INSERT INTO Producto(Nombre,Ingredientes,Cantidad,CantMeGusta,Marca,EspeciesAmenazadas,LugarFabricacion,HCAgricultura,HCProcesado,HCEmbalaje,HCTransporte,HCDistribución,HCConsumo,HCTotal,NAlcohol100g,NCarbohidratos100g,NEnergia100g,NGrasa100g,NFibra100g,NProteinas100g,NSal100g,NGrasasSaturadas100g,NSodio100g,NAzucar100g,Foto,CodigoBarra) VALUES (@pNombre,@pIngredientes,@pCantidad,@pCantMeGusta,@pMarca,@pEspeciesAmenazadas,@pLugarFabricacion,@pHCAgricultura,@pHCProcesado,@pHCEmbalaje,@pHCTransporte,@pHCDistribución,@pHCConsumo,@pHCTotal,@pNAlcohol100g,@pNCarbohidratos100g,@pNEnergia100g,@pNGrasa100g,@pNFibra100g,@pNProteinas100g,@pNSal100g,@pNGrasasSaturadas100g,@pNSodio100g,@pNAzucar100g,@pFoto,@pCodigoBarra)");
                                
               
