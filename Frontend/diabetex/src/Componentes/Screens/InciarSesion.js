@@ -16,7 +16,7 @@ const[password,setPassword]=useState('')
     
 return (
     <div className="App-header">
- <img src = "/img/logo.jpg" className="App-logo"></img>
+    <img src = "/img/logo.jpg" className="App-logo" alt=""></img>
     <br></br>
 
    
