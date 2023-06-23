@@ -12,3 +12,91 @@ code {
     monospace;
 }
 
+.logo
+{
+  height: 93px;
+    width:90px;
+    position: relative;
+    left: -110px;
+    pointer-events: none;
+    border-radius: 100px;
+    margin-top: -350px;
+
+
+}
+.formulario
+{
+border-color: #33847E;
+height: 35px;
+width: 350px;
+border-radius: 15px;
+font-family: reboto;
+margin-bottom: 10px;
+
+}
+.formulario::-webkit-input-placeholder {
+  text-align: center;
+  line-height: 100px;/* Centrado vertical */
+}
+.boton
+{
+    color: white;
+    border: 3px solid #316F6A;
+    border-radius: 15px;
+    background-color: #316F6A;
+    height: 35px;
+    width: 300px;
+    font-family: reboto;
+   
+}
+
+.App-logo {
+    height: 200px;
+    width:200px;
+    pointer-events: none;
+    border-radius: 100px;
+    margin-top: -350px;
+  }
+
+
+  .App-header {
+    background-color: #B0E1DE;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+.IngreseDatos
+{
+color: black;
+font-weight: 400;
+position: relative;
+left: -75px;
+}
+.FechaNacimiento
+{
+color: black;
+font-weight: 400;
+position: relative;
+left: -2Spx;
+}
+.formularioRegistarse
+{
+  border-color: #33847E;
+height: 35px;
+width: 170px;
+border-radius: 15px;
+font-family: reboto;
+margin-right: 10px;
+margin-bottom: 10px;
+}
+
+.formularioRegistarse::-webkit-input-placeholder {
+  text-align: center;
+  line-height: 100px;/* Centrado vertical */
+}
+
+
