@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #B0E1DE;
 }
 
 code {
@@ -105,6 +106,28 @@ color: #316F6A;
 position: relative;
 left: -180px;
 margin-top: -60px;
+
+}
+
+nav
+{
+  background-color: #33847E;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  position: relative;
+  margin-top: 645px;
+  width: 396 px;
+  height: 78px;
+
+}
+
+.nav-elements
+{
+ font-size: 35px;
+  color: black;
+ margin-right: 45px;
+ margin-top: 20px;
+ margin-left: 10px;
 
 }
 

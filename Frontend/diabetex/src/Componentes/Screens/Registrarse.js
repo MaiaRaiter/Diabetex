@@ -76,7 +76,7 @@ const Registrarse = () => {
                         onChange={({ target }) => setDia(target.value)}>
                       </input>  </center>
                     <br></br><br></br>
-                    <center><Link to={"/Home" }><button type="submit" className="boton">Creart Cuenta </button> </Link></center>
+                    <center><Link to={"/Home" }><button type="submit" className="boton">Crear Cuenta </button> </Link></center>
 
 
                 </form>
