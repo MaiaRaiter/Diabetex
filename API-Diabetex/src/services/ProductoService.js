@@ -2,11 +2,7 @@ import config from '../../dbconfig.js';
 import sql from 'mssql';
 import axios from 'axios';
 
-//const URL_PRODUCT = "http://world.openfoodfacts.org/api/v0/product/";
-//const URL_FIELDS = "?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data";
 export default class ProductoService{
-
-    //PARA QUE FUNCIONE CON LA NUEVA FUNCION TENGO QUE CAMBIAR ID POR CODIGOBARRA
 
     getProductoDiabetex = async (codigoBarra) => {
 
@@ -52,7 +48,6 @@ export default class ProductoService{
               
               let pool= await sql.connect(config);
               let result = await pool.request()
-                                
                                 .input('pNombre',sql.VarChar, Productodata.product.product_name_es)
                                 .input('pIngredientes',sql.VarChar, Productodata.product.ingredients_text)
                                 .input('pCantidad',sql.VarChar, Productodata.product.quantity)
@@ -81,7 +76,6 @@ export default class ProductoService{
                                 .input('pCodigoBarra',sql.VarChar, Productodata.code)
                                 .query("INSERT INTO Producto(Nombre,Ingredientes,Cantidad,CantMeGusta,Marca,EspeciesAmenazadas,LugarFabricacion,HCAgricultura,HCProcesado,HCEmbalaje,HCTransporte,HCDistribución,HCConsumo,HCTotal,NAlcohol100g,NCarbohidratos100g,NEnergia100g,NGrasa100g,NFibra100g,NProteinas100g,NSal100g,NGrasasSaturadas100g,NSodio100g,NAzucar100g,Foto,CodigoBarra) VALUES (@pNombre,@pIngredientes,@pCantidad,@pCantMeGusta,@pMarca,@pEspeciesAmenazadas,@pLugarFabricacion,@pHCAgricultura,@pHCProcesado,@pHCEmbalaje,@pHCTransporte,@pHCDistribución,@pHCConsumo,@pHCTotal,@pNAlcohol100g,@pNCarbohidratos100g,@pNEnergia100g,@pNGrasa100g,@pNFibra100g,@pNProteinas100g,@pNSal100g,@pNGrasasSaturadas100g,@pNSodio100g,@pNAzucar100g,@pFoto,@pCodigoBarra)");
                                
-              
                 returnEntity=result.rowsAffected;
                 console.log(returnEntity);
                                 
@@ -94,6 +88,47 @@ export default class ProductoService{
             console.log(error);
         }
         return Productodata;
+    }
+
+    agregarProducto = async (cuerpo) => {
+        let returnEntity=null;
+        console.log('Estoy en: ProductoSrvice.agregarProducto');
+        try{
+            let pool = await sql.connect(config);
+            let result = await pool.request()
+                                .input('pNombre',sql.VarChar, cuerpo.Nombre)
+                                .input('pIngredientes',sql.VarChar, cuerpo.Ingedientes)
+                                .input('pCantidad',sql.VarChar, cuerpo.Cantidad)
+                                .input('PCantMeGusta',sql.Int, null)
+                                .input('pMarca',sql.VarChar, cuerpo.Marca)
+                                .input('pEspeciesAmenazadas',sql.Bit, cuerpo.EspeciesAmenzadas)
+                                .input('pLugarFabricacion',sql.VarChar, cuerpo.LugarFabricacion)
+                                .input('pHCAgricultura',sql.Float, cuerpo.HCAgricultura)
+                                .input('pHCProcesado',sql.Float, cuerpo.HCProcesado)
+                                .input('pHCEmbalaje',sql.Float, cuerpo.HCEmbalaje)
+                                .input('pHCTransporte',sql.Float, cuerpo.HCTransporte)
+                                .input('pHCDistribución',sql.Float, cuerpo.HCDistribución)
+                                .input('pHCConsumo',sql.Float, cuerpo.HCConsumo)
+                                .input('pHCTotal',sql.Float, cuerpo.HCTotal)
+                                .input('pNAlcohol100g',sql.Float, cuerpo.NAlcohol100g)
+                                .input('pNCarbohidratos100g',sql.Float, cuerpo.NCarbohidratos100g)
+                                .input('pNEnergia100g',sql.Float, cuerpo.NEnergia100g)
+                                .input('pNGrasa100g',sql.Float, cuerpo.NGrasa100g)
+                                .input('pNFibra100g',sql.Float, cuerpo.NFibra100g)
+                                .input('pNProteinas100g',sql.Float, cuerpo.NProteinas100g)
+                                .input('pNSal100g',sql.Float, cuerpo.NSal100g)
+                                .input('pNGrasasSaturadas100g',sql.Float, cuerpo.NGrasasSaturadas100g)
+                                .input('pNSodio100g',sql.Float, cuerpo.NSodio100g)
+                                .input('pNAzucar100g',sql.Float, cuerpo.NAzucar100g)
+                                .input('pFoto',sql.VarChar, cuerpo.Foto)
+                                .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
+                                .query("INSERT INTO Producto(Nombre,Ingredientes,Cantidad,CantMeGusta,Marca,EspeciesAmenazadas,LugarFabricacion,HCAgricultura,HCProcesado,HCEmbalaje,HCTransporte,HCDistribución,HCConsumo,HCTotal,NAlcohol100g,NCarbohidratos100g,NEnergia100g,NGrasa100g,NFibra100g,NProteinas100g,NSal100g,NGrasasSaturadas100g,NSodio100g,NAzucar100g,Foto,CodigoBarra) VALUES (@pNombre,@pIngredientes,@pCantidad,@pCantMeGusta,@pMarca,@pEspeciesAmenazadas,@pLugarFabricacion,@pHCAgricultura,@pHCProcesado,@pHCEmbalaje,@pHCTransporte,@pHCDistribución,@pHCConsumo,@pHCTotal,@pNAlcohol100g,@pNCarbohidratos100g,@pNEnergia100g,@pNGrasa100g,@pNFibra100g,@pNProteinas100g,@pNSal100g,@pNGrasasSaturadas100g,@pNSodio100g,@pNAzucar100g,@pFoto,@pCodigoBarra)");
+            returnEntity=result.rowsAffected;
+        } 
+        catch(error) {
+            console.log(error);
+        }
+        return returnEntity;
     }
     
     //Trae todos los productos de BD
@@ -118,32 +153,54 @@ export default class ProductoService{
         return returnEntity;
     }
 
-    /*
+    update=async(cuerpo)=>{
+        let returnEntity=null;
+        console.log('Estoy en: ProductoSrvice.update');
+        try{
+            let pool= await sql.connect(config);
+            let result = await pool.request()
+                                    .input('pNombre',sql.VarChar, cuerpo.Nombre)
+                                    .input('pIngredientes',sql.VarChar, cuerpo.Ingedientes)
+                                    .input('pCantidad',sql.VarChar, cuerpo.Cantidad)
+                                    .input('PCantMeGusta',sql.Int, null)
+                                    .input('pMarca',sql.VarChar, cuerpo.Marca)
+                                    .input('pEspeciesAmenazadas',sql.Bit, cuerpo.EspeciesAmenzadas)
+                                    .input('pLugarFabricacion',sql.VarChar, cuerpo.LugarFabricacion)
+                                    .input('pHCAgricultura',sql.Float, cuerpo.HCAgricultura)
+                                    .input('pHCProcesado',sql.Float, cuerpo.HCProcesado)
+                                    .input('pHCEmbalaje',sql.Float, cuerpo.HCEmbalaje)
+                                    .input('pHCTransporte',sql.Float, cuerpo.HCTransporte)
+                                    .input('pHCDistribución',sql.Float, cuerpo.HCDistribución)
+                                    .input('pHCConsumo',sql.Float, cuerpo.HCConsumo)
+                                    .input('pHCTotal',sql.Float, cuerpo.HCTotal)
+                                    .input('pNAlcohol100g',sql.Float, cuerpo.NAlcohol100g)
+                                    .input('pNCarbohidratos100g',sql.Float, cuerpo.NCarbohidratos100g)
+                                    .input('pNEnergia100g',sql.Float, cuerpo.NEnergia100g)
+                                    .input('pNGrasa100g',sql.Float, cuerpo.NGrasa100g)
+                                    .input('pNFibra100g',sql.Float, cuerpo.NFibra100g)
+                                    .input('pNProteinas100g',sql.Float, cuerpo.NProteinas100g)
+                                    .input('pNSal100g',sql.Float, cuerpo.NSal100g)
+                                    .input('pNGrasasSaturadas100g',sql.Float, cuerpo.NGrasasSaturadas100g)
+                                    .input('pNSodio100g',sql.Float, cuerpo.NSodio100g)
+                                    .input('pNAzucar100g',sql.Float, cuerpo.NAzucar100g)
+                                    .input('pFoto',sql.VarChar, cuerpo.Foto)
+                                    .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
+                                .query("UPDATE Pizzas SET Nombre=@pNombre,Ingredientes=@pIngredientes,Cantidad=@pCantidad,CantMeGusta=@pCantMeGusta,Marca=@pMarca,EspeciesAmenazadas=@pEspeciesAmenazadas,LugarFabricacion=@pLugarFabricacion,HCAgricultura=@pHCAgricultura,HCProcesado=@pHCProcesado,HCEmbalaj=@pHCEmbalaj,HCTransporte=@pHCTransporte,HCDistribución=@pHCDistribución,HCConsumo=@pHCConsumo,HCTotal=@pHCTotal,NAlcohol100g=@pNAlcohol100g,NCarbohidratos100g=@pNCarbohidratos100g,NEnergia100g=@pNEnergia100g,NGrasa100g=@pNGrasa100g,NFibra100g=@pNFibra100g,NProteinas100g=@pNProteinas100g,NSal100g=@pNSal100g,NGrasasSaturadas100g=@pNGrasasSaturadas100g,NSodio100g=@pNSodio100g,NAzucar100g=@pNAzucar100g,Foto=@pFoto,CodigoBarra=@pCodigoBarra");
+          returnEntity=result.rowsAffected;
+        } 
+        catch(error) {
+            console.log(error);
+        }
+       return returnEntity;
+        }
 
+    /*
     //ME GUSTA POR PRODUCTO
     Select * from usuario
     Select * from producto
     SELECT * FROM MeGustaXUsuario
     --INSERT INTO MeGustaXUsuario (IdUsuario, IdProducto) Values (2, 15)
     SELECT count(*) FROM MeGustaXUsuario  WHERE Idproducto= 15
-
-    /*
-    insertProducto = async (cuerpo) => {
-        let returnEntity=null;
-        console.log('Estoy en: ProductoSrvice.insert');
-        try{
-            let pool= await sql.connect(config);
-            let result = await pool.request()
-                                .input('pCodigoBarra',sql.VarChar, Productodata.code)
-                                .input('pNombre',sql.VarChar, cuerpo.Nombre)
-                                .query("INSERT INTO Producto(CodigoBarra,Nombre) VALUES (@pCodigoBarra,@pNombre)");
-            returnEntity=result.rowsAffected;
-        } 
-        catch(error) {
-            console.log(error);
-        }
-        return returnEntity;
-    }
     */
 
 }

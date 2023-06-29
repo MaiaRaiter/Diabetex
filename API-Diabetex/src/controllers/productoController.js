@@ -26,7 +26,7 @@ ProductoRouter.get('/:codebar', async (req, res) => {
 
     let productoExterno = await productoService.getProduct(req.params.codebar);
 
-    if (productoExterno!=0){
+    if (productoExterno.status!=0){
 
       console.log('1');
       respuesta = res.status(200).json(productoExterno);
@@ -35,60 +35,50 @@ ProductoRouter.get('/:codebar', async (req, res) => {
 
       console.log('0');
       respuesta = res.status(404).send("No se encontro el producto. Seria de mucha ayuda que lo agregue");
+
+      //cOMO HAGO PARA QUE ESTE MAS PROLIJO
+      let cuerpo = req.body;
+      console.log('Estoy en: ProductoController post /', cuerpo);
+
+      const producto = await productoService.agregarProducto(cuerpo);
+
+      console.log("El producto fue agregado");
+
+      respuesta = res.status(201).json(producto);
+
     }
   }
   return respuesta;
 });
 
-/*
 
 ProductoRouter.post('', async (req, res) => {
   let cuerpo = req.body;
   console.log('Estoy en: ProductoController post /', cuerpo);
 
-  const producto = await productoService.insert(cuerpo);
-
+  const producto = await productoService.agregarProducto(cuerpo);
+  console.log("El producto fue agregado");
   return res.status(201).json(producto);
+  
 });
-
-
-data: {
-    code: '7622210449285',
-    status: 0,
-    status_verbose: 'product not found'
-  }
-
-  data: {
-    code: '7622210449285',
-    status: 1,
-    status_verbose: 'product found'
-  }
 
 ProductoRouter.get('/', async (req, res) => {
   console.log('Estoy en: ProductoController get /');
   
   const producto = await productoService.getAll();
 
-  //return res.status(StatusCodes.OK).json(pizzas);
   return res.status(200).json(producto);
 });
 
+ProductoRouter.put('', async (req, res) => {
+  let cuerpo = req.body;
 
-ProductoRouter.get('/:id', async (req, res) => {
-  console.log('Estoy en: ProductoController get /:id', req.params.id);
-  let respuesta;
-  
-  const producto = await productoService.getById(req.params.id);
-  console.log('producto', producto);
-  if (producto!=null){
-    console.log('1');
-    respuesta = res.status(200).json(producto);
-  } else {
-    console.log('2');
-    respuesta = res.status(404).send("No se encontro el producto.");
-  }
+ 
+  console.log('Estoy en: ProductoController put /:id');
 
-  return respuesta;
+  const producto = await productoService.update(cuerpo);
+
+  return res.status(200).json(producto);
 });
-*/
+
 export default ProductoRouter;
