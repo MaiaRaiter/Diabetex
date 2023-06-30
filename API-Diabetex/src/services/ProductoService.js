@@ -195,30 +195,21 @@ export default class ProductoService{
             console.log(error);
         }
        return returnEntity;
+    }
+
+    deleteById = async (codigoBarra) => {
+        let rowsAffected = 0;
+        console.log('Estoy en: ProductoSrvice.deleteById(codigoBarra)');
+        try {
+            let pool = await sql.connect(config)
+            let result= await pool.request()
+                              .input('pCodigoBarra', sql.Int , codigoBarra )
+                                 .query('DELETE FROM Producto WHERE CodigoBarra=@pCodigoBarra');
+            rowsAffected=result.rowsAffected;                    
+        } catch (error) {
+              console.log(error)
         }
-
-        deleteById = async (codigoBarra) => {
-            let rowsAffected = 0;
-            console.log('Estoy en: ProductoSrvice.deleteById(codigoBarra)');
-            try {
-                let pool = await sql.connect(config)
-                let result= await pool.request()
-                                  .input('pCodigoBarra', sql.Int , codigoBarra )
-                                  .query('DELETE FROM Producto WHERE CodigoBarra=@pCodigoBarra');
-              rowsAffected=result.rowsAffected;                    
-            } catch (error) {
-                console.log(error)
-            }
-            return rowsAffected;
-            }
-
-    /*
-    //ME GUSTA POR PRODUCTO
-    Select * from usuario
-    Select * from producto
-    SELECT * FROM MeGustaXUsuario
-    --INSERT INTO MeGustaXUsuario (IdUsuario, IdProducto) Values (2, 15)
-    SELECT count(*) FROM MeGustaXUsuario  WHERE Idproducto= 15
-    */
+        return rowsAffected;
+    }
 
 }
