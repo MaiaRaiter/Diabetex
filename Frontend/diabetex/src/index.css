@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Varela Round'
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -159,4 +159,16 @@ left: -28px;
 {
  color: black;
 
+}
+
+.NombreProducto
+{
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ position: relative;
+ left: 150px;
+
+}
+.FotoProducto{
+  width: 390px;
+  height: 223px;
 }

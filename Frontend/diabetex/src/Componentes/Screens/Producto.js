@@ -1,89 +1,52 @@
-import axios from 'axios'
-
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../../index.css'
 
 const Producto = () => {
+  const [producto, setProducto] = useState(null);
+  const [error, setError] = useState(false);
 
   const CargarProductoxCodigo = async () => {
-    const CodigoB = "3175680011480";
+    const CodigoB = "3017620429484";
     let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB;
-    console.log(url);
-    console.log('Maia');
-    axios
-      .get(url)
-      .then((result) => {
-        if (result.data != null) {
-          //setPost(result.data.product]);
-          console.log('Lo encontre');
-          console.log(result.data.Ingredientes);
-          const producto = (result.data)
-          var index = 0;
-          producto.map((producto, index) => {
-            const {Nombre , Ingredientes, Brands} = producto;
-    
-            document.querySelector("#listado").innerHTML += `
-              <div class="col-4 pt-5">
-              <div class="card" style="width:18rem;">
-              <div class="card-body">
-              <div class="alert alert-success" role="alert">
-              <center><h5 class="card-title nombre">${Nombre}</h5></center>
-              <center><p >${Ingredientes}</p></center><br>
-              <center><p >${Brands}</p></center>
-              <p class="card-text"></p>
-              </div>
-              </div>
-              </div>
-              </div>
-            `;
-            });
-          
-        
-        } else {
-          // no se encontro
-          console.log('No se encontro');
-         
-        }
 
-      })
-      .catch((error) => {
-        //setPost(error);
-        console.log("Error");
-      });
-
-
-
-    const MostrarProducto = (producto, huboUnerror) => {
-      if (huboUnerror) {
-        //Pantalla de que no se encontro el producto y que se agregue uno
-        <h1>NO SE ENCONTRO</h1>
+    try {
+      const response = await axios.get(url);
+      if (response.data) {
+        setProducto(response.data);
+        setError(false);
+      } else {
+        setError(true);
       }
-      else {
-        <>
-
-          <p> ${producto.Nombre}</p>
-          <p>Ingredientes: ${producto.Ingredientes}</p>
-          <p>Cantidad: ${producto.Cantidad}</p>
-        </>
-      }
-
-      
-
+    } catch (error) {
+      console.log(error);
+      setError(true);
     }
+  };
 
-  }
   return (
-
-
     <>
+      <center>
+        <button type="button" className="btn btn-success boton" onClick={CargarProductoxCodigo}>
+          Buscar por Codigo de Barra
+        </button>
+      </center>
+      <div id="listado" className="row">
 
-      <center><button type="button" className="btn btn-success boton" onClick={() => CargarProductoxCodigo()}> Buscar por Codigo de Barra</button> </center>
-      <div id="listado" className="row" ></div>
-
-
+        {producto && (
+          <>
+        <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center> 
+       <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
+      
+        </>
+        )}
+        {error && <h1>NO SE ENCONTRO</h1>}
+      </div>
     </>
   );
-}
-export default Producto;
+};
 
+export default Producto;
 
 
 
