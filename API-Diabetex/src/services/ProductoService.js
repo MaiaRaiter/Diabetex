@@ -153,12 +153,15 @@ export default class ProductoService{
         return returnEntity;
     }
 
-    update=async(cuerpo)=>{
+    update = async (cuerpo) => {
         let returnEntity=null;
+
         console.log('Estoy en: ProductoSrvice.update');
+
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
+                                    .input('pId',sql.VarChar, cuerpo.Id)
                                     .input('pNombre',sql.VarChar, cuerpo.Nombre)
                                     .input('pIngredientes',sql.VarChar, cuerpo.Ingedientes)
                                     .input('pCantidad',sql.VarChar, cuerpo.Cantidad)
@@ -185,14 +188,29 @@ export default class ProductoService{
                                     .input('pNAzucar100g',sql.Float, cuerpo.NAzucar100g)
                                     .input('pFoto',sql.VarChar, cuerpo.Foto)
                                     .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
-                                .query("UPDATE Pizzas SET Nombre=@pNombre,Ingredientes=@pIngredientes,Cantidad=@pCantidad,CantMeGusta=@pCantMeGusta,Marca=@pMarca,EspeciesAmenazadas=@pEspeciesAmenazadas,LugarFabricacion=@pLugarFabricacion,HCAgricultura=@pHCAgricultura,HCProcesado=@pHCProcesado,HCEmbalaj=@pHCEmbalaj,HCTransporte=@pHCTransporte,HCDistribución=@pHCDistribución,HCConsumo=@pHCConsumo,HCTotal=@pHCTotal,NAlcohol100g=@pNAlcohol100g,NCarbohidratos100g=@pNCarbohidratos100g,NEnergia100g=@pNEnergia100g,NGrasa100g=@pNGrasa100g,NFibra100g=@pNFibra100g,NProteinas100g=@pNProteinas100g,NSal100g=@pNSal100g,NGrasasSaturadas100g=@pNGrasasSaturadas100g,NSodio100g=@pNSodio100g,NAzucar100g=@pNAzucar100g,Foto=@pFoto,CodigoBarra=@pCodigoBarra");
-          returnEntity=result.rowsAffected;
+                                .query("UPDATE Producto SET Nombre=@pNombre,Ingredientes=@pIngredientes,Cantidad=@pCantidad,CantMeGusta=@pCantMeGusta,Marca=@pMarca,EspeciesAmenazadas=@pEspeciesAmenazadas,LugarFabricacion=@pLugarFabricacion,HCAgricultura=@pHCAgricultura,HCProcesado=@pHCProcesado,HCEmbalaje=@pHCEmbalaje,HCTransporte=@pHCTransporte,HCDistribución=@pHCDistribución,HCConsumo=@pHCConsumo,HCTotal=@pHCTotal,NAlcohol100g=@pNAlcohol100g,NCarbohidratos100g=@pNCarbohidratos100g,NEnergia100g=@pNEnergia100g,NGrasa100g=@pNGrasa100g,NFibra100g=@pNFibra100g,NProteinas100g=@pNProteinas100g,NSal100g=@pNSal100g,NGrasasSaturadas100g=@pNGrasasSaturadas100g,NSodio100g=@pNSodio100g,NAzucar100g=@pNAzucar100g,Foto=@pFoto,CodigoBarra=@pCodigoBarra  WHERE CodigoBarra=@pCodigoBarra");
+                returnEntity=result.rowsAffected;
         } 
         catch(error) {
             console.log(error);
         }
        return returnEntity;
         }
+
+        deleteById = async (codigoBarra) => {
+            let rowsAffected = 0;
+            console.log('Estoy en: ProductoSrvice.deleteById(codigoBarra)');
+            try {
+                let pool = await sql.connect(config)
+                let result= await pool.request()
+                                  .input('pCodigoBarra', sql.Int , codigoBarra )
+                                  .query('DELETE FROM Producto WHERE CodigoBarra=@pCodigoBarra');
+              rowsAffected=result.rowsAffected;                    
+            } catch (error) {
+                console.log(error)
+            }
+            return rowsAffected;
+            }
 
     /*
     //ME GUSTA POR PRODUCTO

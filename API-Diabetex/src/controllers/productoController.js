@@ -74,9 +74,17 @@ ProductoRouter.put('', async (req, res) => {
   let cuerpo = req.body;
 
  
-  console.log('Estoy en: ProductoController put /:id');
+  console.log('Estoy en: ProductoController put /:codigoBarra');
 
   const producto = await productoService.update(cuerpo);
+
+  return res.status(200).json(producto);
+});
+
+ProductoRouter.delete('/:codigoBarra', async (req, res) => {
+  console.log('Estoy en: ProductoController delete /:codigoBarra', req.params.codigoBarra);
+
+  const producto = await productoService.deleteById(req.params.codigoBarra);
 
   return res.status(200).json(producto);
 });
