@@ -76,7 +76,7 @@ export default class MeGustaXUsuarioService{
             let result= await pool.request()
                               .input('pIdUsuario', sql.Int , idUsuario )
                               .input('pIdProducto', sql.Int , idProducto )
-                              .query('DELETE FROM MeGustaXUsuario WHERE IdUsuario=@pIdUsuario AND IdProducto=@pIdProducto');
+                              .query('DELETE FROM MeGustaXUsuario WHERE IdUsuario=@pIdUsuario AND IdProducto=@pIdProducto')
           rowsAffected=result.rowsAffected;                    
         } catch (error) {
             console.log(error)
