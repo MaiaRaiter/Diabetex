@@ -6,8 +6,9 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import IniciarSesion from './Componentes/Screens/InciarSesion.js'
 import Producto from './Componentes/Screens/Producto';
-import { Home } from './Componentes/Screens/Home';
-import Registrarse from './Componentes/Screens/Registrarse';
+import  {Home} from './Componentes/Screens/Home';
+import Registrarse  from './Componentes/Screens/Registrarse';
+
 
 
 
@@ -50,6 +51,7 @@ const App = () => {
       <Route path='/' element={<IniciarSesion />}> </Route>
       <Route path='/Registrarse' element={<Registrarse />}> </Route>
       <Route path='/Home' element={<Home />}> </Route>
+      <Route path='/Producto' element={<Producto />}> </Route>
     </Routes>
 
   );

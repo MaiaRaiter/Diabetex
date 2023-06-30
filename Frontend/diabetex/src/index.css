@@ -13,123 +13,150 @@ code {
     monospace;
 }
 
-.logo
-{
+.logo {
   height: 93px;
-    width:90px;
-    position: relative;
-    left: -110px;
-    pointer-events: none;
-    border-radius: 100px;
-    margin-top: -350px;
+  width: 90px;
+  position: relative;
+  left: -110px;
+  pointer-events: none;
+  border-radius: 100px;
+  margin-top: -350px;
+}
 
+.formulario {
+  border-color: #33847E;
+  height: 35px;
+  width: 350px;
+  border-radius: 15px;
+  font-family: reboto;
+  margin-bottom: 10px;
 
 }
-.formulario
-{
-border-color: #33847E;
-height: 35px;
-width: 350px;
-border-radius: 15px;
-font-family: reboto;
-margin-bottom: 10px;
 
-}
 .formulario::-webkit-input-placeholder {
   text-align: center;
-  line-height: 100px;/* Centrado vertical */
+  line-height: 100px;
+  /* Centrado vertical */
 }
-.boton
-{
-    color: white;
-    border: 3px solid #316F6A;
-    border-radius: 50px;
-    background-color: #316F6A;
-    height: 52px;
-    width: 231px;
-    font-family: reboto;
-   
+
+.boton {
+  color: white;
+  border: 3px solid #316F6A;
+  border-radius: 50px;
+  background-color: #316F6A;
+  height: 52px;
+  width: 231px;
+  font-family: reboto;
+
 }
 
 .App-logo {
-    height: 200px;
-    width:200px;
-    pointer-events: none;
-    border-radius: 100px;
-    margin-top: -350px;
-  }
+  height: 200px;
+  width: 200px;
+  pointer-events: none;
+  border-radius: 100px;
+  margin-top: -350px;
+}
 
 
-  .App-header {
-    background-color: #B0E1DE;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-.IngreseDatos
-{
-color: black;
-font-weight: 400;
-position: relative;
-left: -75px;
+.App-header {
+  background-color: #B0E1DE;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-.FechaNacimiento
-{
-color: black;
-font-weight: 400;
-position: relative;
-left: -2Spx;
+
+.IngreseDatos {
+  color: black;
+  font-weight: 400;
+  position: relative;
+  left: -75px;
 }
-.formularioRegistarse
-{
-border-color: #33847E;
-height: 35px;
-width: 170px;
-border-radius: 15px;
-font-family: reboto;
-margin-right: 10px;
-margin-bottom: 10px;
+
+.FechaNacimiento {
+  color: black;
+  font-weight: 400;
+  position: relative;
+  left: -2Spx;
+}
+
+.formularioRegistarse {
+  border-color: #33847E;
+  height: 35px;
+  width: 170px;
+  border-radius: 15px;
+  font-family: reboto;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .formularioRegistarse::-webkit-input-placeholder {
   text-align: center;
-  line-height: 100px;/* Centrado vertical */
+  line-height: 100px;
+  /* Centrado vertical */
 }
 
-.Volver
-{
-color: #316F6A;
-position: relative;
-left: -180px;
-margin-top: -60px;
+.Volver {
+  color: black;
+  position: relative;
+  left: -180px;
+  margin-top: -60px;
 
 }
 
-nav
-{
+nav {
   background-color: #33847E;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   position: relative;
-  margin-top: 645px;
   width: 396 px;
   height: 78px;
+ 
+ 
 
 }
 
-.nav-elements
-{
- font-size: 35px;
+.nav-elements {
+  font-size: 35px;
   color: black;
- margin-right: 45px;
- margin-top: 20px;
- margin-left: 10px;
+  margin-right: 25px;
+  margin-top: 20px;
+  margin-left: 25px;
+ 
+
 
 }
 
+.logoHome {
+  height: 93px;
+  width: 90px;
+  pointer-events: none;
+  border-radius: 100px;
+  margin-top: -620px;
+}
 
 
+.SearchBar {
+  border-radius: 300px;
+  height: 28px;
+  width: 307px;
+  border-color: #D9D9D9;
+}
+
+.SearchButton
+{
+color: black;
+position: relative;
+left: -28px;
+
+}
+
+.filters
+{
+ color: black;
+
+}

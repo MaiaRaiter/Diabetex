@@ -24,8 +24,8 @@ const Registrarse = () => {
 
             <div className="App-header">
                 <img src="/img/logo.jpg" className="logo" alt=""></img>
-               <p className="Volver">  <Link to="/" >< BiChevronLeft /> </Link> </p>
-              
+                <p className="Volver">  <Link to="/" >< BiChevronLeft /> </Link> </p>
+
                 <br></br>
                 <p className="IngreseDatos">Ingrese sus datos porfavor</p>
 
@@ -47,17 +47,17 @@ const Registrarse = () => {
                         onChange={({ target }) => setApellido(target.value)}>
                     </input>
                     <br></br>
-                
-                   <center> <input
+
+                    <center> <input
                         type="mail"
                         value={mail}
                         name="username"
                         className="formulario"
                         placeholder=" Mail"
                         onChange={({ target }) => setMail(target.value)}>
-                            
+
                     </input> </center>
-              
+
                     <center>   <input
                         type="password"
                         value={password}
@@ -65,7 +65,7 @@ const Registrarse = () => {
                         className="formulario"
                         placeholder=" Constraseña"
                         onChange={({ target }) => setPassword(target.value)}>
-                      </input>  </center>
+                    </input>  </center>
                     <p className="FechaNacimiento">Fecha de Nacimiento</p>
                     <center>   <input
                         type="date"
@@ -74,14 +74,15 @@ const Registrarse = () => {
                         className="formulario"
                         placeholder=" dia"
                         onChange={({ target }) => setDia(target.value)}>
-                      </input>  </center>
+                    </input>  </center>
                     <br></br><br></br>
-                    <center><Link to={"/Home" }><button type="submit" className="boton">Crear Cuenta </button> </Link></center>
+                    <center><Link to={"/Home"}><button type="submit" className="boton">Crear Cuenta </button> </Link></center>
 
 
                 </form>
             </div>
         </>
+
     );
 }
 export default Registrarse;
