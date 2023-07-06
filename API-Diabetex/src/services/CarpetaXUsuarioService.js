@@ -16,11 +16,11 @@ export default class CarpetaXUsuarioService{
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, id)
                                 .query(`SELECT * FROM Carpeta
-                                    WHERE Id IN (
-                                    SELECT IdCarpeta
-                                    FROM CarpetaXProducto 
-                                    WHERE IdUsuario=2
-                                )`)
+                                        WHERE Id IN (
+                                        SELECT IdCarpeta
+                                        FROM CarpetaXUsuario 
+                                        WHERE IdUsuario=2
+                                         )`)
     
             returnEntity=result.recordsets[0];
         } 
@@ -43,8 +43,8 @@ export default class CarpetaXUsuarioService{
                                 .input('pIdUsuario', sql.Int, idUsuario)
                                 .input('pIdCarpeta', sql.Int, idCarpeta)
                                 .query(`SELECT Producto.* FROM Producto
-                                        INNER JOIN CarpetaXProducto ON Producto.Id = CarpetaXProducto.IdProducto
-                                        WHERE CarpetaXProducto.IdUsuario = @pIdUsuario AND CarpetaXProducto.IdCarpeta = @pIdCarpeta`)
+                                        INNER JOIN CarpetaXUsuario ON Producto.Id = CarpetaXUsuario.IdProducto
+                                        WHERE CarpetaXUsuario.IdUsuario = @pIdUsuario AND CarpetaXUsuario.IdCarpeta = @pIdCarpeta`)
     
             returnEntity=result.recordsets[0];
         } 
@@ -64,7 +64,7 @@ export default class CarpetaXUsuarioService{
             let result= await pool.request()
                               .input('pIdUsuario', sql.Int , idUsuario )
                               .input('pIdCarpeta', sql.Int , idCarpeta )
-                              .query('DELETE FROM CarpetaXProducto WHERE IdUsuario=@pIdUsuario AND IdCarpeta=@pIdCarpeta')
+                              .query('DELETE FROM CarpetaXUsuario WHERE IdUsuario=@pIdUsuario AND IdCarpeta=@pIdCarpeta')
           rowsAffected=result.rowsAffected;                    
         } catch (error) {
             console.log(error)
@@ -83,7 +83,7 @@ export default class CarpetaXUsuarioService{
                               .input('pIdUsuario', sql.Int , idUsuario )
                               .input('pIdCarpeta', sql.Int , idCarpeta )
                               .input('pIdProducto', sql.Int , idProducto )
-                              .query('DELETE FROM CarpetaXProducto WHERE IdUsuario=@pIdUsuario AND IdCarpeta=@pIdCarpeta AND IdProducto=@pdProducto')
+                              .query('DELETE FROM CarpetaXUsuario WHERE IdUsuario=@pIdUsuario AND IdCarpeta=@pIdCarpeta AND IdProducto=@pIdProducto')
           rowsAffected=result.rowsAffected;                    
         } catch (error) {
             console.log(error)
@@ -102,7 +102,7 @@ export default class CarpetaXUsuarioService{
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
                                 .input('pIdProducto',sql.Int, cuerpo.IdProducto)
                                 .input('pIdCarpeta',sql.Int, cuerpo.IdCarpeta)
-                                .query("INSERT INTO CarpetaXProducto (IdProducto, IdCarpeta, IdUsuario) VALUES (@pIdProducto,@pIdCarpeta,@pIdUsuario)");
+                                .query("INSERT INTO CarpetaXUsuario (IdProducto, IdCarpeta, IdUsuario) VALUES (@pIdProducto,@pIdCarpeta,@pIdUsuario)");
 
             returnEntity=result.rowsAffected;
         } 
@@ -123,7 +123,7 @@ export default class CarpetaXUsuarioService{
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
                                 .input('pIdCarpeta',sql.Int, cuerpo.IdCarpeta)
                                 .query("INSERT INTO Carpeta (Nombre) VALUES (@pNombre)")
-                                .query("INSERT INTO CarpetaXProducto (IdCarpeta, IdUsuario) VALUES (@pIdCarpeta,@pIdUsuario)");
+                                .query("INSERT INTO CarpetaXUsuario (IdCarpeta, IdUsuario) VALUES (@pIdCarpeta,@pIdUsuario)");
 
             returnEntity=result.rowsAffected;
         } 

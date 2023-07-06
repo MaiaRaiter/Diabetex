@@ -55,7 +55,7 @@ CarpetaXUsuarioRouter.delete('/:idUsuario/:idCarpeta', async (req, res) => {
 CarpetaXUsuarioRouter.delete('/:idUsuario/:idCarpeta/:idProducto', async (req, res) => {
     console.log('Estoy en: CarpetaXUsuarioService delete /:id', req.params.idUsuario, req.params.idCarpeta,req.params.idProducto);
   
-    const carpetaXUsuario = await carpetaXUsuarioService.deleteCarpertaXUsuarioByIdProducto(req.params.idUsuario, req.params.idCarpeta,req.params.idProducto);
+    const carpetaXUsuario = await carpetaXUsuarioService.deleteProductoDeCarpetaByIdUsuario(req.params.idUsuario, req.params.idCarpeta,req.params.idProducto);
   
     return res.status(200).json(carpetaXUsuario);
 });
