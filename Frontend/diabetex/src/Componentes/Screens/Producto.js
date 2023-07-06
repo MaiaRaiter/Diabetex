@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../index.css'
+import { PantallaError } from './PantallaError';
 
 const Producto = () => {
   const [producto, setProducto] = useState(null);
@@ -40,6 +41,7 @@ const Producto = () => {
       
         </>
         )}
+        <PantallaError />
         {error && <h1>NO SE ENCONTRO</h1>}
       </div>
     </>
