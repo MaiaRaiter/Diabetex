@@ -46,7 +46,7 @@ export default class Carpeta{
        return returnEntity;
     }
 
-    insert = async (cuerpo) => {
+    agregarCarpeta = async (cuerpo) => {
         let returnEntity = null;
 
         console.log('Estoy en: Carpeta.insert');

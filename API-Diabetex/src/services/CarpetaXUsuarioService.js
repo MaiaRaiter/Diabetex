@@ -122,8 +122,9 @@ export default class CarpetaXUsuarioService{
             let result = await pool.request()
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
                                 .input('pIdCarpeta',sql.Int, cuerpo.IdCarpeta)
+                                .input('pNombre',sql.Int, cuerpo.Nombre)
                                 .query("INSERT INTO Carpeta (Nombre) VALUES (@pNombre)")
-                                .query("INSERT INTO CarpetaXUsuario (IdCarpeta, IdUsuario) VALUES (@pIdCarpeta,@pIdUsuario)");
+                                .query("INSERT INTO CarpetaXUsuario (IdUsuario) VALUES (@pIdUsuario)");
 
             returnEntity=result.rowsAffected;
         } 
