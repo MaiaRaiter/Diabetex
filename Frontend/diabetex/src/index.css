@@ -190,13 +190,41 @@ left: -28px;
   font-size: 20px;
   font-family: 'Roboto';
   color: #231F20;
-  margin-left: 45px;
-  margin-top: -30px;
-}
-.TextOverlay{
+  margin-left: 40px;
+  margin-top: 260px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  
+
 }
+.Ingredientes{
+  font-size: 11px;
+  color: #979797;
+  letter-spacing: 1px;
+  margin-top: 60px;
+  margin-left: 20px;
+  font-family: Roboto;
+
+}
+
+
+.BarraGris{
+  background-color:#D9D9D9;
+  width: 307px;
+  height: 28px;
+  border-radius: 50px;
+  margin-left: 40px;
+}
+
+.Resumen{
+  margin-left: 200px;
+  margin-top: -40px ;
+}
+.Nutrientes{
+  margin-left: 27px;
+  margin-top: 0px ;
+}
+.Nutrientes:active {
+
+  color:green;
+  
+  }

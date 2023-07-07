@@ -6,6 +6,7 @@ import { PantallaError } from './PantallaError';
 const Producto = () => {
   const [producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
+  const [mostrar, setMostrar] = useState("Nutrientes");
 
   const CargarProductoxCodigo = async () => {
     const CodigoB = "3017620429484";
@@ -23,7 +24,17 @@ const Producto = () => {
       console.log(error);
       setError(true);
     }
+
+
   };
+
+
+  const MostrarNutrientes = () => {
+    setMostrar("Nutrientes")
+  }
+  const MostrarResumen = () => {
+    setMostrar("Resumen")
+  }
 
   return (
     <>
@@ -36,15 +47,59 @@ const Producto = () => {
 
         {producto && (
           <>
-        <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center> 
-       <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
-       <div className='Contenedor'>
-       <center> <p className='TextOverlay'>Este producto contiene 157,3 g de Carbohidratos finales </p></center>
-       </div>
-      
+            <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center>
+            <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
+            <div className='Contenedor'>
+              <center> <p className='TextOverlay'>Este producto contiene 157,3 g de Carbohidratos finales </p></center>
+            </div>
+            <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>
+            <div className='BarraGris'>
+              <p onClick={MostrarNutrientes} className="Nutrientes">Nutrientes</p>
+              <p onClick={MostrarResumen} className="Resumen"> Resumen</p>
+            </div>
+
+            {mostrar === "Nutrientes" && (
+            <center>  <table  class="table table-sm">
+                <thead>
+                  <tr>
+
+                    <th scope="col">Info Nutricional</th>
+                    <th scope="col">100g</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Azúcares</th>
+                    <td>{producto.NAzucar100g} G</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sodio</th>
+                    <td>{producto.NSodio100g} Mg</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">Proteína</th>
+                    <td>{producto.NProteinas100g} G</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">Grasas Saturadas</th>
+                    <td>{producto.NGrasasSaturadas100g} G</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">Grasas</th>
+                    <td>{producto.NGrasa100g} G</td>
+                   
+                  </tr>
+                </tbody>
+              </table> </center>
+            )}
+
+
         </>
         )}
-      
+
         {error && <h1>NO SE ENCONTRO</h1>}
       </div>
     </>
@@ -53,63 +108,4 @@ const Producto = () => {
 
 export default Producto;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function getById(){
- 
-  //let url =(BASE_URL_PIZZAS + id);
-  console.log('getById: ');
-  axios
-    .get("http://a-phz2-cidi-021:3000/api/producto/3175680011480")
-    .then((result) => {
-      displayUnProducto(result.data, false);
-    })
-    .catch(error => {
-      displayUnProducto({}, true);
-    });
-    function displayUnProducto(unProducto, huboError){
-      let estilo = 'table-dark';
-      if (huboError){
-        estilo = 'table-danger';
-      }
-      let table = '<table className="table table-striped table-hover">';
-      table += `<thead class="${estilo}"><tr><th class="col-1 text-center">Id</th><th class="col-3">Nombre</th><th class="col-5">Descripcion</th><th class="col-2 text-center">Importe</th><th class="col-1 text-center">Libre Gluten</th></tr></thead>`;
-        table += `<tr>`;
-        table += `<td scope="col" className="text-center">${unProducto.Id}</td>`;
-        table += `<td scope="col">${unProducto.Nombre}</td>`;
-        table += `<td scope="col">${unProducto.Ingredientes}</td>`;
-        table += `<td scope="col" className="text-center">${unProducto.Marca}</td>`;
-        table += `<td scope="col" className="text-center">${unProducto.LibreGluten}</td>`;
-        table += `</tr>`;
-        table += "</table>";
-      document.getElementById("listado").innerHTML = table;
-    }
-}
-*/
 

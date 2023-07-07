@@ -8,7 +8,7 @@ export const Navbar = () => {
       <Link to={"/Home"}> < BiSolidHome className='nav-elements' /> </Link>
       <Link to={"/Producto"}> < BiSearch className='nav-elements' /> </Link>
       <Link to={"/Scanner"}> < BiBarcodeReader className='nav-elements' /> </Link>
-      <Link to={""}> < BiUser className='nav-elements' /> </Link>
+      <Link to={"/Perfil"}> < BiUser className='nav-elements' /> </Link>
 
 
     </nav> </center>
