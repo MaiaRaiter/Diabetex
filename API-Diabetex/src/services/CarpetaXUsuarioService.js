@@ -121,10 +121,8 @@ export default class CarpetaXUsuarioService{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
-                                .input('pIdCarpeta',sql.Int, cuerpo.IdCarpeta)
-                                .input('pNombre',sql.Int, cuerpo.Nombre)
-                                .query("INSERT INTO Carpeta (Nombre) VALUES (@pNombre)")
-                                .query("INSERT INTO CarpetaXUsuario (IdUsuario) VALUES (@pIdUsuario)");
+                                .input('pIdCarpeta',sql.Int, cuerpo.IdCarpetanueva)                           
+                                .query("INSERT INTO CarpetaXUsuario (IdUsuario, IdCarpeta) VALUES (@pIdUsuario,@pIdCarpeta)");
 
             returnEntity=result.rowsAffected;
         } 
@@ -133,5 +131,25 @@ export default class CarpetaXUsuarioService{
         }
         return returnEntity;
     }
+
+    UpDateCrapetaXUsuario = async (cuerpo) => {
+        let returnEntity = null;
+         console.log('Estoy en: CarpetaXUsuarioService.update');
+
+        try{
+            let pool= await sql.connect(config);
+            let result = await pool.request()
+                                .input('pIdUsuario', sql.Int, cuerpo.IdUsuario)
+                                .input('pIdCarpeta',sql.VarChar, cuerpo.IdCarpeta)
+                                .input('pNombre',sql.VarChar, cuerpo.NombreModificado)
+                                .query("UPDATE Usuario SET Nombre=@pNombre WHERE IdUsuario=@pIdUsuario AND IdCarpeta=@pIdCarpeta");
+        returnEntity=result.rowsAffected;
+        } 
+        catch(error) {
+            console.log(error);
+        }
+       return returnEntity;
+    }
+
 
 }
