@@ -13,6 +13,7 @@ import Registrarse  from './Componentes/Screens/Registrarse';
 
 
 
+
 const App = () => {
   const CargarProductos = async () => {
     const CodigoB = 3175680011480;
@@ -51,6 +52,7 @@ const App = () => {
       <Route path='/Registrarse' element={<Registrarse />}> </Route>
       <Route path='/Home' element={<Home />}> </Route>
       <Route path='/Producto' element={<Producto />}> </Route>
+  
     </Routes>
 
   );

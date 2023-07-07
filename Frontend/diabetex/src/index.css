@@ -163,17 +163,40 @@ left: -28px;
 
 .NombreProducto
 {
- font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-family: 'Fira Sans';
  position: relative;
- left: 150px;
+ font-weight: 500px;
+ left: 160px;
+ color: #231F20;
 
 }
 .FotoProducto{
   width: 390px;
   height: 223px;
+  border-radius: 15px;
+  position: relative;
+  margin-left: 15px;
 }
 
 .Error{
   color:red;
   background-color: #D9D9D9;
+}
+.Contenedor{
+  background-color: #34B9AF;
+  border-radius: 10px;
+  width: 343px;
+  height: 74px;
+  font-size: 20px;
+  font-family: 'Roboto';
+  color: #231F20;
+  margin-left: 45px;
+  margin-top: -30px;
+}
+.TextOverlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }

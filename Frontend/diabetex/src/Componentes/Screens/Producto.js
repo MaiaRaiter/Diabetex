@@ -38,10 +38,13 @@ const Producto = () => {
           <>
         <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center> 
        <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
+       <div className='Contenedor'>
+       <center> <p className='TextOverlay'>Este producto contiene 157,3 g de Carbohidratos finales </p></center>
+       </div>
       
         </>
         )}
-        <PantallaError />
+      
         {error && <h1>NO SE ENCONTRO</h1>}
       </div>
     </>
