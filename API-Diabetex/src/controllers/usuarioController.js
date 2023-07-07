@@ -4,6 +4,29 @@ import UsuarioService from '../services/UsuarioService.js';
 const UsuarioRouter = Router();
 const usuarioService = new UsuarioService();
 
+
+UsuarioRouter.post('/login', async (req, res) => {
+  let entidad = req.body;
+  let respuesta;
+  let returnEntity;
+
+  returnEntity = await usuarioService.login(entidad);
+
+  if (returnEntity != null){
+      returnEntity.Password = '*'.repeat(10);
+
+      respuesta = res.status(200).json(returnEntity);
+      
+  } else {
+    respuesta = res.status(404).send(`Usuario Inexistente`);
+  }
+
+  return respuesta;
+});
+
+
+
+
 UsuarioRouter.get('/:id', async (req, res) => {
 
     console.log('Estoy en: UsuarioController get /:id', req.params.id);

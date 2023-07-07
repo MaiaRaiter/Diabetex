@@ -46,15 +46,15 @@ export default class Carpeta{
        return returnEntity;
     }
 
-    agregarCarpeta = async (cuerpo) => {
+    agregarCarpeta = async (nombre) => {
         let returnEntity = null;
 
-        console.log('Estoy en: Carpeta.insert');
+        console.log('Estoy en: CarpetaService.agregarCarpeta:', nombre);
 
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
-                                .input('pNombre',sql.VarChar, cuerpo.Nombre)
+                                .input('pNombre',sql.VarChar, nombre)
                                 .query("INSERT INTO Carpeta (Nombre) VALUES (@pNombre)");
 
             returnEntity=result.rowsAffected;
@@ -66,7 +66,8 @@ export default class Carpeta{
     }
 
     update = async (cuerpo) => {
-        let returnEntity = null;
+        
+         let returnEntity = null;
          console.log('Estoy en: Carpeta.update');
 
         try{

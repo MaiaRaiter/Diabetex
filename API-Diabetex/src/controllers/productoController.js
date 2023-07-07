@@ -36,7 +36,6 @@ ProductoRouter.get('/:codebar', async (req, res) => {
       console.log('0');
       respuesta = res.status(404).send("No se encontro el producto. Seria de mucha ayuda que lo agregue");
 
-      //cOMO HAGO PARA QUE ESTE MAS PROLIJO
       let cuerpo = req.body;
       console.log('Estoy en: ProductoController post /', cuerpo);
 
@@ -73,7 +72,6 @@ ProductoRouter.get('/', async (req, res) => {
 ProductoRouter.put('', async (req, res) => {
   let cuerpo = req.body;
 
- 
   console.log('Estoy en: ProductoController put /:codigoBarra');
 
   const producto = await productoService.update(cuerpo);
