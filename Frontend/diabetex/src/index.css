@@ -228,3 +228,13 @@ left: -28px;
   color:green;
   
   }
+
+  .Tabla{
+    margin-left: 70px;
+    border-color: #33847E;
+    border-radius: 15px;
+  }
+  table td {
+    background-color: white;
+  }
+ 

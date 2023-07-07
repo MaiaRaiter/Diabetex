@@ -57,9 +57,12 @@ const Producto = () => {
               <p onClick={MostrarNutrientes} className="Nutrientes">Nutrientes</p>
               <p onClick={MostrarResumen} className="Resumen"> Resumen</p>
             </div>
-
+            <br></br>
+            <br></br>
+            <br></br>
+ 
             {mostrar === "Nutrientes" && (
-            <center>  <table  class="table table-sm">
+            <center>  <table  class="table table-bordered Tabla">
                 <thead>
                   <tr>
 
@@ -95,6 +98,33 @@ const Producto = () => {
                 </tbody>
               </table> </center>
             )}
+         {mostrar=="Resumen"&&
+
+                 <center>  <table  class="table table-bordered Tabla">
+                <thead>
+                  <tr>
+
+                    <th scope="col">Info Nutricional</th>
+                    <th scope="col">100g</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Azúcares</th>
+                    <td>{producto.NAzucar100g} G</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sodio</th>
+                    <td>{producto.NSodio100g} Mg</td>
+                    
+                  </tr>
+                 
+              
+                </tbody>
+              </table> </center>
+
+
+         }
 
 
         </>
