@@ -105,8 +105,6 @@ CarpetaXUsuarioRouter.post('/', async (req, res) => {
         
     }
 
-    
-
     return respuesta;
 });
 
@@ -117,14 +115,9 @@ CarpetaXUsuarioRouter.put('/', async (req, res) => {
 
   console.log(cuerpo);
 
-  let carpeta = await carpetaService.getByNombre(cuerpo.NombreCarpeta);
-
-  const carpetaModificada = await carpetaService.update({
-    IdUsuario  : cuerpo.IdUsuario,
-    IdCarpeta: carpeta.Id,
-    NombreModificado: cuerpo.NombreModificado});
-
-  return res.status(200).json("");
+  const carpetaModificada = await carpetaService.update(cuerpo);
+  
+  return res.status(200).json(carpetaModificada);
 });
 
 export default CarpetaXUsuarioRouter;
