@@ -8,7 +8,7 @@ export default class EtiquetaService{
 
         let returnEntity=null;
 
-        console.log('Estoy en: EtiquetaService.getEtiquetaDiabetexDiabetex(codigoBarra)');
+        console.log('Estoy en: EtiquetaService.getEtiquetaDiabetex(codigoBarra)');
         try{
         
             let pool= await sql.connect(config);
@@ -66,5 +66,7 @@ export default class EtiquetaService{
         }
         return Productodata;
     }
+    
+    //INSERT
 
 }
