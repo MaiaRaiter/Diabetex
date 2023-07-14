@@ -1,6 +1,9 @@
 import config from '../../dbconfig.js';
 import sql from 'mssql';
 import axios from 'axios';
+import EtiquetaXProductoService from './EtiquetaXProductoService.js';
+
+const iXpS =  new  EtiquetaXProductoService();
 
 export default class ProductoService{
 
@@ -17,6 +20,15 @@ export default class ProductoService{
                                 .input('pCodigoBarra', sql.VarChar, codigoBarra)
                                 .query('SELECT * FROM Producto WHERE codigoBarra=@pCodigoBarra')
             returnEntity=result.recordsets[0][0];
+
+            for (let i = 0; i < returnEntity.length; i++) {
+
+                const producto = returnEntity[i];
+
+                returnEntity[i].Etiquetas = await iXpS.getByIdProducto(producto.Id);
+
+                console.log(returnEntity[i].Etiquetas);
+            }
         
     } 
     catch(error) {

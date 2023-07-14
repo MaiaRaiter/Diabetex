@@ -58,7 +58,7 @@ export default class EtiquetaService{
                                 
             } else {
 
-              console.log('No se ha insertado ningun producto de la api externa en BD porque no existe');
+              console.log('No se ha insertado ningun etiqueta de la api externa en BD porque no existe');
             }
         }
         catch(error){
