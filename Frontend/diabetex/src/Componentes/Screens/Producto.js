@@ -104,18 +104,18 @@ const Producto = () => {
                 <thead>
                   <tr>
 
-                    <th scope="col">Info Nutricional</th>
-                    <th scope="col">100g</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">{producto.Cantidad}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">Azúcares</th>
-                    <td>{producto.NAzucar100g} G</td>
+                    <td>{producto.Marca} G</td>
                   </tr>
                   <tr>
-                    <th scope="row">Sodio</th>
-                    <td>{producto.NSodio100g} Mg</td>
+                    <th scope="row">País de orígen</th>
+                    <td>{producto.LugarFabricacion} Mg</td>
                     
                   </tr>
                  
