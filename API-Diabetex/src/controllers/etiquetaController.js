@@ -1,5 +1,5 @@
 import { Router} from 'express';
-import EtiquetaService from '../services/etiquetaService.js';
+import EtiquetaService from '../services/EtiquetaService.js';
 
 const EtiquetaRouter = Router();
 const etiquetaService = new EtiquetaService();
@@ -38,3 +38,5 @@ EtiquetaRouter.get('/:codebar', async (req, res) => {
     }
     return respuesta;
   });
+
+  export default EtiquetaRouter;

@@ -30,7 +30,7 @@ export default class EtiquetaService{
     getEtiquetas = async(codebar) => {
         let Productodata;
         console.log('getEtiquetas');
-        let url = `http://ar.openfoodfacts.org/api/v0/product/${codebar}.json?fields=product_name_es,quantity,brands,manufacturing_places,ingredients_text,ingredients_analysis_tags,nutrient_levels_tags,nutriments,ecoscore_data,selected_images`;
+        let url = `http://ar.openfoodfacts.org/api/v0/product/${codebar}.json?fields=ingredients_analysis_tags,nutrient_levels_tags`;
         console.log(url);
         let returnEntity=null;
         try{
@@ -44,17 +44,27 @@ export default class EtiquetaService{
                 
               console.log('Insertando producto de api externa en bd');
               
-              console.log(Productodata.product.manufacturing_places);
+              console.log(Productodata.product.ingredients_analysis_tags.result.recordsets[0][0]);
+              console.log(Productodata.code);
               
               let pool= await sql.connect(config);
               let result = await pool.request()
-                                .input('pEtiquetasIngredientes',sql.VarChar, Productodata.product.ingredients_analysis_tags)
-                                .input('pEtiquetasNivelesIngredinetes',sql.VarChar, Productodata.product.nutrient_levels_tags)
+                                .input('[pEtiquetasIngredientes]',sql.VarChar, Productodata.product.ingredients_analysis_tags)
+                                .input('pEtiquetasNivelesNutrientes',sql.VarChar, Productodata.product.nutrient_levels_tags)
                                 .input('pCodigoBarra',sql.VarChar, Productodata.code)
-                                .query("INSERT INTO Producto(EtiquetasIngredientes,EtiquetasNivelesIngredinetes) VALUES (@pEtiquetasIngredientes,@pEtiquetasNivelesIngredinetes)");
+                                .query("INSERT INTO Etiquetas (IAceitePalma,IVegano,IVegetariano,CodigoBarra) VALUES (@[pEtiquetasIngredientes], @pCodigoBarra)");
                                
                 returnEntity=result.rowsAffected;
                 console.log(returnEntity);
+                /*
+                 ,[IAceitePalma]
+      ,[IVegano]
+      ,[IVegetariano]
+      ,[NGrasa]
+      ,[NGrasasSaturadas]
+      ,[NAzucares]
+      ,[NSal]
+      ,[CodigoBarra]*/
                                 
             } else {
 
