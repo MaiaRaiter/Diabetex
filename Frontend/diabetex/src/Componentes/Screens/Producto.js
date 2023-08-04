@@ -7,9 +7,12 @@ const Producto = () => {
   const [producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
   const [mostrar, setMostrar] = useState("Nutrientes");
+  const [formData, setFormData] = useState({ CodigoDeBarra: '' });
 
-  const CargarProductoxCodigo = async () => {
-    const CodigoB = "3017620429484";
+  const CargarProductoxCodigo = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    const CodigoB = formData.CodigoDeBarra; // Corrected the way to access the barcode value
     let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB;
 
     try {
@@ -18,7 +21,7 @@ const Producto = () => {
         setProducto(response.data);
         setError(false);
       } else {
-        setError(true);
+        setError(true); 
       }
     } catch (error) {
       console.log(error);
@@ -39,9 +42,20 @@ const Producto = () => {
   return (
     <>
       <center>
+        <form onSubmit={(e) => CargarProductoxCodigo(e)}>
+          <input
+          type="number"
+          name="CodigoDeBarra"
+          className="formulario"
+          placeholder="Ingrese codigo de barra del producto"
+          value={formData.CodigoDeBarra}
+          onChange={(e) => setFormData({ ...formData, CodigoDeBarra: e.target.value })}
+        />
         <button type="button" className="btn btn-success boton" onClick={CargarProductoxCodigo}>
-          Buscar por Codigo de Barra
-        </button>
+            Buscar
+          </button>
+     
+        </form>
       </center>
       <div id="listado" className="row">
 
@@ -49,20 +63,23 @@ const Producto = () => {
           <>
             <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center>
             <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
+            {producto.Foto==null }
+            <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
+
             <div className='Contenedor'>
               <center> <p className='TextOverlay'>Este producto contiene 157,3 g de Carbohidratos finales </p></center>
             </div>
             <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>
             <div className='BarraGris'>
-              <p onClick={MostrarNutrientes} className="Nutrientes">Nutrientes</p>
+            <p onClick={MostrarNutrientes} className="Nutrientes">Nutrientes</p>
               <p onClick={MostrarResumen} className="Resumen"> Resumen</p>
             </div>
             <br></br>
             <br></br>
             <br></br>
- 
+<center>
             {mostrar === "Nutrientes" && (
-            <center>  <table  class="table table-bordered Tabla">
+              <center>  <table class="table table-bordered Tabla">
                 <thead>
                   <tr>
 
@@ -78,29 +95,29 @@ const Producto = () => {
                   <tr>
                     <th scope="row">Sodio</th>
                     <td>{producto.NSodio100g} Mg</td>
-                    
+
                   </tr>
                   <tr>
                     <th scope="row">Proteína</th>
                     <td>{producto.NProteinas100g} G</td>
-                   
+
                   </tr>
                   <tr>
                     <th scope="row">Grasas Saturadas</th>
                     <td>{producto.NGrasasSaturadas100g} G</td>
-                   
+
                   </tr>
                   <tr>
                     <th scope="row">Grasas</th>
                     <td>{producto.NGrasa100g} G</td>
-                   
+
                   </tr>
                 </tbody>
               </table> </center>
             )}
-         {mostrar=="Resumen"&&
+            {mostrar == "Resumen" &&
 
-                 <center>  <table  class="table table-bordered Tabla">
+              <center>  <table class="table table-bordered Tabla">
                 <thead>
                   <tr>
 
@@ -116,18 +133,19 @@ const Producto = () => {
                   <tr>
                     <th scope="row">País de orígen</th>
                     <td>{producto.LugarFabricacion} Mg</td>
-                    
+
                   </tr>
-                 
-              
+
+
                 </tbody>
               </table> </center>
 
 
-         }
+            }
+            </center>
 
 
-        </>
+          </>
         )}
 
         {error && <h1>NO SE ENCONTRO</h1>}
@@ -137,5 +155,3 @@ const Producto = () => {
 };
 
 export default Producto;
-
-
