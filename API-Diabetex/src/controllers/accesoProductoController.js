@@ -13,4 +13,12 @@ AccesoProductoRouter.post('', async (req, res) => {
     return res.status(201).json(accesoProducto);
 });
 
+AccesoProductoRouter.get('/:id', async (req, res) => {
+    
+    console.log('Estoy en: AccesoProductoController get /:idUsuario', req.params.id);
+  
+    const accesoProducto = await accesoProductoService.get5ProductosMasRecientes(req.params.id);
+  
+    return res.status(201).json(accesoProducto);
+});
 export default AccesoProductoRouter;
