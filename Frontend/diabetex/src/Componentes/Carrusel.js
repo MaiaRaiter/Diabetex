@@ -37,7 +37,7 @@ export const Carrusel = () => {
             <div className='ProductosRecientes'>
           <p>Nombre del Producto: {P.Nombre}</p>
           <div >
-          <img src={P.Foto} alt=""></img>
+          <img src={P.Foto} className="FotoProducto" alt=""></img>
             </div>
         </div>
           ))
