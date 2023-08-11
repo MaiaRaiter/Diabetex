@@ -14,10 +14,13 @@ export default class AccesoProducto{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
-                                .input('pIdProducto',sql.Int, cuerpo.IdProducto)
                                 .input('pFechaAcceso',sql.DateTime, fechaAcceso)
                                 .input('pFavorito',sql.Bit, cuerpo.Favorito)
-                                .query("INSERT INTO AccesoProducto (IdUsuario,IdProducto,FechaAcceso,Favorito) VALUES (@pIdUsuario,@pIdProducto,@pFechaAcceso,@pFavorito)");
+                                .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
+                                .input('pFoto',sql.VarChar, cuerpo.Foto)
+                                .input('pCantMeGusta',sql.Int, cuerpo.CantMeGusta)
+                                .input('pNombre',sql.VarChar, cuerpo.Nombre)
+                                .query("INSERT INTO AccesoProducto (IdUsuario,FechaAcceso,Favorito,CodigoBarra,Foto,CantMeGusta,Nombre) VALUES (@pIdUsuario,@pFechaAcceso,@pFavorito,@pCodigoBarra,@pFoto,@pCantMeGusta,@pNombre)");
 
             returnEntity=result.rowsAffected;
         } 

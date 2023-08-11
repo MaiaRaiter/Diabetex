@@ -17,18 +17,19 @@ ProductoRouter.get('/:codebar', async (req, res) => {
 
   if (producto!=null){
     console.log('1');
-
     respuesta = res.status(200).json(producto);
 
   } else {
     console.log('No se encontro el producto en la API DIABETEX');
     console.log('Estoy en: ProductoController get /:codebar', req.params.codebar, ' en la API OPEN FOOD FACTS');
 
-    let producto = await productoService.getProduct(req.params.codebar);
-
-    if (producto.status!=0){
+    let productoexterno = await productoService.getProduct(req.params.codebar);
+  
+    if (productoexterno.status!=0){
 
       console.log('1');
+      let producto = await productoService.getProductoDiabetex(req.params.codebar);
+      console.log(producto);
       respuesta = res.status(200).json(producto);
 
     } else {
