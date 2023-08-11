@@ -21,6 +21,8 @@ export default class ProductoService{
                                 .query('SELECT * FROM Producto WHERE codigoBarra=@pCodigoBarra')
             returnEntity=result.recordsets[0][0];
 
+            /*
+
             for (let i = 0; i < returnEntity.length; i++) {
 
                 const producto = returnEntity[i];
@@ -29,6 +31,7 @@ export default class ProductoService{
 
                 console.log(returnEntity[i].Etiquetas);
             }
+            */
         
     } 
     catch(error) {
@@ -91,8 +94,6 @@ export default class ProductoService{
                                 .query("INSERT INTO Producto(Nombre,Ingredientes,Cantidad,CantMeGusta,Marca,EspeciesAmenazadas,LugarFabricacion,HCAgricultura,HCProcesado,HCEmbalaje,HCTransporte,HCDistribución,HCConsumo,HCTotal,NAlcohol100g,NCarbohidratos100g,NEnergia100g,NGrasa100g,NFibra100g,NProteinas100g,NSal100g,NGrasasSaturadas100g,NSodio100g,NAzucar100g,Foto,CodigoBarra) VALUES (@pNombre,@pIngredientes,@pCantidad,@pCantMeGusta,@pMarca,@pEspeciesAmenazadas,@pLugarFabricacion,@pHCAgricultura,@pHCProcesado,@pHCEmbalaje,@pHCTransporte,@pHCDistribución,@pHCConsumo,@pHCTotal,@pNAlcohol100g,@pNCarbohidratos100g,@pNEnergia100g,@pNGrasa100g,@pNFibra100g,@pNProteinas100g,@pNSal100g,@pNGrasasSaturadas100g,@pNSodio100g,@pNAzucar100g,@pFoto,@pCodigoBarra)");          
                 returnEntity=result.rowsAffected;
                 console.log(returnEntity);
-
-
                                 
             } else {
 
