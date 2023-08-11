@@ -25,7 +25,7 @@ ProductoRouter.get('/:codebar', async (req, res) => {
 
     let productoexterno = await productoService.getProduct(req.params.codebar);
   
-    if (productoexterno!=0){
+    if (productoexterno.status!=0){
 
       console.log('1');
       let producto = await productoService.getProductoDiabetex(req.params.codebar);
