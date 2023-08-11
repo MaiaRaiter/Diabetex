@@ -242,3 +242,14 @@ tr {
   background-color: white;
   border-radius: 15px;
 }
+
+.FotoProducto
+{
+  width: 151px;
+  height: 224px;
+  background-color: white;
+}
+.ProductosRecientes{
+  position: relative;
+  margin-top:20px;
+}

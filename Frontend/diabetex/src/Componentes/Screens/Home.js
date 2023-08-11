@@ -5,6 +5,7 @@ import { BiSearch } from "react-icons/bi";
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import {DiGhostSmall} from "react-icons/di";
+import { Carrusel } from '../Carrusel.js';
 
 
 
@@ -43,7 +44,7 @@ export const Home = () => {
             <DiGhostSmall  className='filters'/>
         </form>
       </div>
-
+<Carrusel />
 
 
       <Navbar />
