@@ -24,9 +24,6 @@ UsuarioRouter.post('/login', async (req, res) => {
   return respuesta;
 });
 
-
-
-
 UsuarioRouter.get('/:id', async (req, res) => {
 
     console.log('Estoy en: UsuarioController get /:id', req.params.id);

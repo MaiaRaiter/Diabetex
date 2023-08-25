@@ -13,8 +13,8 @@ export default class MeGustaXUsuarioService{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
-                                .input('pIdProducto',sql.Int, cuerpo.IdProducto)
-                                .query("INSERT INTO MeGustaXUsuario (IdUsuario, IdProducto) VALUES (@pIdUsuario,@pIdProducto)");
+                                .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
+                                .query("INSERT INTO MeGustaXUsuario (IdUsuario, CodigoBarra) VALUES (@pIdUsuario,@pCodigoBarra)");
 
             returnEntity=result.rowsAffected;
         } 
@@ -66,7 +66,7 @@ export default class MeGustaXUsuarioService{
        return returnEntity;
     }
 
-    deleteProductoXUsuarioByIdProducto = async (idUsuario, idProducto) => {
+    deleteProductoXUsuarioByIdProducto = async (idUsuario, codigoBarra) => {
         let rowsAffected = 0;
 
         console.log('Estoy en: MeGustaXUsuario.deleteById(id)');
@@ -75,8 +75,8 @@ export default class MeGustaXUsuarioService{
             let pool = await sql.connect(config)
             let result= await pool.request()
                               .input('pIdUsuario', sql.Int , idUsuario )
-                              .input('pIdProducto', sql.Int , idProducto )
-                              .query('DELETE FROM MeGustaXUsuario WHERE IdUsuario=@pIdUsuario AND IdProducto=@pIdProducto')
+                              .input('pCodigoBarra', sql.VarChar , codigoBarra )
+                              .query('DELETE FROM MeGustaXUsuario WHERE IdUsuario=@pIdUsuario AND CodigoBarra=@pCodigoBarra')
           rowsAffected=result.rowsAffected;                    
         } catch (error) {
             console.log(error)
