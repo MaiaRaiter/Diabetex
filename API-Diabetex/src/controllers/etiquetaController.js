@@ -39,4 +39,4 @@ EtiquetaRouter.get('/:codebar', async (req, res) => {
     return respuesta;
   });
 
-  export default EtiquetaRouter;
+export default EtiquetaRouter;

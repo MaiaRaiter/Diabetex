@@ -51,7 +51,6 @@ ProductoRouter.get('/:codebar', async (req, res) => {
   return respuesta;
 });
 
-
 ProductoRouter.post('', async (req, res) => {
   let cuerpo = req.body;
   console.log('Estoy en: ProductoController post /', cuerpo);

@@ -8,8 +8,7 @@ import CarpetaXUsuarioRouter from './src/controllers/carpetaXUsuarioController.j
 import CarpetaRouter from './src/controllers/carpetaController.js';
 import EtiquetaRouter from './src/controllers/etiquetaController.js';
 import AccesoProductoRouter from './src/controllers/accesoProductoController.js';
-
-
+import LikesXProductoRouter from './src/controllers/likesXProductoController.js';
 
 const app = express();
 const port = 3000;
@@ -18,7 +17,6 @@ app.use(cors())
 app.use(express.json());
 app.use(express.static('public'));
 
-
 app.use("/api/producto", ProductoRouter);
 app.use("/api/usuario", UsuarioRouter);
 app.use("/api/meGusataXUsuario", MeGustaXUsuarioRouter);
@@ -26,6 +24,7 @@ app.use("/api/carpetaXUsuario", CarpetaXUsuarioRouter);
 app.use("/api/carpeta", CarpetaRouter);
 app.use("/api/etiqueta", EtiquetaRouter);
 app.use("/api/accesoProducto", AccesoProductoRouter);
+app.use("/api/likesXProducto", LikesXProductoRouter);
 
 app.listen(port, () => {
     console.log("Escuchando en el " + port );
