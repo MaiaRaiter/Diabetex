@@ -253,3 +253,13 @@ tr {
   position: relative;
   margin-top:20px;
 }
+
+.horizontal-scroll-container {
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to the next line */
+}
+
+.horizontal-products-container {
+  display: inline-block; /* Display products inline for horizontal scrolling */
+  /* Add more styling if needed */
+}

@@ -44,6 +44,7 @@ export const Home = () => {
             <DiGhostSmall  className='filters'/>
         </form>
       </div>
+      <p>Recientes</p>
 <Carrusel />
 
 

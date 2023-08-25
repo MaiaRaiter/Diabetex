@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Carousel } from 'react-responsive-carousel';
 
+
 export const Carrusel = () => {
   const IdUsuario = 5;
   const [Producto, setProducto] = useState(null);
@@ -27,20 +28,20 @@ export const Carrusel = () => {
   }, []);
 
   return (
-    <div >
+    <div className="horizontal-scroll-container"> {/* Apply a class for horizontal scrolling */}
       {error ? (
         <div>Error al cargar el producto</div>
       ) : Producto ? (
-        
-        Producto.map(P=>
-          (
-            <div className='ProductosRecientes'>
-          <p>Nombre del Producto: {P.Nombre}</p>
-          <div >
-          <img src={P.Foto} className="FotoProducto" alt=""></img>
-            </div>
-        </div>
-          ))
+        <>
+          <div className="horizontal-products-container d-flex flex-row">
+            {Producto.map((P) => (
+              <div key={P.id} className='ProductosRecientes d-flex flex-column mr-2 mx-auto'>
+                <img src={P.Foto} className="FotoProducto" alt=""></img>
+                <p className='mx-auto'>Nombre: {P.Nombre}</p>
+              </div>
+            ))}
+          </div>
+        </>
       ) : (
         <div>No hay productos escaneados recientes</div>
       )}
