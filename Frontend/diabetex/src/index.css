@@ -247,12 +247,17 @@ tr {
 
 .FotoCarrusel
 {
+  border-width: 30px;
   width: 151px;
   height: 224px;
   background-color: white;
   border-radius: 15px;
   position: relative;
   margin-left: 15px;
+  border-width: 2px;
+  border-style: solid; /* Puede ser dashed, dotted, etc. */
+  border-color: #316F6A; 
+
 }
 .ProductosRecientes{
   position: relative;
@@ -280,5 +285,8 @@ tr {
   width: 100%; /* Take the full width of the viewport */
   
   z-index: 8000; /* Set a z-index to ensure it's above other content */
+}
+.TituloHome{
+  
 }
 
