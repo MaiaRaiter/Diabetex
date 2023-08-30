@@ -7,11 +7,13 @@ import { useState } from 'react';
 import { DiGhostSmall } from "react-icons/di";
 import { Carrusel } from '../Carrusel.js';
 
+
 export const Home = () => {
-  const IdUsuario = 5;
+  const IdUsuario = 2;
   const [searchValue, setSearchValue] = useState('');
-  const MasLikeados = `http://a-phz2-cidi-021:3000/api/likesXProducto`;
-  const Recientes = `http://a-phz2-cidi-021:3000/api/accesoProducto/${IdUsuario}`;
+  //http://a-phz2-cidi-021:3000 CAMBIAR EL LINK 
+  const MasLikeados = `http://a-phz2-cidi-001:3000/api/likesXProducto`;
+  const Recientes = `http://a-phz2-cidi-001:3000/api/accesoProducto/${IdUsuario}`;
 
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
@@ -41,12 +43,14 @@ export const Home = () => {
           <BiSearch type="submit" className='SearchButton' />
           <DiGhostSmall className='filters' />
         </form>
+      
+      
       </div>
       <p className='TituloHome'>Mas likeados</p>
       <Carrusel DatosCarrusel={MasLikeados} />
       <p className='TituloHome'>Recientes</p>
       <Carrusel DatosCarrusel={Recientes} />
-     
+    
       <Navbar />
     </>
   );

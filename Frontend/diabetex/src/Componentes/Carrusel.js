@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { AiOutlineHeart } from "react-icons/ai";
 
 
 
@@ -41,7 +42,9 @@ export const Carrusel = ({DatosCarrusel}) => {
             {Producto.map((P) => (
               <div key={P.id} className='ProductosRecientes d-flex flex-column mr-2 mx-auto mt-50'>
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
-                <p className='mx-auto'>{P.Nombre}</p>
+                <p className='mx-auto NombreProductoCarrusel'>{P.Nombre}</p>
+                <p className='MeGustas'>{P.CantMeGusta}</p>
+                <AiOutlineHeart className='MeGustas'></AiOutlineHeart>
               </div>
             
             ))}

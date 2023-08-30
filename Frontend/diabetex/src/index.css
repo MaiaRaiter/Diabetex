@@ -286,7 +286,18 @@ tr {
   
   z-index: 8000; /* Set a z-index to ensure it's above other content */
 }
-.TituloHome{
-  
+.MeGustas{
+  color: white;
+  position: absolute; 
+  top: 80%; 
+  left: 85%; 
+  transform: translate(-50%, -50%); 
+  color: white; 
+  padding: 10px;
 }
+.NombreProductoCarrusel
+{
+  padding-right: 20px;
+}
+
 
