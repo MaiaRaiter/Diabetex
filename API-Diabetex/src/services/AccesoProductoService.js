@@ -5,21 +5,21 @@ import axios from 'axios';
 
 export default class AccesoProducto{
 
-    accesoNuevo = async (cuerpo) => {
+    accesoNuevo = async (idUsuario, codigoBarra, foto, cantMeGusta, nombre, favorito) => {
         let returnEntity = null;
         const fechaAcceso = new Date().toISOString();
-        console.log('Estoy en: AccesoProducto.accesoNuevo:', cuerpo);
+        console.log('Estoy en: AccesoProducto.accesoNuevo:', idUsuario, codigoBarra, foto, cantMeGusta, nombre, favorito);
 
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
-                                .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
+                                .input('pIdUsuario',sql.Int, idUsuario)
                                 .input('pFechaAcceso',sql.DateTime, fechaAcceso)
-                                .input('pFavorito',sql.Bit, cuerpo.Favorito)
-                                .input('pCodigoBarra',sql.VarChar, cuerpo.CodigoBarra)
-                                .input('pFoto',sql.VarChar, cuerpo.Foto)
-                                .input('pCantMeGusta',sql.Int, cuerpo.CantMeGusta)
-                                .input('pNombre',sql.VarChar, cuerpo.Nombre)
+                                .input('pFavorito',sql.Bit, favorito)
+                                .input('pCodigoBarra',sql.VarChar, codigoBarra)
+                                .input('pFoto',sql.VarChar, foto)
+                                .input('pCantMeGusta',sql.Int, cantMeGusta)
+                                .input('pNombre',sql.VarChar, nombre)
                                 .query("INSERT INTO AccesoProducto (IdUsuario,FechaAcceso,Favorito,CodigoBarra,Foto,CantMeGusta,Nombre) VALUES (@pIdUsuario,@pFechaAcceso,@pFavorito,@pCodigoBarra,@pFoto,@pCantMeGusta,@pNombre)");
 
             returnEntity=result.rowsAffected;

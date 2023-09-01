@@ -35,9 +35,8 @@ export default class LikesXProductoService{
     }
     */
 
-    //hacer un update que sume 1
 
-    update = async () => {
+    meGusta = async (idProducto, idUsuario) => {
         let returnEntity=null;
 
         console.log('Estoy en: megusta.update');
@@ -45,8 +44,26 @@ export default class LikesXProductoService{
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
-                                    .input('pId',sql.VarChar, cuerpo.Id)
-                                .query("UPDATE Producto SET CantMeGusta = (isnull(CantMeGusta, 0) + 1) WHERE CodigoBarra=@pCodigoBarra");
+                                    .input('idProducto', sql.Int, idProducto)
+                                    .input('idUsuario', sql.Int, idUsuario)
+                                    .query(`
+                                        If EXISTS(
+                                            SELECT * FROM MeGustaXUsuario 
+                                            WHERE idUsuario = @idUsuario
+                                            AND   idProducto = @idProducto) 
+                                            BEGIN
+                                                DELETE FROM MeGustaXUsuario
+                                                WHERE idUsuario = @idUsuario
+                                                AND   idProducto = @idProducto
+                                            END
+                                        ELSE
+                                            BEGIN
+                                                INSERT INTO MeGustaXUsuario 
+                                                    (idUsuario, idProducto)
+                                                VALUES 
+                                                    (@idUsuario,@idProducto)
+                                            END
+                                    `);
                 returnEntity=result.rowsAffected;
         } 
         catch(error) {
@@ -54,6 +71,7 @@ export default class LikesXProductoService{
         }
        return returnEntity;
     }
+
 
     get5ProductosMasLikeados = async () => {
 
@@ -65,7 +83,36 @@ export default class LikesXProductoService{
             let pool= await sql.connect(config);
             
             let result = await pool.request()
-                                .query('SELECT TOP 5 * FROM Producto ORDER BY CantMeGusta DESC ')
+                                .query(`SELECT TOP 5 
+                                [Id],
+                                [Nombre],
+                                [Ingredientes],
+                                [Cantidad],
+                                --[CantMeGusta],
+                                CantMeGusta = (SELECT Count(*) FROM MeGustaXUsuario Where IdProducto = Producto.Id),
+                                [Marca],
+                                [EspeciesAmenazadas],
+                                [LugarFabricacion],
+                                [HCAgricultura],
+                                [HCProcesado],
+                                [HCEmbalaje],
+                                [HCTransporte],
+                                [HCDistribución],
+                                [HCConsumo],
+                                [HCTotal],
+                                [NAlcohol100g],
+                                [NCarbohidratos100g],
+                                [NEnergia100g],
+                                [NGrasa100g],
+                                [NFibra100g],
+                                [NProteinas100g],
+                                [NSal100g],
+                                [NGrasasSaturadas100g],
+                                [NSodio100g],
+                                [NAzucar100g],
+                                [Foto],
+                                [CodigoBarra] 
+                            FROM Producto ORDER BY CantMeGusta DESC `)
             returnEntity=result.recordsets[0];
     } 
     catch(error) {

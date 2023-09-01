@@ -31,4 +31,12 @@ LikesXProductoRouter.get('/', async (req, res) => {
     return res.status(200).json(likesXProducto);
 });
 
+LikesXProductoRouter.post('/:idUsuario/:idProducto', async (req, res) => {
+  console.log('Estoy en: LikesXProductoController/:idUsuario/:idProducto', req.params.idUsuario, req.params.idProducto );
+  
+    const likesXProducto = await likesXProductoService.meGusta(req.params.idUsuario, req.params.idProducto);
+
+  return res.status(200).json(likesXProducto);
+});
+
 export default LikesXProductoRouter;
