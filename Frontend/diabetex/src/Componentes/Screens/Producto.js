@@ -61,7 +61,7 @@ const Producto = () => {
 
         {producto && (
           <>
-            <center>  <h1 className='NombreProducto'>{producto.Nombre}</h1>  </center>
+              <h1 className='NombreProducto d-flex flex-column justify-content-between '>{producto.Nombre}</h1>  
             <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
             {producto.Foto==null }
             <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
