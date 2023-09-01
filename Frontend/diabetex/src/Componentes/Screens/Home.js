@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar } from '../Navbar.js'
 import '../../index.css'
+import '../../App.css'
 import { BiSearch } from "react-icons/bi";
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
@@ -26,9 +27,9 @@ export const Home = () => {
   };
 
   return (
-    <>
-      <div className="App-header">
-        <img src="/img/logo.jpg" className="logoHome" alt=""></img>
+      <div className="App-header d-flex flex-column justify-content-between vh-100">
+        <div>
+        <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
         <form onSubmit={handleSearchSubmit}>
           <input
@@ -43,15 +44,17 @@ export const Home = () => {
           <BiSearch type="submit" className='SearchButton' />
           <DiGhostSmall className='filters' />
         </form>
+        </div>
       
       
-      </div>
+      <div className='Carruseles'>
       <p className='TituloHome'>Mas likeados</p>
       <Carrusel DatosCarrusel={MasLikeados} />
       <p className='TituloHome'>Recientes</p>
       <Carrusel DatosCarrusel={Recientes} />
+      </div>
     
       <Navbar />
-    </>
+      </div>
   );
 }
