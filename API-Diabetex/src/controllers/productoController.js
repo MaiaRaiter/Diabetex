@@ -19,13 +19,10 @@ ProductoRouter.get('/:codebar', async (req, res) => {
   
   let producto = await productoService.getProductoDiabetex(req.params.codebar);
 
-  console.log('producto sarasa', producto);
+  console.log('producto', producto);
   console.log('el parametro idUsuario es: ' +  idUsuario);
 
   console.log('Estoy en: AccesoProductoController post /'+ idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
-
-  
-
   await accesoProductoService.accesoNuevo(idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
 
   
