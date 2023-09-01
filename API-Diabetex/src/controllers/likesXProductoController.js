@@ -33,7 +33,7 @@ LikesXProductoRouter.get('/', async (req, res) => {
 
 LikesXProductoRouter.post('/:idUsuario/:idProducto', async (req, res) => {
   console.log('Estoy en: LikesXProductoController/:idUsuario/:idProducto', req.params.idUsuario, req.params.idProducto );
-  
+  //AGREGA Y ELIMINA EL ME GUSTA
     const likesXProducto = await likesXProductoService.meGusta(req.params.idUsuario, req.params.idProducto);
 
   return res.status(200).json(likesXProducto);
