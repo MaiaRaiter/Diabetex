@@ -103,10 +103,7 @@ nav {
   position: relative;
   width: 400px;
   height: 78px;
-  
-
-
-
+  margin-top: 78px;
 }
 
 .nav-elements {
@@ -245,12 +242,12 @@ tr {
 }
 .ProductosRecientes{
   position: relative;
-  margin-top:20px;
 }
 
 .horizontal-scroll-container {
   overflow-x: scroll; 
   white-space: nowrap; 
+  max-width: 100vw;
 }
 
 .horizontal-products-container {
@@ -281,6 +278,7 @@ tr {
 }
 .NombreProductoCarrusel
 {
+  max-width: 151px;
   padding-right: 20px;
 }
 .Carruseles{
@@ -290,4 +288,3 @@ tr {
 .TituloHome{
 
 }
-

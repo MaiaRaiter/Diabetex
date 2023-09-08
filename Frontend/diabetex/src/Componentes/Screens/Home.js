@@ -13,8 +13,8 @@ export const Home = () => {
   const IdUsuario = 2;
   const [searchValue, setSearchValue] = useState('');
   //http://a-phz2-cidi-021:3000 CAMBIAR EL LINK 
-  const MasLikeados = `http://a-phz2-cidi-021:3000/api/likesXProducto`;
-  const Recientes = `http://a-phz2-cidi-021:3000/api/accesoProducto/${IdUsuario}`;
+  const MasLikeados = `http://a-phz2-cidi-023:3000/api/likesXProducto`;
+  const Recientes = `http://a-phz2-cidi-023:3000/api/accesoProducto/${IdUsuario}`;
 
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
@@ -50,7 +50,7 @@ export const Home = () => {
       <div className='Carruseles'>
       <p className='TituloHome'>Mas likeados</p>
       <Carrusel DatosCarrusel={MasLikeados} />
-      <p className='TituloHome'>Recientes</p>
+       <p className='TituloHome'>Recientes</p>
       <Carrusel DatosCarrusel={Recientes} />
       </div>
     

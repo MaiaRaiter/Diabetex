@@ -8,7 +8,7 @@ export const Carrusel = ({DatosCarrusel}) => {
   const IdUsuario = 5;
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
-  const [likes, SetLikes] = useState(0);
+  const [likes, SetLikes] = useState(false);
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -25,19 +25,13 @@ export const Carrusel = ({DatosCarrusel}) => {
         setError(true);
       }
     };
-    const handleLikeClick = () => {
-      setLikes(likes + 1);
-    };
-    
-
-    
-    
-
-    
-    
-
     CargarProductosRecientes();
   }, []);
+
+  const handleLikes = () => {
+    SetLikes(true);
+    console.log(SetLikes)
+  }; 
 
   return (
     <div className="horizontal-scroll-container"> {/* Apply a class for horizontal scrolling */}
@@ -48,16 +42,11 @@ export const Carrusel = ({DatosCarrusel}) => {
           <div className="horizontal-products-container d-flex flex-row ">
         
             {Producto.map((P) => (
-              <div key={P.id} className='ProductosRecientes d-flex flex-column mr-2 mx-auto mt-50'>
+              <div key={P.id} className='ProductosRecientes d-flex flex-column mr-2 mx-auto'>
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
-                <p className='mx-auto NombreProductoCarrusel'>{P.Nombre}</p>
+                <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                <div>
-                  
-      <button onClick={handleLikeClick}>
-        <AiOutlineHeart /> {likes} Likes
-      </button>
-    </div>
+                <AiOutlineHeart  onClick={handleLikes}/> 
               </div>
             
             ))}
