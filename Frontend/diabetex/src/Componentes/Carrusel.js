@@ -6,9 +6,10 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 export const Carrusel = ({DatosCarrusel}) => {
   const IdUsuario = 5;
+  let id = 0;
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
-  const [likes, SetLikes] = useState(false);
+  const [likes, SetLikes] = useState(true);
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -29,8 +30,17 @@ export const Carrusel = ({DatosCarrusel}) => {
   }, []);
 
   const handleLikes = () => {
+    //if producto. id === "likeado"
     SetLikes(true);
-    console.log(SetLikes)
+    if (likes === false) {
+      SetLikes(true);
+      
+    }
+    else{
+      SetLikes(false);
+      
+    }
+    console.log(likes)
   }; 
 
   return (
@@ -39,14 +49,14 @@ export const Carrusel = ({DatosCarrusel}) => {
         <div>Error al cargar el producto</div>
       ) : Producto ? (
         <>
-          <div className="horizontal-products-container d-flex flex-row ">
+          <div className="horizontal-products-container d-flex flex-row " key={id}>
         
             {Producto.map((P) => (
               <div key={P.id} className='ProductosRecientes d-flex flex-column mr-2 mx-auto'>
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                <AiOutlineHeart  onClick={handleLikes}/> 
+                <AiOutlineHeart  onClick={handleLikes}  className={`heart-icon ${likes ? 'active' : ''}`}/> 
               </div>
             
             ))}

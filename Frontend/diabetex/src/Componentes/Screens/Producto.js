@@ -13,7 +13,7 @@ const Producto = () => {
     e.preventDefault();
     console.log(formData);
     const CodigoB = formData.CodigoDeBarra; // Corrected the way to access the barcode value
-    let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB + "?idUsuario=2";
+    let url = "http://a-phz2-cidi-023:3000/api/producto/" + CodigoB + "?idUsuario=2";
 
     try {
       const response = await axios.get(url);

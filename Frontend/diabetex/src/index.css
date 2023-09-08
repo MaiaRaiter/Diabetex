@@ -288,3 +288,11 @@ tr {
 .TituloHome{
 
 }
+.heart-icon {
+  cursor: pointer;
+  /* Agrega los estilos predeterminados del corazón aquí */
+}
+
+.heart-icon.active {
+  color: red; /* Cambia el color de fondo cuando likes es true */
+}
