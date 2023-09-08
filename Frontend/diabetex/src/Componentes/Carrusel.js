@@ -9,7 +9,7 @@ export const Carrusel = ({DatosCarrusel}) => {
   let id = 0;
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
-  const [likes, SetLikes] = useState(true);
+  const [likes, SetLikes] = useState(false);
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -31,7 +31,7 @@ export const Carrusel = ({DatosCarrusel}) => {
 
   const handleLikes = () => {
     //if producto. id === "likeado"
-    SetLikes(true);
+    SetLikes();
     if (likes === false) {
       SetLikes(true);
       
@@ -56,7 +56,7 @@ export const Carrusel = ({DatosCarrusel}) => {
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                <AiOutlineHeart  onClick={handleLikes}  className={`heart-icon ${likes ? 'active' : ''}`}/> 
+                <AiOutlineHeart  onClick={handleLikes}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
               </div>
             
             ))}

@@ -103,7 +103,7 @@ nav {
   position: relative;
   width: 400px;
   height: 78px;
-  margin-top: 78px;
+  margin-top: 90px;
 }
 
 .nav-elements {
@@ -270,8 +270,8 @@ tr {
 .MeGustas{
   color: white;
   position: absolute; 
-  top: 80%; 
-  left: 85%; 
+  top: 79%; 
+  left: 93%; 
   transform: translate(-50%, -50%); 
   color: white; 
   padding: 10px;
@@ -290,9 +290,17 @@ tr {
 }
 .heart-icon {
   cursor: pointer;
+  top: 76%; 
+  left: 78%;
+  position: absolute;
+  color: white;
+
+  
+  ;
   /* Agrega los estilos predeterminados del corazón aquí */
 }
 
 .heart-icon.active {
-  color: red; /* Cambia el color de fondo cuando likes es true */
-}
+  color: red; 
+  -webkit-text-fill-color: azure
+   }

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export const Perfil = () => {
-        const [Usuario, setPUsuario] = useState(null);
+        const [usuario, setPUsuario] = useState(null);
         const [error, setError] = useState(false);
       
         const CargarPerfil = async () => {
         const IdUsuario=1;
-          let url = "http://a-phz2-cidi-021:3000/api/usuario/"+IdUsuario;
+          let url = "http://a-phz2-cidi-023:3000/api/usuario/"+IdUsuario;
       
           try {
             const response = await axios.get(url);
@@ -26,7 +26,7 @@ export const Perfil = () => {
    <>
    
     <button type="button" className="btn btn-success boton" onClick={CargarPerfil}>Buscar Perfil</button>
-        <p>{Usuario.Nombre} </p>
+        <p>{usuario.Nombre} </p>
     </>
     
   );
