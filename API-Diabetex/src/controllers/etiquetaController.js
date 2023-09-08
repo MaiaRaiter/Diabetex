@@ -26,9 +26,10 @@ EtiquetaRouter.get('/:codebar', async (req, res) => {
       let etiquetasExterno = await etiquetaService.getEtiquetas(req.params.codebar);
   
       if (etiquetasExterno.status!=0){
-  
+        
         console.log('1');
-        respuesta = res.status(200).json(etiquetasExterno);
+        let etiquetas = await etiquetaService.getEtiquetaDiabetex(req.params.codebar);     
+        respuesta = res.status(200).json(etiquetas);
   
       } else {
   

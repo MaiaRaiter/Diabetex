@@ -16,7 +16,7 @@ export default class EtiquetaService{
             let result = await pool.request()
                                 .input('pCodigoBarra', sql.VarChar, codigoBarra)
                                 .query('SELECT * FROM Etiquetas WHERE codigoBarra=@pCodigoBarra')
-            returnEntity=result.recordsets[0][0];
+            returnEntity = result.recordsets[0][0];
         
     } 
     catch(error) {
@@ -43,28 +43,24 @@ export default class EtiquetaService{
             if (Productodata.status!=0){
                 
               console.log('Insertando producto de api externa en bd');
-              
-              console.log(Productodata.product.ingredients_analysis_tags.result.recordsets[0][0]);
               console.log(Productodata.code);
+              console.log(Productodata.product.ingredients_analysis_tags);
               
               let pool= await sql.connect(config);
               let result = await pool.request()
-                                .input('[pEtiquetasIngredientes]',sql.VarChar, Productodata.product.ingredients_analysis_tags)
-                                .input('pEtiquetasNivelesNutrientes',sql.VarChar, Productodata.product.nutrient_levels_tags)
+                                .input('pIAceitePalma',sql.VarChar, Productodata.product.ingredients_analysis_tags[0])
+                                .input('pIVegano',sql.VarChar, Productodata.product.ingredients_analysis_tags[1])
+                                .input('pIVegetariano',sql.VarChar, Productodata.product.ingredients_analysis_tags[2])
+
+                                .input('pNGrasa',sql.VarChar, Productodata.product.nutrient_levels_tags[0])
+                                .input('pNGrasasSaturadas',sql.VarChar, Productodata.product.nutrient_levels_tags[1])
+                                .input('pNAzucares',sql.VarChar, Productodata.product.nutrient_levels_tags[2])
+                                .input('pNSal',sql.VarChar, Productodata.product.nutrient_levels_tags[3])
                                 .input('pCodigoBarra',sql.VarChar, Productodata.code)
-                                .query("INSERT INTO Etiquetas (IAceitePalma,IVegano,IVegetariano,CodigoBarra) VALUES (@[pEtiquetasIngredientes], @pCodigoBarra)");
+                                .query("INSERT INTO Etiquetas (IAceitePalma,IVegano,IVegetariano,NGrasa,NGrasasSaturadas,NAzucares,NSal,CodigoBarra) VALUES (@pIAceitePalma,@pIVegano,@pIVegetariano,@pNGrasa,@pNGrasasSaturadas,@pNAzucares,@pNSal,@pCodigoBarra)");
                                
                 returnEntity=result.rowsAffected;
                 console.log(returnEntity);
-                /*
-                 ,[IAceitePalma]
-      ,[IVegano]
-      ,[IVegetariano]
-      ,[NGrasa]
-      ,[NGrasasSaturadas]
-      ,[NAzucares]
-      ,[NSal]
-      ,[CodigoBarra]*/
                                 
             } else {
 
