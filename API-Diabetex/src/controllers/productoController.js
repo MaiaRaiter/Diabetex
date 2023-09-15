@@ -12,15 +12,18 @@ const productoService = new ProductoService();
 //Pido a mi bd por el codigo de barra y si no lo encuentra lo pide a la api externa
 
 ProductoRouter.get('/:codebar', async (req, res) => {
-  let idUsuario = req.query.idUsuario;
-  console.log('Estoy en: ProductoController get /:codebar', req.params.codebar, ' en la API DIABETEX');
-  let respuesta;
+    let respuesta;
+
+    console.log('Estoy en: ProductoController get /:codebar', req.params.codebar, ' en la API DIABETEX');
+
+    let idUsuario = req.query.idUsuario;
+    console.log('el parametro idUsuario es: ' +  idUsuario);
+    
+    
+    let producto = await productoService.getProductoDiabetex(req.params.codebar);
+    
+    console.log('producto', producto);
   
-  let producto = await productoService.getProductoDiabetex(req.params.codebar);
-
-  console.log('producto', producto);
-  console.log('el parametro idUsuario es: ' +  idUsuario);
-
   console.log('Estoy en: AccesoProductoController post /'+ idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
   await accesoProductoService.accesoNuevo(idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
 

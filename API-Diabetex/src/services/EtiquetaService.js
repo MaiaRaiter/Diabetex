@@ -51,7 +51,6 @@ export default class EtiquetaService{
                                 .input('pIAceitePalma',sql.VarChar, Productodata.product.ingredients_analysis_tags[0])
                                 .input('pIVegano',sql.VarChar, Productodata.product.ingredients_analysis_tags[1])
                                 .input('pIVegetariano',sql.VarChar, Productodata.product.ingredients_analysis_tags[2])
-
                                 .input('pNGrasa',sql.VarChar, Productodata.product.nutrient_levels_tags[0])
                                 .input('pNGrasasSaturadas',sql.VarChar, Productodata.product.nutrient_levels_tags[1])
                                 .input('pNAzucares',sql.VarChar, Productodata.product.nutrient_levels_tags[2])

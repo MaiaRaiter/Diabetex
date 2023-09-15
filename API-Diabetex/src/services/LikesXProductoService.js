@@ -36,7 +36,7 @@ export default class LikesXProductoService{
     */
 
 
-    meGusta = async (idProducto, idUsuario) => {
+    meGusta = async (idUsuario,idProducto) => {
         let returnEntity=null;
 
         console.log('Estoy en: megusta.update');
@@ -44,8 +44,8 @@ export default class LikesXProductoService{
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
-                                    .input('idProducto', sql.Int, idProducto)
                                     .input('idUsuario', sql.Int, idUsuario)
+                                    .input('idProducto', sql.Int, idProducto)
                                     .query(`
                                         If EXISTS(
                                             SELECT * FROM MeGustaXUsuario 

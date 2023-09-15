@@ -22,7 +22,7 @@ export default class ProductoService {
             returnEntity = result.recordsets[0][0];
           
             
-            returnEntity.Etiquetas = await iXpS.getEtiquetaDiabetex(codigoBarra);
+            //returnEntity.Etiquetas = await iXpS.getEtiquetaDiabetex(codigoBarra);
 
         }
         catch (error) {

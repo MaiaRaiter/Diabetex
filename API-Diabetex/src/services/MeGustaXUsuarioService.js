@@ -83,14 +83,5 @@ export default class MeGustaXUsuarioService{
         }
     return rowsAffected;
 }
-    
-    /*
-    //ME GUSTA POR PRODUCTO
-    Select * from usuario
-    Select * from producto
-    SELECT * FROM MeGustaXUsuario
-    --INSERT INTO MeGustaXUsuario (IdUsuario, IdProducto) Values (2, 15)
-    SELECT count(*) FROM MeGustaXUsuario  WHERE Idproducto= 15
-    */
 
 }

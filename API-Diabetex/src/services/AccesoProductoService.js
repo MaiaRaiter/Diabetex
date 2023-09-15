@@ -34,14 +34,15 @@ export default class AccesoProducto{
 
         let returnEntity=null;
 
-        console.log('Estoy en: AccesoProducto.get5ProductosMasRecientes con Idusuario:', id);
+        console.log('Estoy en: AccesoProductoService.get5ProductosMasRecientes con Idusuario:', id);
         try{
         
             let pool= await sql.connect(config);
             
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, id)
-                                .query('SELECT TOP 5 * FROM AccesoProducto WHERE IdUsuario=@pIdUsuario ORDER BY FechaAcceso DESC ')
+                                .query(`SELECT TOP 5 *
+                                 FROM AccesoProducto WHERE IdUsuario=@pIdUsuario ORDER BY FechaAcceso DESC `)
             returnEntity=result.recordsets[0];
     } 
     catch(error) {
