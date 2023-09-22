@@ -39,8 +39,8 @@ export default class LikesXProductoService{
     meGusta = async (idUsuario,idProducto) => {
         let returnEntity=null;
 
+        console.log('Estoy en: LikesXProductoService:megusta.update', idProducto);
         console.log('Estoy en: megusta.update');
-
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
@@ -77,7 +77,7 @@ export default class LikesXProductoService{
 
         let returnEntity=null;
 
-        console.log('Estoy en: LikesProductoService.get5ProductosMasLikeados con Idusuario:',);
+        console.log('Estoy en: LikesProductoService.get5ProductosMasLikeados',);
         try{
         
             let pool= await sql.connect(config);
