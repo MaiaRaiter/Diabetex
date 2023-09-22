@@ -47,8 +47,7 @@ ProductoRouter.get('/:codebar', async (req, res) => {
     } else {
 
       console.log('0');
-      respuesta = res.status(404).send("No se encontro el producto. Seria de mucha ayuda que lo agregue");
-
+      
       let cuerpo = req.body;
       console.log('Estoy en: ProductoController post /', cuerpo);
 
