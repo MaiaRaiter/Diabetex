@@ -55,7 +55,7 @@ code {
   width: 200px;
   pointer-events: none;
   border-radius: 100px;
-  margin-top: -350px;
+  margin-top: 85px;
 }
 
 .IngreseDatos {
@@ -272,9 +272,11 @@ tr {
   position: absolute; 
   top: 79%; 
   left: 93%; 
+  
   transform: translate(-50%, -50%); 
   color: white; 
   padding: 10px;
+  background-color: #231F20
 }
 .NombreProductoCarrusel
 {
@@ -294,6 +296,7 @@ tr {
   left: 78%;
   position: absolute;
   color: white;
+  background-color: #231F20
 
   
   ;

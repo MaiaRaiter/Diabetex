@@ -8,6 +8,7 @@ import Producto from './Componentes/Screens/Producto';
 import  {Home} from './Componentes/Screens/Home';
 import Registrarse  from './Componentes/Screens/Registrarse';
 import  Perfil  from "./Componentes/Screens/Perfil.js";
+import Scanner from "../src/Componentes/Scanner.js"
 import { Navbar } from "./Componentes/Navbar.js";
 
 
@@ -56,6 +57,7 @@ const App = () => {
       <Route path='/Home' element={<Home />}> </Route>
       <Route path='/Producto' element={<Producto />}> </Route>
       <Route path='/Perfil' element={<Perfil />}> </Route>
+      <Route path='/Scanner' element={<Scanner />}> </Route>
      
     </Routes>
 

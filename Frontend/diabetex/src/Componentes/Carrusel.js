@@ -30,16 +30,16 @@ export const Carrusel = ({DatosCarrusel}) => {
     CargarProductosRecientes();
   }, []);
 
-  const handleLikes = async (idUsuario, CodigoBarra, e) => {
+  const handleLikes = async (idUsuario, Id, e) => {
     e.preventDefault();
-    console.log(CodigoBarra)
+    console.log(Id)
     // Verifica si el producto ya tiene un contador de likes en el estado
-    const currentLikes = likes[CodigoBarra] || 0;
+    const currentLikes = likes[Id] || 0;
 
     // Realiza una solicitud a la API para actualizar los likes
     try {
-      const response = await axios.post(`http://a-phz2-cidi-021:3000/api/LikesxProducto/${CodigoBarra}/${idUsuario}`, {
-        CodigoBarra,
+      const response = await axios.post(`http://a-phz2-cidi-051:3000/api/LikesxProducto/${IdUsuario}/${Id}`, {
+        Id,
         idUsuario: IdUsuario,
         likes: currentLikes + 1, // Incrementa la cantidad de likes
       });
@@ -70,7 +70,7 @@ export const Carrusel = ({DatosCarrusel}) => {
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                <AiOutlineHeart  onClick={(e) =>handleLikes(IdUsuario,P.CodigoBarra, e)}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
+                <AiOutlineHeart  onClick={(e) =>handleLikes(IdUsuario,P.Id, e)}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
               </div>
             
             ))}
