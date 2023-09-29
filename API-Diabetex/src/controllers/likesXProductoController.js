@@ -4,6 +4,7 @@ import LikesXProducto from '../services/LikesXProductoService.js';
 const LikesXProductoRouter = Router();
 const likesXProductoService = new LikesXProducto();
 
+/*
 LikesXProductoRouter.get('/:codigoBarra', async (req, res) => {
 
     console.log('Estoy en: ProductoRouter get /:codigoBarra', req.params.codigoBarra);
@@ -22,6 +23,15 @@ LikesXProductoRouter.get('/:codigoBarra', async (req, res) => {
   
     return respuesta;
 });
+*/
+
+LikesXProductoRouter.post('/:idUsuario/:idProducto', async (req, res) => {
+  console.log('Estoy en: LikesXProductoController/:idUsuario/:idProducto', req.params.idUsuario, req.params.idProducto );
+  //AGREGA Y ELIMINA EL ME GUSTA
+    const likesXProducto = await likesXProductoService.meGusta(req.params.idUsuario, req.params.idProducto);
+
+  return res.status(200).json(likesXProducto);
+});
 
 LikesXProductoRouter.get('/', async (req, res) => {
     console.log('Estoy en: LikesXProductoController get /');
@@ -31,12 +41,6 @@ LikesXProductoRouter.get('/', async (req, res) => {
     return res.status(200).json(likesXProducto);
 });
 
-LikesXProductoRouter.post('/:idUsuario/:idProducto', async (req, res) => {
-  console.log('Estoy en: LikesXProductoController/:idUsuario/:idProducto', req.params.idUsuario, req.params.idProducto );
-  //AGREGA Y ELIMINA EL ME GUSTA
-    const likesXProducto = await likesXProductoService.meGusta(req.params.idUsuario, req.params.idProducto);
 
-  return res.status(200).json(likesXProducto);
-});
 
 export default LikesXProductoRouter;

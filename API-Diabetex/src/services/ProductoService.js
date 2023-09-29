@@ -12,13 +12,14 @@ export default class ProductoService {
         let returnEntity = null;
 
         console.log('Estoy en: ProductoSrvice.getProductoDiabetex(codigoBarra)');
+        console.log(codigoBarra);
         try {
 
             let pool = await sql.connect(config);
 
             let result = await pool.request()
                 .input('pCodigoBarra', sql.VarChar, codigoBarra)
-                .query('SELECT * FROM Producto WHERE codigoBarra=@pCodigoBarra')
+                .query('SELECT * FROM Producto WHERE CodigoBarra=@pCodigoBarra')
             returnEntity = result.recordsets[0][0];
           
             

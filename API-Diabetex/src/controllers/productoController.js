@@ -19,7 +19,6 @@ ProductoRouter.get('/:codebar', async (req, res) => {
     let idUsuario = req.query.idUsuario;
     console.log('el parametro idUsuario es: ' +  idUsuario);
     
-    
     let producto = await productoService.getProductoDiabetex(req.params.codebar);
     
     console.log('producto', producto);

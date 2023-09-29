@@ -35,7 +35,7 @@ export default class LikesXProductoService{
     }
     */
 
-
+//el like solo se pone y se sale de MeGustaXUsuario
     meGusta = async (idUsuario,idProducto) => {
         let returnEntity=null;
 
