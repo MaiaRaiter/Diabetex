@@ -22,9 +22,7 @@ const ResultContainerTable = ({ data }) => {
         <table className={'Qrcode-result-table'}>
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Decoded Text</td>
-                    <td>Format</td>
+                  
                 </tr>
             </thead>
             <tbody>
@@ -49,7 +47,7 @@ const ResultContainerPlugin = (props) => {
         <div className='Result-container'>
             <div className='Result-header'>Scanned results ({results.length})</div>
             <div className='Result-section'>
-                <ResultContainerTable data={results} />
+               
             </div>
         </div>
     );
@@ -65,7 +63,7 @@ const App = (props) => {
   return (
       <div className="App">
           <section className="App-section">
-              <div className="App-section-title"> Html5-qrcode React demo</div>
+              <div className="App-section-title"> </div>
               <br />
               <br />
               <br />
