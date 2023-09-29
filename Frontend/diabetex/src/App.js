@@ -2,7 +2,7 @@
 import React from "react";
 import axios from 'axios'
 import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch,Routes } from 'react-router-dom';
 import IniciarSesion from './Componentes/Screens/InciarSesion.js'
 import Producto from './Componentes/Screens/Producto';
 import  {Home} from './Componentes/Screens/Home';
@@ -58,6 +58,10 @@ const App = () => {
       <Route path='/Producto' element={<Producto />}> </Route>
       <Route path='/Perfil' element={<Perfil />}> </Route>
       <Route path='/Scanner' element={<Scanner />}> </Route>
+      <Switch>
+        <Route path="/" exact component={App} />
+        <Route path="/producto/:codigoB" component={Producto} />
+      </Switch>
      
     </Routes>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Html5QrcodePlugin from './ScannerPlugin'
+import Producto from './Screens/Producto'
 
 function filterResults (results) {
     let filteredResults = [];
@@ -58,6 +59,7 @@ const App = (props) => {
   const onNewScanResult = (decodedText, decodedResult) => {
       console.log("App [result]", decodedResult);
       setDecodedResults(prev => [...prev, decodedResult]);
+      < Producto decodedText={CodigoB} />
   };
 
   return (
@@ -76,7 +78,9 @@ const App = (props) => {
               <ResultContainerPlugin results={decodedResults} />
           </section>
       </div>
+       
   );
+
 };
 
 export default App;

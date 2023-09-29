@@ -8,8 +8,9 @@ const Producto = () => {
   const [error, setError] = useState(false);
   const [mostrar, setMostrar] = useState("Nutrientes");
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
+  
 
-  const CargarProductoxCodigo = async (e) => {
+  const CargarProductoxCodigo = async (e,CodigoB) => {
     e.preventDefault();
     console.log(formData);
     const CodigoB = formData.CodigoDeBarra; // Corrected the way to access the barcode value
