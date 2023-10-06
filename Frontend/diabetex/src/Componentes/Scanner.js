@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Html5QrcodePlugin from './ScannerPlugin'
 import Producto from './Screens/Producto'
+import { Link } from "react-router-dom";
 
 function filterResults (results) {
     let filteredResults = [];
@@ -56,10 +57,14 @@ const ResultContainerPlugin = (props) => {
 
 const App = (props) => {
   const [decodedResults, setDecodedResults] = useState([]);
+  const [decodedText, setDecodedText] = useState(""); 
   const onNewScanResult = (decodedText, decodedResult) => {
       console.log("App [result]", decodedResult);
+      console.log("AdecodedText", decodedText);
+      setDecodedText(decodedText);
       setDecodedResults(prev => [...prev, decodedResult]);
-      < Producto decodedText={CodigoB} />
+      <Producto CodigoB={decodedText} />
+
   };
 
   return (
@@ -75,7 +80,8 @@ const App = (props) => {
                   disableFlip={false}
                   qrCodeSuccessCallback={onNewScanResult}
               />
-              <ResultContainerPlugin results={decodedResults} />
+             <Link to={`/Producto/${decodedText}`}><ResultContainerPlugin results={decodedResults} /></Link>
+
           </section>
       </div>
        

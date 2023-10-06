@@ -38,7 +38,7 @@ export const Carrusel = ({DatosCarrusel}) => {
 
     // Realiza una solicitud a la API para actualizar los likes
     try {
-      const response = await axios.post(`http://a-phz2-cidi-051:3000/api/LikesxProducto/${IdUsuario}/${Id}`, {
+      const response = await axios.post(`http://a-phz2-cidi-021:3000/api/LikesxProducto/${IdUsuario}/${Id}`, {
         Id,
         idUsuario: IdUsuario,
         likes: currentLikes + 1, // Incrementa la cantidad de likes
@@ -60,7 +60,7 @@ export const Carrusel = ({DatosCarrusel}) => {
   return (
     <div className="horizontal-scroll-container"> {}
       {error ? (
-        <div>Error al cargar el producto</div>
+        <div>No hay productos likeados</div>
       ) : Producto ? (
         <>
           <div className="horizontal-products-container d-flex flex-row " key={id}>

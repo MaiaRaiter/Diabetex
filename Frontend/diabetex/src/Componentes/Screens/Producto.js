@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css'
 import { PantallaError } from './PantallaError';
@@ -8,14 +9,21 @@ const Producto = () => {
   const [error, setError] = useState(false);
   const [mostrar, setMostrar] = useState("Nutrientes");
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
+
   
+  useEffect(() => {
 
-  const CargarProductoxCodigo = async (e,CodigoB) => {
+  CargarProductoxCodigo()
+  })
+  const CargarProductoxCodigo = async (e) => {
+    const { CodigoB } = useParams();
+     //CodigoB = props.match.params.CodigoB;
     e.preventDefault();
+    console.log('CargarProductoxCodigo');
+    console.log(CodigoB);
     console.log(formData);
-    const CodigoB = formData.CodigoDeBarra; // Corrected the way to access the barcode value
-    let url = "http://a-phz2-cidi-051:3000/api/producto/" + CodigoB + "?idUsuario=2";
-
+    let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB + "?idUsuario=2";
+console.log(CodigoB)
     try {
       const response = await axios.get(url);
       if (response.data) {
@@ -43,22 +51,7 @@ const Producto = () => {
 
   return (
     <>
-      <center>
-        <form onSubmit={(e) => CargarProductoxCodigo(e)}>
-          <input
-          type="number"
-          name="CodigoDeBarra"
-          className="formulario"
-          placeholder="Ingrese codigo de barra del producto"
-          value={formData.CodigoDeBarra}
-          onChange={(e) => setFormData({ ...formData, CodigoDeBarra: e.target.value })}
-        />
-        <button type="button" className="btn btn-success boton" onClick={CargarProductoxCodigo}>
-            Buscar
-          </button>
-     
-        </form>
-      </center>
+    
       <div id="listado" className="row">
 
         {producto && (
@@ -69,7 +62,7 @@ const Producto = () => {
             <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
 
             <div className='Contenedor'>
-              <center> <p className='TextOverlay'>Este producto contiene 157,3 g de Carbohidratos finales </p></center>
+              <center> <p className='TextOverlay'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
             </div>
             <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>
             <div className='BarraGris'>
