@@ -23,18 +23,21 @@ export default class MeGustaXUsuarioService{
         }
        return returnEntity;
     }
+//CHEKEAR EL INSERT DE ME GUSTA EN FOTO Y NOMBRE
+
 
 //el like solo se pone y se sale de MeGustaXUsuario
-    meGusta = async (idUsuario,idProducto) => {
+    meGusta = async (idUsuario, idProducto) => {
         let returnEntity=null;
 
-        console.log('Estoy en: meGustaXUsuarioService:megusta.update', idProducto);
-        console.log('Estoy en: megusta.update');
+        console.log('Estoy en: meGustaXUsuarioService.update', idProducto);
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                     .input('idUsuario', sql.Int, idUsuario)
                                     .input('idProducto', sql.Int, idProducto)
+                                    .input('pNombre',sql.VarChar, nombre)
+                                    .input('pFoto',sql.VarChar, foto)
                                     .query(`
                                         If EXISTS(
                                             SELECT * FROM MeGustaXUsuario 
@@ -48,9 +51,9 @@ export default class MeGustaXUsuarioService{
                                         ELSE
                                             BEGIN
                                                 INSERT INTO MeGustaXUsuario 
-                                                    (idUsuario, idProducto)
+                                                    (idUsuario, idProducto,Nombre,Foto)
                                                 VALUES 
-                                                    (@idUsuario,@idProducto)
+                                                    (@idUsuario,@idProducto,@pNombre,@pFoto)
                                             END
                                     `);
                 returnEntity=result.rowsAffected;
