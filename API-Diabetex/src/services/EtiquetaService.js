@@ -69,7 +69,7 @@ export default class EtiquetaService{
         }
         return Productodata;
     }
-    
-    //INSERT
+
+    //insert
 
 }

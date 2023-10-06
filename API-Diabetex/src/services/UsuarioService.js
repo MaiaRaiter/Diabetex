@@ -1,6 +1,5 @@
 import config from '../../dbconfig.js';
 import sql from 'mssql';
-import axios from 'axios';
 import crypto from 'crypto';
 
 export default class UsuarioService{
@@ -23,8 +22,6 @@ export default class UsuarioService{
                     
                 }
             }
-
-    
             return returnEntity;
         }
 
