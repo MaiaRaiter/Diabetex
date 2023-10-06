@@ -42,9 +42,7 @@ export default class EtiquetaService{
 
             if (Productodata.status!=0){
                 
-              console.log('Insertando producto de api externa en bd');
-              console.log(Productodata.code);
-              console.log(Productodata.product.ingredients_analysis_tags);
+              console.log('Insertando etiquetas de api externa en bd');
               
               let pool= await sql.connect(config);
               let result = await pool.request()

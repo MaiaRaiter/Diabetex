@@ -20,14 +20,12 @@ ProductoRouter.get('/:codebar', async (req, res) => {
     console.log('el parametro idUsuario es: ' +  idUsuario);
     
     let producto = await productoService.getProductoDiabetex(req.params.codebar);
-    
     console.log('producto', producto);
-  
-  console.log('Estoy en: AccesoProductoController post /'+ idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
-  await accesoProductoService.accesoNuevo(idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
-
-  if (producto!=null){
-    console.log('1');
+    
+    if (producto!=null){
+      console.log('1');
+      console.log('Estoy en: AccesoProductoController post /'+ idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
+      await accesoProductoService.accesoNuevo(idUsuario, producto.CodigoBarra, producto.Foto, producto.CantMeGusta, producto.Nombre, producto.Favorito);
     respuesta = res.status(200).json(producto);
 
   } else {

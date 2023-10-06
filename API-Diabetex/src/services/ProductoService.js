@@ -19,11 +19,43 @@ export default class ProductoService {
 
             let result = await pool.request()
                 .input('pCodigoBarra', sql.VarChar, codigoBarra)
-                .query('SELECT * FROM Producto WHERE CodigoBarra=@pCodigoBarra')
+                .query(`SELECT
+                [Id],
+                [Nombre],
+                [Ingredientes],
+                [Cantidad],
+                --[CantMeGusta],
+                CantMeGusta = (SELECT Count(*) FROM MeGustaXUsuario Where IdProducto = Producto.Id),
+                [Marca],
+                [EspeciesAmenazadas],
+                [LugarFabricacion],
+                [HCAgricultura],
+                [HCProcesado],
+                [HCEmbalaje],
+                [HCTransporte],
+                [HCDistribución],
+                [HCConsumo],
+                [HCTotal],
+                [NAlcohol100g],
+                [NCarbohidratos100g],
+                [NEnergia100g],
+                [NGrasa100g],
+                [NFibra100g],
+                [NProteinas100g],
+                [NSal100g],
+                [NGrasasSaturadas100g],
+                [NSodio100g],
+                [NAzucar100g],
+                [Foto],
+                [CodigoBarra],
+                --[CalculoCarbohidratos],
+                CalculoCarbohidratos = (NCarbohidratos100g-NFibra100g/2)
+                FROM Producto 
+                WHERE CodigoBarra=@pCodigoBarra`)
             returnEntity = result.recordsets[0][0];
           
             
-            //returnEntity.Etiquetas = await iXpS.getEtiquetaDiabetex(codigoBarra);
+            returnEntity.Etiquetas = await iXpS.getEtiquetaDiabetex(codigoBarra);
 
         }
         catch (error) {
