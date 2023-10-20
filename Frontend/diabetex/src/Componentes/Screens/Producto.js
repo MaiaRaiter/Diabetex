@@ -54,7 +54,7 @@ console.log(CodigoB)
 
         {producto && (
           <>
-              <h1 className='NombreProducto d-flex flex-column justify-content-between '>{producto.Nombre}</h1>  
+              <h1 className="NombreProducto">{producto.Nombre}</h1>  
             <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
             {producto.Foto==null }
             <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
@@ -72,7 +72,7 @@ console.log(CodigoB)
             <br></br>
 <center>
             {mostrar === "Nutrientes" && (
-              <center>  <table class="table table-bordered Tabla">
+              <center>  <table class="table table-bordered Tabla ">
                 <thead>
                   <tr>
 

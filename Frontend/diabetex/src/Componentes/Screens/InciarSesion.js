@@ -17,7 +17,7 @@ const IniciarSesion = () => {
 
 
     return (
-        <div className="App-header">
+        <div className=" App-header d-flex flex-column justify-content-between vh-100">
             <img src="/img/logo.jpg" className="App-logo" alt=""></img>
             <br></br>
 

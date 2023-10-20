@@ -20,16 +20,21 @@ code {
   left: -110px;
   pointer-events: none;
   border-radius: 100px;
-  margin-top: -350px;
+
 }
 
 .formulario {
   border-color: #33847E;
-  height: 35px;
-  width: 350px;
   border-radius: 15px;
   font-family: reboto;
   margin-bottom: 10px;
+  display: flex;
+width: 343px;
+height: 52px;
+padding: 19px 0px 18px 0px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
 
 }
 
@@ -55,7 +60,7 @@ code {
   width: 200px;
   pointer-events: none;
   border-radius: 100px;
-  margin-top: 85px;
+
 }
 
 .IngreseDatos {
@@ -142,12 +147,23 @@ nav {
 }
 
 .NombreProducto {
-  font-family: 'Fira Sans';
-  position: relative;
-  font-weight: 500px;
   color: #231F20;
-
+  text-align: center;
+  font-family: Varela Round;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+  width: 218px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centra horizontalmente */
+  margin: 0 auto; /* Centra verticalmente */
 }
+
 
 .FotoProducto {
   width: 390px;
@@ -218,6 +234,9 @@ nav {
   margin-left: 55px;
   border-color: #33847E;
   border-radius: 15px;
+  fill: #FFF;
+stroke-width: 2px;
+stroke: #33847E;
 }
 
 
