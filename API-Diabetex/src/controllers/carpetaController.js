@@ -3,26 +3,7 @@ import CarpetaService from '../services/CarpetaService.js';
 
 const CarpetaRouter = Router();
 const carpetaService = new CarpetaService();
-/*
-CarpetaRouter.get('/:id', async (req, res) => {
 
-    console.log('Estoy en: CarpetaController get /:id', req.params.id);
-
-    let respuesta;
-    
-    const carpeta = await carpetaService.getByIdUsuario(req.params.id);
-    
-    if (carpeta!=null){
-      console.log('1');
-      respuesta = res.status(200).json(carpeta);
-    } else {
-      console.log('2');
-      respuesta = res.status(404).send("No se encontro la carpeta.");
-    }
-  
-    return respuesta;
-});
-*/
 CarpetaRouter.post('', async (req, res) => {
     let cuerpo = req.body;
     console.log('Estoy en: CarpetaController post /', cuerpo);
