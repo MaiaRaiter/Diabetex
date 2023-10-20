@@ -43,7 +43,7 @@ export default class CarpetaXUsuarioService{
                                 .input('pIdUsuario', sql.Int, idUsuario)
                                 .input('pIdCarpeta', sql.Int, idCarpeta)
                                 .query(`SELECT Producto.* FROM Producto
-                                        INNER JOIN CarpetaXUsuario ON Producto.Id = CarpetaXUsuario.IdProducto
+                                         JOIN CarpetaXUsuario ON Producto.Id = CarpetaXUsuario.IdProducto
                                         WHERE CarpetaXUsuario.IdUsuario = @pIdUsuario AND CarpetaXUsuario.IdCarpeta = @pIdCarpeta`)
     
             returnEntity=result.recordsets[0];
