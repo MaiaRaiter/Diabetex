@@ -15,13 +15,8 @@ export default class CarpetaXUsuarioService{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, id)
-                                .query(`SELECT * FROM Carpeta
-                                        WHERE Id IN (
-                                        SELECT IdCarpeta
-                                        FROM CarpetaXUsuario 
-                                        WHERE IdUsuario=2
-                                         )`)
-    
+                                .query(`SELECT * FROM CarpetaXUsuario                                  
+                                        WHERE IdUsuario = @pIdUsuario`)
             returnEntity=result.recordsets[0];
         } 
         catch(error) {
@@ -42,9 +37,9 @@ export default class CarpetaXUsuarioService{
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, idUsuario)
                                 .input('pIdCarpeta', sql.Int, idCarpeta)
-                                .query(`SELECT Producto.* FROM Producto
-                                         JOIN CarpetaXUsuario ON Producto.Id = CarpetaXUsuario.IdProducto
-                                        WHERE CarpetaXUsuario.IdUsuario = @pIdUsuario AND CarpetaXUsuario.IdCarpeta = @pIdCarpeta`)
+                                .query(`SELECT * FROM Producto 
+                                INNER JOIN CarpetaXUsuario ON Producto.Id = CarpetaXUsuario.IdProducto                         
+                                WHERE IdUsuario=@pIdUsuario And IdCarpeta=@pIdCarpeta`)
     
             returnEntity=result.recordsets[0];
         } 
@@ -112,16 +107,16 @@ export default class CarpetaXUsuarioService{
         return returnEntity;
     }
 
-    agregarCarpetaXUsuario = async (cuerpo) => {
+    agregarCarpetaXUsuario = async (idUsuario, idCarpetaNueva) => {
         let returnEntity = null;
 
-        console.log('Estoy en: CarpetaXUsuario.insert');
+        console.log('Estoy en: CarpetaXUsuario.insert', idUsuario, idCarpetaNueva);
 
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
-                                .input('pIdUsuario',sql.Int, cuerpo.IdUsuario)
-                                .input('pIdCarpeta',sql.Int, cuerpo.IdCarpetanueva)                           
+                                .input('pIdUsuario',sql.Int, idUsuario)
+                                .input('pIdCarpeta',sql.Int, idCarpetaNueva)                           
                                 .query("INSERT INTO CarpetaXUsuario (IdUsuario, IdCarpeta) VALUES (@pIdUsuario,@pIdCarpeta)");
 
             returnEntity=result.rowsAffected;
