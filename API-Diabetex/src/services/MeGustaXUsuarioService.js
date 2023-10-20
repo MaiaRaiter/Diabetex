@@ -14,7 +14,9 @@ export default class MeGustaXUsuarioService{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, id)
-                                .query('SELECT * FROM MeGustaXUsuario WHERE IdUsuario=@pIdUsuario')
+                                .query(`SELECT Producto.Nombre, Producto.Foto, MeGustaXUsuario.IdUsuario, Producto.Id FROM Producto
+                                JOIN MeGustaXUsuario ON Producto.Id = MeGustaXUsuario.IdProducto
+                                WHERE MeGustaXUsuario.IdUsuario = 2 `)
     
             returnEntity=result.recordsets[0];
         } 
@@ -30,14 +32,12 @@ export default class MeGustaXUsuarioService{
     meGusta = async (idUsuario, idProducto) => {
         let returnEntity=null;
 
-        console.log('Estoy en: meGustaXUsuarioService.update', idProducto);
+        console.log('Estoy en: meGustaXUsuarioService.update', idProducto.Nombre);
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                     .input('idUsuario', sql.Int, idUsuario)
                                     .input('idProducto', sql.Int, idProducto)
-                                    .input('pNombre',sql.VarChar, nombre)
-                                    .input('pFoto',sql.VarChar, foto)
                                     .query(`
                                         If EXISTS(
                                             SELECT * FROM MeGustaXUsuario 

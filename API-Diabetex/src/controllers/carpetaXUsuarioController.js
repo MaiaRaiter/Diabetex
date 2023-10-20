@@ -60,52 +60,32 @@ CarpetaXUsuarioRouter.delete('/:idUsuario/:idCarpeta/:idProducto', async (req, r
     return res.status(200).json(carpetaXUsuario);
 });
 
-/*
-CarpetaXUsuarioRouter.post('', async (req, res) => {
-    let cuerpo = req.body;
-    console.log('2 Estoy en: CarpetaXUsuarioService post /', cuerpo);
-  
-    const carpetaXUsuario = await carpetaXUsuarioService.agregarProductoACarpetaXUsuario(cuerpo);
-    console.log("Se agrego una carpeta al ususario.");
-    return res.status(201).json(carpetaXUsuario);
-    
-});
-*/
-
 CarpetaXUsuarioRouter.post('/', async (req, res) => {
-    let cuerpo = req.body;
-    let respuesta;
- 
-    console.log('Estoy en: CarpetaXUsuarioService post /', cuerpo);
-    
-    let carpeta = await carpetaService.getByNombre(cuerpo.NombreDeCarpeta);
+  let cuerpo = req.body;
+  let respuesta;
 
-    console.log('Estoy en: CarpetaXUsuarioService post /', cuerpo);
+  console.log('Estoy en: CarpetaXUsuarioService post /', cuerpo);
+  
+  let carpeta = await carpetaService.getByNombre(cuerpo.Nombre);
 
-    if (carpeta != null){
+  if (carpeta != null){
 
-      respuesta = res.status(201).json("La carpeta ya existe.");
+    respuesta = res.status(201).json("La carpeta ya existe.");
 
-    } else {
+  } else {
 
-      let carpetaNueva = await carpetaService.agregarCarpeta(cuerpo.NombreDeCarpeta);
+    let carpetaNueva = await carpetaService.agregarCarpeta(cuerpo.Nombre);
+    console.log(carpetaNueva);
 
-      if (carpetaNueva > 0) {
+    let ultimoId = await carpetaService.getMaxId();
+   
+    let carpetaXUsuario = await carpetaXUsuarioService.agregarCarpetaXUsuario(cuerpo.IdUsuario, ultimoId);
 
-        carpeta = await carpetaService.getByNombre(cuerpo.NombreDeCarpeta);
+    respuesta = res.status(201).json(carpetaXUsuario);
+      
+  }
 
-      }
-    
-      let carpetaXUsuario = await carpetaXUsuarioService.agregarCarpetaXUsuario({
-        IdUsuario  : cuerpo.IdUsuario,
-        IdCarpetanueva : carpeta.Id
-      });
-
-      respuesta = res.status(201).json(carpetaXUsuario);
-        
-    }
-
-    return respuesta;
+  return respuesta;
 });
 
 CarpetaXUsuarioRouter.put('/', async (req, res) => {

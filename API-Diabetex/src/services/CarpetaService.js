@@ -65,6 +65,26 @@ export default class Carpeta{
         return returnEntity;
     }
 
+    getMaxId = async (nombre) => {
+
+        let returnEntity=null; 
+
+        console.log('Estoy en: Carpeta.getMaxId');
+
+        try{
+           
+            let pool= await sql.connect(config);
+            let result = await pool.request()
+                                .query('SELECT Max(Id) AS Ultimo FROM Carpeta')
+    
+            returnEntity=result.recordsets[0][0]['Ultimo'];
+        } 
+        catch(error) {
+            console.log(error);
+        }
+       return returnEntity;
+    }
+
     update = async (cuerpo) => {
         
          let returnEntity = null;
