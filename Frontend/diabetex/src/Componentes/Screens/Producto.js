@@ -9,20 +9,18 @@ const Producto = () => {
   const [error, setError] = useState(false);
   const [mostrar, setMostrar] = useState("Nutrientes");
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
-
+  const { CodigoB } = useParams();
   
   useEffect(() => {
-
-  CargarProductoxCodigo()
-  })
-  const CargarProductoxCodigo = async (e) => {
-    const { CodigoB } = useParams();
+    CargarProductoxCodigo()
+  }, [])
+  
+  const CargarProductoxCodigo = async () => {
      //CodigoB = props.match.params.CodigoB;
-    e.preventDefault();
     console.log('CargarProductoxCodigo');
     console.log(CodigoB);
     console.log(formData);
-    let url = "http://a-phz2-cidi-021:3000/api/producto/" + CodigoB + "?idUsuario=2";
+    let url = "http://a-phz2-cidi-023:3000/api/producto/" + CodigoB + "?idUsuario=2";
 console.log(CodigoB)
     try {
       const response = await axios.get(url);
