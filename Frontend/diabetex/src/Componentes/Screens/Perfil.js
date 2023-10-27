@@ -1,36 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {IoSettingsOutline} from "react-icons/io5"
 
-export const Perfil = () => {
-        const [usuario, setPUsuario] = useState(null);
-        const [error, setError] = useState(false);
-      
-        const CargarPerfil = async () => {
-        const IdUsuario=1;
-          let url = "http://a-phz2-cidi-023:3000/api/usuario/"+IdUsuario;
-      
-          try {
-            const response = await axios.get(url);
-            if (response.data) {
-            setPUsuario(response.data);
-              setError(false);
-            } else {
-              setError(true);
-            }
-          } catch (error) {
-            console.log(error);
-            setError(true);
-          }
-        };
+
+export default function Perfil (usuario) {
+        
   return (
-   <>
-   
-    <button type="button" className="btn btn-success boton" onClick={CargarPerfil}>Buscar Perfil</button>
-        <p>{usuario.Nombre} </p>
-    </>
-    
+    <>
+    < IoSettingsOutline className='setting-icon'/>
+    <img src="/img/logo.jpg" className="App-logo Posicion-logo" ></img>
+    <p className='Nombre-usuario'>{usuario.Nombre}</p>
+    </>   
   );
+}
 
-};
-export default Perfil;
-
+ 
