@@ -7,6 +7,7 @@ export const PantallaError = () => {
         <h1>Algo salió mal</h1>
          <div className='Error'>
         <p>No se ha encontrado el producto </p>
+        <p>¿Desea agregar el producto? </p>
     </div> 
     </>
   )

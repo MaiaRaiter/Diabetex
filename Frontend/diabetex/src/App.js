@@ -10,6 +10,7 @@ import Registrarse  from './Componentes/Screens/Registrarse';
 import  Perfil  from "./Componentes/Screens/Perfil.js";
 import Scanner from "../src/Componentes/Scanner.js"
 import { Navbar } from "./Componentes/Navbar.js";
+import { PantallaError } from "./Componentes/Screens/PantallaError.js";
 
 
 
@@ -58,6 +59,7 @@ const App = () => {
       <Route path='/Producto/:CodigoB' element={<Producto />}> </Route>
       <Route path='/Perfil' element={<Perfil />}> </Route>
       <Route path='/Scanner' element={<Scanner />}> </Route>
+      <Route path='/PantallaError' element={<PantallaError />}> </Route>
        
       
      

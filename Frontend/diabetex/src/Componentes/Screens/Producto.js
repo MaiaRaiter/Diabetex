@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css'
 import { PantallaError } from './PantallaError';
+import { useNavigate } from "react-router-dom";
+
 
 const Producto = () => {
   const [producto, setProducto] = useState(null);
@@ -10,6 +12,7 @@ const Producto = () => {
   const [mostrar, setMostrar] = useState("Nutrientes");
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
   const { CodigoB } = useParams();
+  const navigate = useNavigate();
   
   useEffect(() => {
     CargarProductoxCodigo()
@@ -20,7 +23,7 @@ const Producto = () => {
     console.log('CargarProductoxCodigo');
     console.log(CodigoB);
     console.log(formData);
-    let url = "http://a-phz2-cidi-023:3000/api/producto/" + CodigoB + "?idUsuario=2";
+    let url = "http://a-phz2-cidi-020:3000/api/producto/" + CodigoB + "?idUsuario=2";
 console.log(CodigoB)
     try {
       const response = await axios.get(url);
@@ -141,7 +144,8 @@ console.log(CodigoB)
           </>
         )}
 
-        {error && <h1>NO SE ENCONTRO</h1>}
+        {error && 
+        navigate('/PantallaError')}
       </div>
     </>
   );
