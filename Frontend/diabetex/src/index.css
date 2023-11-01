@@ -333,6 +333,7 @@ tr {
   width: 29.977px;
   height: 28.391px;
   flex-shrink: 0;
+  color: #448580;
 }
 
 .Posicion-logo{
@@ -341,19 +342,12 @@ tr {
 }
 
 .Nombre-usuario{
-  display: flex;
-  width: 218px;
-  height: 30px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
+text-align: center;
+font-size: 25px;
+font-weight: 600;
+letter-spacing: 1px;
+margin-top: -80px;
+font-family: url('../public/fonts/VarelaRound-Regular.ttf');
 
-  color: #231F20;
-  text-align: center;
-  font-family: Varela Round;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 1px;
-  }
+}
+
