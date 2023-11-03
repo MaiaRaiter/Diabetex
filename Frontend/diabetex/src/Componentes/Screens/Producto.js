@@ -23,7 +23,7 @@ const Producto = () => {
     console.log(CodigoB);
     console.log(formData);
     let url = "http://a-phz2-cidi-020:3000/api/producto/" + CodigoB + "?idUsuario=2";
-console.log(CodigoB)
+    console.log(CodigoB)
     try {
       const response = await axios.get(url);
       if (response.data) {

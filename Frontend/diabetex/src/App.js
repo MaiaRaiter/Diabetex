@@ -11,12 +11,7 @@ import  Perfil  from "./Componentes/Screens/Perfil.js";
 import Scanner from "../src/Componentes/Scanner.js"
 import { Navbar } from "./Componentes/Navbar.js";
 import { PantallaError } from "./Componentes/Screens/PantallaError.js";
-
-
-
-
-
-
+import LikeadosProvider from '../src/context/LikeadosContext';
 
 const App = () => {
   const CargarProductos = async () => {
@@ -50,7 +45,7 @@ const App = () => {
 
   return (
 
-
+    <LikeadosProvider>
     <Routes>
      
       <Route path='/' element={<IniciarSecion />}> </Route>
@@ -64,7 +59,7 @@ const App = () => {
       
      
     </Routes>
-
+    </LikeadosProvider>
   );
 
 
