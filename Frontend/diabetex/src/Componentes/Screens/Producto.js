@@ -19,7 +19,6 @@ const Producto = () => {
   }, [])
   
   const CargarProductoxCodigo = async () => {
-     //CodigoB = props.match.params.CodigoB;
     console.log('CargarProductoxCodigo');
     console.log(CodigoB);
     console.log(formData);
