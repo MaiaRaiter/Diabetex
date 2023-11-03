@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios"
+import { Login } from "../utils";
 
 export default function InicioSesion() {
     const [mailState, setMail] = useState('');
@@ -11,28 +12,20 @@ export default function InicioSesion() {
     async function ingresarCuenta(event) {
         event.preventDefault();
 
-        
-    try {
-        const response = await axios.post("http://A-PHZ2-CIDI-020:3000/api/usuario/login", {
-          Nombre: mailState,
-          Contrasena: passwordState,
-        });
+        const response = await Login(mailState, passwordState)
+   
   
-        if (response.data) {
-          // Aquí puedes manejar la respuesta exitosa, como redirigir al usuario a la página de inicio.
-          console.log('Inicio de sesión exitoso');
+        if (response) {
+          
           navigate ("/Home")
-          // Redirigir a la página de inicio
-          // Puedes usar React Router para navegar a la página de inicio.
+         
         } else {
-          // Aquí puedes manejar la respuesta si las credenciales son incorrectas.
+          
           alert('Credenciales incorrectas');
         }
-      } catch (error) {
-        // Aquí puedes manejar errores de la solicitud.
-        console.error('Error al iniciar sesión:', error);
+     
       }
-    };
+    
 
        /* try {
             const response = await
