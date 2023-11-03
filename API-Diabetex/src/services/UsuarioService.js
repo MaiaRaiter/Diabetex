@@ -25,7 +25,7 @@ export default class UsuarioService{
             return returnEntity;
         }
 
-        getByUserNamePassword= async(nombre, contrasena) =>
+        getByUserNamePassword = async(nombre, contrasena) =>
         {
             let returnEntity=null;
     
@@ -41,7 +41,7 @@ export default class UsuarioService{
             }
             catch(error){
 
-                logHelper.logError(`Usuario -> getByUserNamePassword`,error)
+                console.log(`Usuario -> getByUserNamePassword`,error)
     
             }
             return returnEntity;
