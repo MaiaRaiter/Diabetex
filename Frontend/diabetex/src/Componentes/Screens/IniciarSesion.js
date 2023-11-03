@@ -79,6 +79,7 @@ export default function InicioSesion() {
                     placeholder="Contraseña" className="formulario" onChange={(e) =>
                         setPassword(e.target.value)} />
                 <br></br><br></br>
+                <div id="error-message" className="error-message"></div>
                 <center> <button type="submit" className="boton">Iniciar Sesion</button> </center>
             </form>
             <center> <Link to="/Registrarse"> Registrarse</Link> </center>

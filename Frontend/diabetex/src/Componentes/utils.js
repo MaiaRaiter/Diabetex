@@ -27,6 +27,9 @@ export const Login = async (Nombre,Contrasena) => {
       } catch (error) {
         
         console.error('Error al iniciar sesión:', error);
+        const errorMessageElement = document.getElementById("error-message");
+        errorMessageElement.innerText = 'Error en el ingreso de usuario o contraseña';
+
       }
     };
 

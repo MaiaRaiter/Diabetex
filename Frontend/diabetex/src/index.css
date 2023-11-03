@@ -350,4 +350,6 @@ margin-top: -80px;
 font-family: url('../public/fonts/VarelaRound-Regular.ttf');
 
 }
+.error-message{
+  color:red}
 
