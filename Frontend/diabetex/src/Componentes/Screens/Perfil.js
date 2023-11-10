@@ -5,6 +5,7 @@ import {IoHeartOutline} from "react-icons/io5"
 import { Carrusel } from '../Carrusel.js';
 import { LikeadosContext } from '../../context/LikeadosContext';
 import  CardLikeados from './../CardLikeados'
+import { Navbar } from '../Navbar.js';
 
 export default function Perfil () {
 
@@ -22,6 +23,7 @@ export default function Perfil () {
     {likeados.map((item) => (
       <CardLikeados producto={item} />
     ))}
+    <Navbar/>
     </> 
   );
 }
