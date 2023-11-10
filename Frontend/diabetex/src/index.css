@@ -353,3 +353,19 @@ font-family: url('../public/fonts/VarelaRound-Regular.ttf');
 .error-message{
   color:red}
 
+.LikePerfil{
+  width: 40px;
+height: 37px;
+flex-shrink: 0;
+stroke-width: 1px;
+stroke: #000;
+margin-right: 200px;
+}
+.Carpetas{
+  width: 45px;
+height: 37px;
+flex-shrink: 0;
+margin-left: 200px;
+margin-top: -65px;
+}
+
