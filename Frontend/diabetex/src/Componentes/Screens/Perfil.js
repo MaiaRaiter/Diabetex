@@ -5,6 +5,7 @@ import { IoHeartOutline } from "react-icons/io5"
 import { Carrusel } from '../Carrusel.js';
 import { LikeadosContext } from '../../context/LikeadosContext';
 import {PiFolderSimpleBold } from "react-icons/pi"
+import  CardLikeados from './../CardLikeados'
 
 export default function Perfil() {
   const [likes, setLikes] = useState(null);
