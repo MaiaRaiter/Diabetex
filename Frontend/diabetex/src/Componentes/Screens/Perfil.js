@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*import React, { useState } from 'react';
-=======
 import React, { useState, useEffect } from 'react';
->>>>>>> 393a7a2f36bcc1a2bf0d64b04d7acabc65f09a65
 import axios from 'axios';
 import {IoSettingsOutline} from "react-icons/io5"
 import {IoHeartOutline} from "react-icons/io5"
@@ -29,4 +25,4 @@ export default function Perfil () {
   );
 }
 
- */
+ 

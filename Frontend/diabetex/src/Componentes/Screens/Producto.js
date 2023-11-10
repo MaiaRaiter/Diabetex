@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../index.css'
 import { PantallaError } from './PantallaError';
 import { useNavigate } from "react-router-dom";
+import { BiHeart } from 'react-icons/bi'
 
 
 const Producto = () => {
@@ -138,7 +139,15 @@ const Producto = () => {
 
             }
             </center>
+          <p>Analisís de Ingredientes</p>
+<div className='Contenedor'></div>
 
+
+
+
+
+
+            <BiHeart> </BiHeart>
 
           </>
         )}
