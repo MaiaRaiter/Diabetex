@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../../index.css'
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar.js';
+import { BiHeart } from 'react-icons/bi'
+
 
 const Producto = () => {
   const [producto, setProducto] = useState(null);
@@ -134,7 +136,15 @@ const Producto = () => {
 
               }
             </center>
+          <p>Analisís de Ingredientes</p>
+<div className='Contenedor'></div>
 
+
+
+
+
+
+            <BiHeart> </BiHeart>
 
           </>
         )}
