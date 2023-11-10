@@ -1,9 +1,8 @@
 import React, {useContext} from 'react'
 import { LikeadosContext } from '../context/LikeadosContext'
-
 import { BiHeart } from 'react-icons/bi'
 
-export default function CardLikeados({producto}) {
+const CardLikeados = ({producto}) => {
 
   const { EliminarLikeado } = useContext(LikeadosContext);
 
@@ -23,5 +22,7 @@ export default function CardLikeados({producto}) {
             </div>
         </div>
     </div>
-  )
-}
+  );
+};
+
+export default CardLikeados;

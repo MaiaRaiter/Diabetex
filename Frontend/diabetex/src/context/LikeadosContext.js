@@ -1,10 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react'
+import axios from 'axios';
 
 export const LikeadosContext = createContext();
 
 const LikeadosProvider = (props) => {
 
     const [likeados, setLikeados] = useState([]);
+    const [error, setError] = useState([]);
 
     useEffect(() => {
         CargarLikeados()

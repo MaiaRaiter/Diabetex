@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-/*import React, { useState } from 'react';
-=======
-import React, { useState, useEffect } from 'react';
->>>>>>> 393a7a2f36bcc1a2bf0d64b04d7acabc65f09a65
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import {IoSettingsOutline} from "react-icons/io5"
 import {IoHeartOutline} from "react-icons/io5"
 import { Carrusel } from '../Carrusel.js';
 import { LikeadosContext } from '../../context/LikeadosContext';
+import  CardLikeados from './../CardLikeados'
 
 export default function Perfil () {
 
@@ -23,10 +20,9 @@ export default function Perfil () {
     < IoHeartOutline className='heart-icon'/>
     
     {likeados.map((item) => (
-      <Cardlikeados post={item} />
+      <CardLikeados producto={item} />
     ))}
     </> 
   );
 }
 
- */
