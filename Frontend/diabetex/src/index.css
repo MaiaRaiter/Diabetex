@@ -368,4 +368,12 @@ flex-shrink: 0;
 margin-left: 200px;
 margin-top: -65px;
 }
+.ContenedorInfo{
+  width: 342px;
+height: 42px;
+flex-shrink: 0;
+fill: #FFF;
 
+stroke-width: 2px;
+stroke: #33847E;
+}

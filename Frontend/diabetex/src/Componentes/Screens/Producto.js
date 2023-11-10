@@ -141,17 +141,9 @@ const Producto = () => {
             </center>
           <p>Analisís de Ingredientes</p>
 <div className='Contenedor'></div>
-
-
-
-
-
-
-            <BiHeart> </BiHeart>
-
+            <BiHeart > </BiHeart>
           </>
         )}
-
         {error && 
         navigate('/PantallaError')}
       </div>

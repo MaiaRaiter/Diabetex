@@ -8,31 +8,27 @@ const LikeadosProvider = (props) => {
     const [error, setError] = useState([]);
 
     useEffect(() => {
+        const CargarLikeados = async () => {
+            try {
+                const response = await axios.get("http://a-phz2-cidi-020:3000/api/meGustaXUsuario?idUsuario=1");
+                console.log("MxU: ",response.data)
+                //const listaProductos = response.data;
+                setLikeados(response.data); 
+            } catch (error) {
+            console.log('Error:', error);
+            }
+        };
         CargarLikeados()
     }, []);
 
-    const CargarLikeados = async () => {
-        let url = "http://a-phz2-cidi-020:3000/api/meGustaXUsuario?idUsuario=2";
-        try {
 
-            const response = axios.get(url);
+        //let url = "http://a-phz2-cidi-020:3000/api/meGustaXUsuario?idUsuario=2";
 
-            if (response.data) {
-                setLikeados(response.data);
-                setError(false);
-            } else {
-                setError(true);
-            }
-        } catch (error) {
-            console.log(error);
-            setError(true);
-        }
-    };
 
 
     const AddLikeados = (fav) => {
         setLikeados([...likeados, fav])
-        console.log(fav);
+        console.log(likeados);
         localStorage.setItem("likeados", JSON.stringify([...likeados, fav]))
     }
 
@@ -40,9 +36,9 @@ const LikeadosProvider = (props) => {
         setLikeados([])
     }
 
-    const EliminarLikeado = (likeadoid) => {
+    const EliminarLikeado = (likeados) => {
         setLikeados(
-            likeados.filter((fav) => fav.id !== likeadoid)
+            likeados.filter((fav) => fav.id !== likeados.id)
         );
     };
 

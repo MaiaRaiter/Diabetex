@@ -17,7 +17,7 @@ const App = () => {
   const CargarProductos = async () => {
     const CodigoB = 3175680011480;
     axios
-      .get("http://a-phz2-cidi-023:3000/api/producto/" + CodigoB)
+      .get("http://a-phz2-cidi-020:3000/api/producto/" + CodigoB)
       .then((result) => {
         if (result.data.status === 1) {
           //setPost(result.data.product]);

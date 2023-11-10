@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AiOutlineHeart } from "react-icons/ai";
+import { LikeadosContext } from '../context/LikeadosContext';
 
 
 
 export const Carrusel = ({DatosCarrusel}) => {
-  const IdUsuario = 5;
+  const IdUsuario = 2;
   let id = 0;
+  const {AddLikeados} = useContext(LikeadosContext)
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
   const [likes, setLikes] = useState(false);
@@ -34,15 +36,13 @@ export const Carrusel = ({DatosCarrusel}) => {
     e.preventDefault();
     console.log(Id)
     // Verifica si el producto ya tiene un contador de likes en el estado
-    const currentLikes = likes[Id] || 0;
+   
 
     // Realiza una solicitud a la API para actualizar los likes
     try {
-      const response = await axios.post(`http://a-phz2-cidi-020:3000/api/LikesxProducto/${IdUsuario}/${Id}`, {
-        Id,
-        idUsuario: IdUsuario,
-        likes: currentLikes + 1, // Incrementa la cantidad de likes
-      });
+      let url = `http://a-phz2-cidi-020:3000/api/meGustaXUsuario/${IdUsuario}/${Id}`;
+      console.log(url);
+      const response = await axios.post(url, null);
 
       // Actualiza el estado con la nueva cantidad de likes
       if(likes === true){
@@ -70,7 +70,8 @@ export const Carrusel = ({DatosCarrusel}) => {
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                <AiOutlineHeart  onClick={(e) =>handleLikes(IdUsuario,P.Id, e)}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
+                {console.log(P)}
+                <AiOutlineHeart  onClick={(e) =>AddLikeados(P)/*handleLikes(IdUsuario,P.Id, e)*/}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
               </div>
             
             ))}
