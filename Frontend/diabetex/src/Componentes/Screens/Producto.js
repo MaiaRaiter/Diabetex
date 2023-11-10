@@ -42,7 +42,7 @@ const Producto = () => {
   const MostrarNutrientes = () => {
     setMostrar("Nutrientes")
   }
-  
+
   const MostrarResumen = () => {
     setMostrar("Resumen")
   }
@@ -58,7 +58,6 @@ const Producto = () => {
             <center> <img src={producto.Foto} className="FotoProducto" alt=""></img></center>
             {producto.Foto == null}
             <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
-
             <div className='Contenedor'>
               <center> <p className='TextOverlay'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
             </div>
@@ -71,15 +70,16 @@ const Producto = () => {
             <br></br>
             <br></br>
             <center>
+
               {mostrar === "Nutrientes" && (
                 <center>  <table class="table table-bordered Tabla ">
                   <thead>
                     <tr>
-
                       <th scope="col">Info Nutricional</th>
                       <th scope="col">100g</th>
                     </tr>
                   </thead>
+                  
                   <tbody>
                     <tr>
                       <th scope="row">Azúcares</th>
@@ -108,6 +108,7 @@ const Producto = () => {
                   </tbody>
                 </table> </center>
               )}
+
               {mostrar == "Resumen" &&
 
                 <center>  <table class="table table-bordered Tabla">
@@ -126,33 +127,20 @@ const Producto = () => {
                     <tr>
                       <th scope="row">País de orígen</th>
                       <td>{producto.LugarFabricacion} Mg</td>
-
                     </tr>
-
-
                   </tbody>
                 </table> </center>
-
-
               }
             </center>
-          <p>Analisís de Ingredientes</p>
-<div className='Contenedor'></div>
-
-
-
-
-
-
+            <p>Analisís de Ingredientes</p>
+            <div className='Contenedor'></div>
             <BiHeart> </BiHeart>
-
           </>
         )}
-
         {error &&
           navigate('/PantallaError')}
       </div>
-      <Navbar/>
+      <Navbar />
     </>
   );
 };

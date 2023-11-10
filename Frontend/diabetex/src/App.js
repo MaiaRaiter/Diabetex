@@ -48,11 +48,10 @@ const App = () => {
 
     <LikeadosProvider>
       <Routes>
-    
 
-          <Route path='/' element={<IniciarSesion />}> </Route>
+          <Route path='/' element={<Layout />}> </Route>
+          <Route index element={<IniciarSesion />}></Route>
           <Route path='/Registrarse' element={<Registrarse />}> </Route>
-          <Route path='/Home' element={<Home />}> </Route>
           <Route path='/Producto/:CodigoB' element={<Producto />}> </Route>
           <Route path='/Perfil' element={<Perfil />}> </Route>
           <Route path='/Scanner' element={<Scanner />}> </Route>

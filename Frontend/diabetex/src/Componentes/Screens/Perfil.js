@@ -17,11 +17,6 @@ export default function Perfil() {
   const { likeados } = useContext(LikeadosContext);
   const [perfil, setPerfil] = useState("perfil");
 
-
-  /* {likeados.map((item) => (
-        <Cardlikeados post={item} />
-      ))}*/
-
   const MostrarLikes = () => {
     setMostrar("likes")
   }
@@ -31,40 +26,33 @@ export default function Perfil() {
 
   return (
     <>
-      < IoSettingsOutline className='setting-icon icon' />
-      <img src="/img/logo.jpg" className="App-logo Posicion-logo" ></img>
-      <p className='Nombre-usuario'>Gonzalo Perez</p>
-      < IoHeartOutline className='heart-icon' />
-
-      {likeados.map((item) => (
-        <CardLikeados producto={item} />
-      ))}
-
-
       {perfil && (
         <>
           < IoSettingsOutline className='setting-icon icon' />
           <img src="/img/logo.jpg" className="App-logo Posicion-logo" ></img>
           <p className='Nombre-usuario'>Gonzalo Perez</p>
-          <center>< IoHeartOutline className='LikePerfil' onClick={MostrarLikes} /></center>
+          <center>< IoHeartOutline className='LikePerfil' onClick={MostrarLikes}/></center>
           <center>   <PiFolderSimpleBold onClick={MostrarCarpetas} className="Carpetas"> </PiFolderSimpleBold></center>
           <center>
-            {mostrar === "likes" && (
+            {mostrar === "likes" ?
+                likeados.map((item) => (
+                  <CardLikeados producto={item} />
+                ))
+            :
+            <></>
+            }
+          </center>
 
-              <p>likes</p>
+          {mostrar === "Carpetas" && (
 
-            )}</center>
-            
-            {mostrar === "Carpetas" && (
+            <p>Carpetas</p>
 
-              <p>Carpetas</p>
-
-            )}
+          )}
 
         </>
       )}
 
-      <Navbar />
+      <Navbar  />
 
     </>
   );
