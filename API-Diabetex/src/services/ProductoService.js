@@ -53,9 +53,14 @@ export default class ProductoService {
                 FROM Producto 
                 WHERE CodigoBarra=@pCodigoBarra`)
             returnEntity = result.recordsets[0][0];
+            console.log('returnEntity')
+            console.log(returnEntity)
           
+            let etiq = await iXpS.getEtiquetaDiabetex(codigoBarra);
+            console.log('etiq')
+            console.log(etiq)
             
-            returnEntity.Etiquetas = await iXpS.getEtiquetaDiabetex(codigoBarra);
+            returnEntity.Etiquetas = etiq;
 
         }
         catch (error) {

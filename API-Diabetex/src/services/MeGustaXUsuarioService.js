@@ -29,15 +29,17 @@ export default class MeGustaXUsuarioService{
 
 
 //el like solo se pone y se sale de MeGustaXUsuario
-    meGusta = async (idUsuario, idProducto) => {
+    meGusta = async (idUsuario, producto) => {
         let returnEntity=null;
 
-        console.log('Estoy en: meGustaXUsuarioService.update', idProducto.Nombre);
+        console.log('Estoy en: meGustaXUsuarioService.update', producto.Nombre);
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                     .input('idUsuario', sql.Int, idUsuario)
-                                    .input('idProducto', sql.Int, idProducto)
+                                    .input('idProducto', sql.Int, producto.id)
+                                    .input('pNombre', sql.Int, producto.Nombre)
+                                    .input('pFoto', sql.Int, producto.Foto)
                                     .query(`
                                         If EXISTS(
                                             SELECT * FROM MeGustaXUsuario 
@@ -51,7 +53,7 @@ export default class MeGustaXUsuarioService{
                                         ELSE
                                             BEGIN
                                                 INSERT INTO MeGustaXUsuario 
-                                                    (idUsuario, idProducto,Nombre,Foto)
+                                                    (idUsuario, idProducto, Nombre, Foto)
                                                 VALUES 
                                                     (@idUsuario,@idProducto,@pNombre,@pFoto)
                                             END

@@ -1,13 +1,20 @@
 import { Router} from 'express';
 import MeGustaXUsuario from '../services/MeGustaXUsuarioService.js';
+import ProductoService from '../services/productoService.js';
 
 const meGustaXUsuarioRouter = Router();
 const meGustaXUsuarioService = new MeGustaXUsuario();
 
-meGustaXUsuarioRouter.post('/:idUsuario/:idProducto', async (req, res) => {
-  console.log('Estoy en: meGustaXUsuarioController/:idUsuario/:idProducto', req.params.idUsuario, req.params.idProducto );
+const productoService = new ProductoService();
+
+meGustaXUsuarioRouter.post('/:idUsuario/:codebar', async (req, res) => {
+  console.log('Estoy en: meGustaXUsuarioController/:idUsuario/:codebar', req.params.idUsuario, req.params.codebar );
   //AGREGA Y ELIMINA EL ME GUSTA
-    const meGustaXUsuario = await meGustaXUsuarioService.meGusta(req.params.idUsuario, req.params.idProducto);
+
+
+  let producto = await productoService.getProduct(req.params.codebar);
+
+  const meGustaXUsuario = await meGustaXUsuarioService.meGusta(req.params.idUsuario, producto);
 
   return res.status(200).json(meGustaXUsuario);
 });
