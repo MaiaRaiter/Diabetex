@@ -7,7 +7,7 @@ const CardLikeados = ({producto}) => {
   const { EliminarLikeado } = useContext(LikeadosContext);
 
   return (
-    <div className="card overflow-hidden shadow rounded-4 border-0 mb-5">
+   
         <div className="card-body p-0">
             <div className="d-flex align-items-center">
                 <div className="p-5">
@@ -21,7 +21,7 @@ const CardLikeados = ({producto}) => {
                 
             </div>
         </div>
-    </div>
+   
   );
 };
 

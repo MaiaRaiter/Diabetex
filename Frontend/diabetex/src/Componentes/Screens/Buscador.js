@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navbar } from '../Navbar.js';
 
 export default function Busacador() {
 
@@ -43,6 +44,8 @@ export default function Busacador() {
                     </ul>
                 </div>
             )}
+            
+            <Navbar/>
         </div>
     );
 }
