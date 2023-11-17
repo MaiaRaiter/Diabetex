@@ -11,10 +11,7 @@ const CardLikeados = ({producto}) => {
         <div className="card-body p-0">
             <div className="d-flex align-items-center">
                 <div className="p-5">
-                
-                    <h2 className="fw-bolder"> {producto.titulo}</h2>
-                    <p>{producto.descripcion}</p>
-                    <p>{producto.fecha}</p>
+                <h2 className="fw-bolder"> {producto.titulo}</h2>
                 </div>
                 <BiHeart className='icon-heart' onClick={() => EliminarLikeado(producto.id)}/>
                 <img className="img-fluid" src={producto.imagenes} />

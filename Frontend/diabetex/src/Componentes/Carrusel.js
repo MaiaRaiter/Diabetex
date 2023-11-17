@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AiOutlineHeart } from "react-icons/ai";
-import { FavoritosContext } from '../Context/FavoritosContext';
+import { FavoritosContext } from '../Context/FavoritosContext.js';
 
 
 
@@ -12,7 +12,7 @@ export const Carrusel = ({DatosCarrusel}) => {
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
   const [likes, setLikes] = useState(false);
-  const {  AddFavorito } = useContext(FavoritosContext);  
+  const { AddFavorito } = useContext(FavoritosContext);  
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -41,7 +41,7 @@ export const Carrusel = ({DatosCarrusel}) => {
 
     // Realiza una solicitud a la API para actualizar los likes
     try {
-      let url = `http://a-phz2-cidi-020:3000/api/meGustaXUsuario/${IdUsuario}/${Id}`;
+      let url = `http://a-phz2-cidi-023:3000/api/meGustaXUsuario/${IdUsuario}/${Id}`;
       console.log(url);
       const response = await axios.post(url, null);
 

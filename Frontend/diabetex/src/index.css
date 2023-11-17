@@ -189,17 +189,24 @@ nav {
   font-family: 'Roboto';
   color: #231F20;
   margin-left: 40px;
-  margin-top: 299px;
+  margin-top: 240px;
   position: absolute;
 
 
 }
+.TextOverley{
+   
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 1rem;
+    z-index: 10;
 
+}
 .Ingredientes {
   font-size: 11px;
   color: #979797;
   letter-spacing: 1px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-left: 20px;
   font-family: Roboto;
 
