@@ -105,10 +105,10 @@ nav {
   background-color: #33847E;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  position: relative;
-  width: 400px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 78px;
-  margin-top: 90px;
 }
 
 .nav-elements {
@@ -383,4 +383,19 @@ fill: #FFF;
 
 stroke-width: 2px;
 stroke: #33847E;
+}
+.CardFavs{
+  border-radius: 15px;
+border: 2px solid #316F6A;
+background: #FFF;
+width: 111px;
+height: 96px;
+flex-shrink: 0;
+margin-top: 10px;
+}
+.FotoCard{
+
+  border-radius: 15px;
+ width: 107px;
+height: 92px;
 }

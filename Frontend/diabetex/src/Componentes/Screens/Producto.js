@@ -133,7 +133,7 @@ const Producto = () => {
                     </tr>
                   </tbody>
                 </table> </center>
-                  <BiHeart  onClick={(producto) => AddFavorito()}> </BiHeart>
+                  <BiHeart  onClick={() => AddFavorito(producto)}> </BiHeart>
                   </>
               }
             </center>

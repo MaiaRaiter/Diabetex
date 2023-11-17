@@ -27,8 +27,8 @@ export const Home = () => {
   };
 
   return (
-      <div className="App-header d-flex flex-column justify-content-between vh-100">
-        <div>
+    <div className="App-header d-flex flex-column justify-content-between vh-100">
+         <center> <div>
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
         <form onSubmit={handleSearchSubmit}>
@@ -46,7 +46,7 @@ export const Home = () => {
         </form>
         </div>
       
-      
+        </center>
       <div className='Carruseles'>
       <p className='TituloHome'>Mas likeados</p>
       <Carrusel DatosCarrusel={MasLikeados} />
@@ -54,7 +54,7 @@ export const Home = () => {
       <Carrusel DatosCarrusel={Recientes} />
       </div>
     
-      <Navbar />
+     <Navbar />
       </div>
   );
 }

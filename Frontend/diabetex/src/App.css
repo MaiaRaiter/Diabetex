@@ -14,7 +14,7 @@
 
 .App-header {
   background-color: #B0E1DE;
-  align-items: center;
+
   justify-content: center;
   font-size: calc(10px + 2vmin);
 
@@ -23,6 +23,9 @@
 .App-link {
   color: #61dafb;
 }
+.Likeado{
+  margin-left: 100%;
 
+}
 
 

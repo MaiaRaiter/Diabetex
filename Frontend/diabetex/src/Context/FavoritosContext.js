@@ -25,10 +25,12 @@ const FavoritosProvider = (props) => {
     }
 
     const EliminarFavorito = (favoritoid) => {
-      setFavoritos(
-        favoritos.filter((fav) => fav.id !== favoritoid)
-      ); 
-    };
+        console.log('Eliminando favorito:', favoritoid);
+        setFavoritos(
+          favoritos.filter((fav) => fav.id !== favoritoid)
+        ); 
+      };
+      
 
     const isFavorite = (id)=>{            
       let filtro = favoritos.filter(x=>x.id===id);      
