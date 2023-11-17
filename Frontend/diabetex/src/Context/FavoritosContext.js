@@ -8,7 +8,7 @@ const FavoritosProvider = (props) => {
     const [cantidadFavoritos, setCantidadFavoritos] = useState(0);    
 
     const AddFavorito = (fav) => {
-      if (!favoritos.some((item) => item.id === fav.id)) {
+      if (!favoritos.some((item) => item.Id === fav.id)) {
         setFavoritos([...favoritos, fav]);        
       } else {
         console.log("Item already in favorites");
@@ -25,18 +25,18 @@ const FavoritosProvider = (props) => {
     }
 
     const EliminarFavorito = (favoritoid) => {
-      setFavoritos(
-        favoritos.filter((fav) => fav.id !== favoritoid)
-      ); 
-    };
+        console.log('Eliminando favorito:', favoritoid);
+        setFavoritos(
+          favoritos.filter((fav) => fav.id !== favoritoid)
+        ); 
+      };
+      
 
     const isFavorite = (id)=>{            
       let filtro = favoritos.filter(x=>x.id===id);      
       return filtro.length >0;
     }
-    const MostrarFavoritos = (favoritos)=>{            
-       return favoritos;
-      }
+
     
   return (
     <FavoritosContext.Provider
@@ -47,7 +47,7 @@ const FavoritosProvider = (props) => {
       ResetFavoritos,
       EliminarFavorito,
       isFavorite,
-      MostrarFavoritos,
+      
     }}
   >
     {props.children}

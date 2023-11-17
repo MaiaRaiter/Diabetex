@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css'
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar.js';
 import { BiHeart } from 'react-icons/bi'
+import { FavoritosContext } from '../../Context/FavoritosContext.js';
 
 
 const Producto = () => {
@@ -14,6 +15,7 @@ const Producto = () => {
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
   const { CodigoB } = useParams();
   const navigate = useNavigate();
+  const {  AddFavorito } = useContext(FavoritosContext);  
 
   useEffect(() => {
     CargarProductoxCodigo()
@@ -23,7 +25,7 @@ const Producto = () => {
     console.log('CargarProductoxCodigo');
     console.log(CodigoB);
     console.log(formData);
-    let url = "http://a-phz2-cidi-020:3000/api/producto/" + CodigoB + "?idUsuario=2";
+    let url = "http://a-phz2-cidi-023:3000/api/producto/" + CodigoB + "?idUsuario=2";
     console.log(CodigoB)
     try {
       const response = await axios.get(url);
@@ -59,7 +61,7 @@ const Producto = () => {
             {producto.Foto == null}
             <img src="/img/ImegenError.jpg" className="logoHome" alt=""></img>
             <div className='Contenedor'>
-              <center> <p className='TextOverlay'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
+              <center> <p className='TextOverley'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
             </div>
             <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>
             <div className='BarraGris'>
@@ -107,10 +109,11 @@ const Producto = () => {
                     </tr>
                   </tbody>
                 </table> </center>
+                
               )}
 
               {mostrar == "Resumen" &&
-
+<>
                 <center>  <table class="table table-bordered Tabla">
                   <thead>
                     <tr>
@@ -130,12 +133,14 @@ const Producto = () => {
                     </tr>
                   </tbody>
                 </table> </center>
+                  <BiHeart  onClick={() => AddFavorito(producto)}> </BiHeart>
+                  </>
               }
             </center>
 
             <p>Analisís de Ingredientes</p>
             <div className='Contenedor'></div>
-            <BiHeart  onClick={() => AddFavorito()}> </BiHeart>
+          
           </>
         )}
         {error &&

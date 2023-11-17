@@ -54,7 +54,8 @@ export const Home = () => {
 
   return (
     <div className="App-header d-flex flex-column justify-content-between vh-100">
-      <div>
+         <center>
+           
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
 
@@ -62,17 +63,17 @@ export const Home = () => {
           <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="widget-search-bar"  />
           {productosFiltrados.map(producto => <p>{producto.Nombre}</p>)}
         </div>
-
-      </div>
-
+      
+        </center>
       <div className='Carruseles'>
         <p className='TituloHome'>Mas likeados</p>
         <Carrusel DatosCarrusel={MasLikeados} />
         <p className='TituloHome'>Recientes</p>
         <Carrusel DatosCarrusel={Recientes} />
       </div>
-
-      <Navbar />
-    </div>
+    
+     <Navbar />
+      </div>
+      
   );
 }

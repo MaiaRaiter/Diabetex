@@ -16,6 +16,7 @@ export default function Perfil() {
   const [post, setPost] = useState([]);
   const { likeados } = useContext(FavoritosContext);
   const [perfil, setPerfil] = useState("perfil");
+  const { favoritos } = useContext(FavoritosContext);
 
   const MostrarLikes = () => {
     setMostrar("likes")
@@ -35,7 +36,7 @@ export default function Perfil() {
           <center>   <PiFolderSimpleBold onClick={MostrarCarpetas} className="Carpetas"> </PiFolderSimpleBold></center>
           <center>
             {mostrar === "likes" ?
-                likeados.map((item) => (
+                favoritos.map((item) => (
                   <CardLikeados producto={item} />
                 ))
             :
