@@ -1,6 +1,6 @@
 import axios from "axios"
 const client= axios.create({
-    baseURL:"http://A-PHZ2-CIDI-020:3000/api"
+    baseURL:"http://A-PHZ2-CIDI-023:3000/api"
 })
 
 client.interceptors.request.use(config=>{

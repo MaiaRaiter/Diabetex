@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Navbar } from '../Navbar.js';
 
 export default function Busacador() {
 
@@ -33,7 +32,7 @@ export default function Busacador() {
                 <i className="icon icon-search"></i>
                 </button>
             </form>
-            {/* Muestra los resultados de la búsqueda si hay resultados */}
+           
             {results.length > 0 && (
                 <div className="search-results">
                     <h2>Results:</h2>
@@ -44,8 +43,6 @@ export default function Busacador() {
                     </ul>
                 </div>
             )}
-            
-            <Navbar/>
         </div>
     );
 }
