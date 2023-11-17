@@ -15,7 +15,7 @@ import FavoritosProvider from '../src/Context/FavoritosContext.js';
 import Layout from "./Componentes/Screens/Layout.js";
 
 const App = () => {
-  const CargarProductos = async () => {
+ /* const CargarProductos = async () => {
     const CodigoB = 3175680011480;
     axios
       .get("http://a-phz2-cidi-020:3000/api/producto/" + CodigoB)
@@ -40,7 +40,7 @@ const App = () => {
 
   useEffect(() => {
     CargarProductos()
-  }, []);
+  }, []);*/
 
   //<Producto onCargarProductos={CargarProductos} />
 

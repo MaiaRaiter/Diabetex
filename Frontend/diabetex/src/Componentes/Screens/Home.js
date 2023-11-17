@@ -1,60 +1,93 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar.js'
 import '../../index.css'
 import '../../App.css'
-import { BiSearch } from "react-icons/bi";
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
-import { DiGhostSmall } from "react-icons/di";
 import { Carrusel } from '../Carrusel.js';
-
+import axios from "axios"
 
 export const Home = () => {
   const IdUsuario = 2;
-  const [searchValue, setSearchValue] = useState('');
-  //http://a-phz2-cidi-021:3000 CAMBIAR EL LINK 
   const MasLikeados = `http://a-phz2-cidi-023:3000/api/likesXProducto`;
   const Recientes = `http://a-phz2-cidi-023:3000/api/accesoProducto/${IdUsuario}`;
+  const [productos, setProductos] = useState(null);
+  const [productosFiltrados, setProductosFiltrados] = useState([]);
 
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
+  useEffect(() => {
+    CargarProductos()
+  }, [])
+
+  const CargarProductos = async () => {
+
+    let url = "http://localhost:3000/api/producto";
+
+    try {
+      const response = await axios.get(url);
+      if (response.data) {
+        setProductos(response.data);
+
+      } else {
+
+      }
+    } catch (error) {
+      console.log(error);
+
+    }
   };
 
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes realizar acciones relacionadas con la búsqueda, como enviarla a una API o actualizar el estado de tu aplicación.
-    console.log('Valor de búsqueda:', searchValue);
+  const searchByName = (e) => {
+    const searchText = e.target.value.toLowerCase();
+
+    if (productos) {
+
+      //filter
+      //productos.filter(funcion -> boolean)
+
+      const productosFiltrados = productos.filter(product => {
+        const productName = product.Nombre ? product.Nombre.toLowerCase() : "Sin nombre";
+
+        return productName.startsWith(searchText);
+      });
+      setProductosFiltrados(productosFiltrados);
+      //Tengo una lista de productos filtrados que se actualiza cuando busco uno nuevo
+    }
   };
 
   return (
     <div className="App-header d-flex flex-column justify-content-between vh-100">
+<<<<<<< HEAD
          <center> <div>
+=======
+      <div>
+>>>>>>> fc4224ccb3fd2bdee338ef8d5b5a4600864ce502
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
-        <form onSubmit={handleSearchSubmit}>
-          <input
-            type="text"
-            id="lname"
-            name="SearchBar"
-            className="SearchBar"
-            placeholder="Buscar Producto..."
-            value={searchValue}
-            onChange={handleSearchChange}
-          />
-          <BiSearch type="submit" className='SearchButton' />
-          <DiGhostSmall className='filters' />
-        </form>
+
+        <div>
+          <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className='searchBar' />
+          {productosFiltrados.map(producto => <p>{producto.Nombre}</p>)}
         </div>
+<<<<<<< HEAD
       
         </center>
-      <div className='Carruseles'>
-      <p className='TituloHome'>Mas likeados</p>
-      <Carrusel DatosCarrusel={MasLikeados} />
-       <p className='TituloHome'>Recientes</p>
-      <Carrusel DatosCarrusel={Recientes} />
+=======
+
       </div>
+
+>>>>>>> fc4224ccb3fd2bdee338ef8d5b5a4600864ce502
+      <div className='Carruseles'>
+        <p className='TituloHome'>Mas likeados</p>
+        <Carrusel DatosCarrusel={MasLikeados} />
+        <p className='TituloHome'>Recientes</p>
+        <Carrusel DatosCarrusel={Recientes} />
+      </div>
+<<<<<<< HEAD
     
      <Navbar />
       </div>
+=======
+
+      <Navbar />
+    </div>
+>>>>>>> fc4224ccb3fd2bdee338ef8d5b5a4600864ce502
   );
 }
