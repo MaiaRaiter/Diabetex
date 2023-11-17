@@ -59,7 +59,7 @@ export const Home = () => {
         <br></br>
 
         <div>
-          <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className='searchBar' />
+          <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="widget-search-bar"  />
           {productosFiltrados.map(producto => <p>{producto.Nombre}</p>)}
         </div>
 
