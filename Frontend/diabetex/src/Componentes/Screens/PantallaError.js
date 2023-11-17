@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const PantallaError = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const PantallaError = () => {
         <p>¿Desea agregar el producto? </p>
 
 
-        <center> <button type="submit" className="boton"onClick={navigate("/CargarProducto")}>+ Agregar Producto </button> </center>
+        <center> <Link to="/Registrarse"><button type="submit" className="boton"onClick={navigate("/CargarProducto")}>+ Agregar Producto </button> </Link></center>
     </div> 
     </>
   )

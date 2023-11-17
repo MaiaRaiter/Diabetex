@@ -1,10 +1,10 @@
 import React, {useContext} from 'react'
-import { LikeadosContext } from '../context/LikeadosContext'
 import { BiHeart } from 'react-icons/bi'
+import { FavoritosContext } from '../Context/FavoritosContext';
 
 const CardLikeados = ({producto}) => {
 
-  const { EliminarLikeado } = useContext(LikeadosContext);
+  const { EliminarLikeado } = useContext(FavoritosContext);
 
   return (
    

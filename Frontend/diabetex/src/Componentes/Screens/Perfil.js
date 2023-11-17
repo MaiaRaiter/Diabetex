@@ -3,7 +3,7 @@ import axios from 'axios';
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoHeartOutline } from "react-icons/io5"
 import { Carrusel } from '../Carrusel.js';
-import { LikeadosContext } from '../../context/LikeadosContext';
+import { FavoritosContext } from '../../Context/FavoritosContext.js';
 import { PiFolderSimpleBold } from "react-icons/pi"
 import CardLikeados from './../CardLikeados'
 import { Navbar } from '../Navbar.js';
@@ -14,7 +14,7 @@ export default function Perfil() {
   const [error, setError] = useState(false);
   const [carpetas, Setcarpetas] = useState("");
   const [post, setPost] = useState([]);
-  const { likeados } = useContext(LikeadosContext);
+  const { likeados } = useContext(FavoritosContext);
   const [perfil, setPerfil] = useState("perfil");
 
   const MostrarLikes = () => {

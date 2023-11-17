@@ -135,7 +135,7 @@ const Producto = () => {
 
             <p>Analisís de Ingredientes</p>
             <div className='Contenedor'></div>
-            <BiHeart> </BiHeart>
+            <BiHeart  onClick={() => AddFavorito()}> </BiHeart>
           </>
         )}
         {error &&

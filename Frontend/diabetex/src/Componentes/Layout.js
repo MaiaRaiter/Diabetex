@@ -3,7 +3,7 @@ const Layout = () => {
  return (
    <>
 <nav>
-<Link to="/home">Home</Link>
+<Link to="/Home">Home</Link>
 <Link to="/quienes-somos">Quienes Somos</Link>
 <Link to="/contacto">Contacto</Link>
 </nav>

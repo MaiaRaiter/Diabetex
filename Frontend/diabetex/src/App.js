@@ -11,7 +11,7 @@ import Perfil from "./Componentes/Screens/Perfil.js";
 import Scanner from "../src/Componentes/Scanner.js"
 import Busacador from "./Componentes/Screens/Buscador.js";
 import { PantallaError } from "./Componentes/Screens/PantallaError.js";
-import LikeadosProvider from '../src/context/LikeadosContext';
+import FavoritosProvider from '../src/Context/FavoritosContext.js';
 import Layout from "./Componentes/Screens/Layout.js";
 
 const App = () => {
@@ -46,10 +46,10 @@ const App = () => {
 
   return (
 
-    <LikeadosProvider>
+    <FavoritosProvider>
       <Routes>
 
-          <Route path='/' element={<Layout />}> </Route>
+          <Route path='/Home' element={<Home />}> </Route>
           <Route index element={<IniciarSesion />}></Route>
           <Route path='/Registrarse' element={<Registrarse />}> </Route>
           <Route path='/Producto/:CodigoB' element={<Producto />}> </Route>
@@ -60,7 +60,7 @@ const App = () => {
 
         
       </Routes>
-    </LikeadosProvider>
+    </FavoritosProvider>
   );
 
 

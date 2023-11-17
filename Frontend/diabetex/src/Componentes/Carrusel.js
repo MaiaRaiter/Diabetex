@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AiOutlineHeart } from "react-icons/ai";
-import { LikeadosContext } from '../context/LikeadosContext';
+import { FavoritosContext } from '../Context/FavoritosContext';
+
 
 
 
 export const Carrusel = ({DatosCarrusel}) => {
   const IdUsuario = 2;
   let id = 0;
-  const {AddLikeados} = useContext(LikeadosContext)
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
   const [likes, setLikes] = useState(false);
+  const {  AddFavorito } = useContext(FavoritosContext);  
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -71,7 +72,7 @@ export const Carrusel = ({DatosCarrusel}) => {
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
                 {console.log(P)}
-                <AiOutlineHeart  onClick={(e) =>AddLikeados(P)/*handleLikes(IdUsuario,P.Id, e)*/}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
+                <AiOutlineHeart  onClick={(e) =>AddFavorito(P)/*handleLikes(IdUsuario,P.Id, e)*/}  className={` heart-icon ${likes ? 'active' : ''}`}/> 
               </div>
             
             ))}
