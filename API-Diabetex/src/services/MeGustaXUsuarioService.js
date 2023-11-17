@@ -32,7 +32,7 @@ export default class MeGustaXUsuarioService{
     meGusta = async (idUsuario, producto) => {
         let returnEntity=null;
 
-        console.log('Estoy en: meGustaXUsuarioService.update', producto.Nombre);
+        console.log('Estoy en: meGustaXUsuarioService.update', producto);
         try{
             let pool= await sql.connect(config);
             let result = await pool.request()

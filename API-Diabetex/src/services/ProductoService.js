@@ -52,6 +52,7 @@ export default class ProductoService {
                 CalculoCarbohidratos = (NCarbohidratos100g-NFibra100g/2)
                 FROM Producto 
                 WHERE CodigoBarra=@pCodigoBarra`)
+                
             returnEntity = result.recordsets[0][0];
             console.log('returnEntity')
             console.log(returnEntity)
@@ -124,7 +125,7 @@ export default class ProductoService {
                 returnEntity = result.rowsAffected;
                 console.log(returnEntity);
 
-                await iXpS.getEtiquetas(codigoBarra);
+                await iXpS.getEtiquetas(codebar);
 
             } else {
 

@@ -11,8 +11,7 @@ meGustaXUsuarioRouter.post('/:idUsuario/:codebar', async (req, res) => {
   console.log('Estoy en: meGustaXUsuarioController/:idUsuario/:codebar', req.params.idUsuario, req.params.codebar );
   //AGREGA Y ELIMINA EL ME GUSTA
 
-
-  let producto = await productoService.getProduct(req.params.codebar);
+  let producto = await productoService.getProductoDiabetex(req.params.codebar);
 
   const meGustaXUsuario = await meGustaXUsuarioService.meGusta(req.params.idUsuario, producto);
 
