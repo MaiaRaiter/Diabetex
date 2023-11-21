@@ -4,6 +4,7 @@ import '../../index.css'
 import '../../App.css'
 import { Carrusel } from '../Carrusel.js';
 import axios from "axios"
+import Buscador  from './Buscador'
 
 export const Home = () => {
   const IdUsuario = 2;
@@ -59,14 +60,12 @@ export const Home = () => {
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
 
-        <div>
-          <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="widget-search-bar"  />
-          {productosFiltrados.map(producto => <p>{producto.Nombre}</p>)}
-        </div>
+        <Buscador productos={productos} />
       
         </center>
       <div className='Carruseles'>
         <p className='TituloHome'>Mas likeados</p>
+       
         <Carrusel DatosCarrusel={MasLikeados} />
         <p className='TituloHome'>Recientes</p>
         <Carrusel DatosCarrusel={Recientes} />
