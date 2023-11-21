@@ -16,7 +16,7 @@ export default class MeGustaXUsuarioService{
                                 .input('pIdUsuario', sql.Int, id)
                                 .query(`SELECT Producto.Nombre, Producto.Foto, MeGustaXUsuario.IdUsuario, Producto.Id FROM Producto
                                 JOIN MeGustaXUsuario ON Producto.Id = MeGustaXUsuario.IdProducto
-                                WHERE MeGustaXUsuario.IdUsuario = 2 `)
+                                WHERE MeGustaXUsuario.IdUsuario = @idUsuario `)
     
             returnEntity=result.recordsets[0];
         } 

@@ -77,6 +77,14 @@ ProductoRouter.get('/', async (req, res) => {
   return res.status(200).json(producto);
 });
 
+ProductoRouter.get('/buscar/:producto', async (req, res) => {
+  console.log('Estoy en: /buscar/:producto ');
+  
+  const producto = await productoService.getAll();
+
+  return res.status(200).json(producto);
+});
+
 ProductoRouter.put('', async (req, res) => {
   let cuerpo = req.body;
 
