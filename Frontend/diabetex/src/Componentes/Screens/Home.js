@@ -8,8 +8,8 @@ import Buscador  from './Buscador'
 
 export const Home = () => {
   const IdUsuario = 2;
-  const MasLikeados = `http://a-phz2-cidi-023:3000/api/likesXProducto`;
-  const Recientes = `http://a-phz2-cidi-023:3000/api/accesoProducto/${IdUsuario}`;
+  const MasLikeados = `http://a-phz2-cidi-054:3000/api/likesXProducto`;
+  const Recientes = `http://a-phz2-cidi-054:3000/api/accesoProducto/${IdUsuario}`;
   const [productos, setProductos] = useState(null);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
 
@@ -19,7 +19,7 @@ export const Home = () => {
 
   const CargarProductos = async () => {
 
-    let url = "http://localhost:3000/api/producto";
+    let url = "http://a-phz2-cidi-054:3000/api/producto";
 
     try {
       const response = await axios.get(url);

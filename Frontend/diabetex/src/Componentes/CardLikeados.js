@@ -6,13 +6,41 @@ import { BiSolidHeart } from 'react-icons/bi'
 const CardLikeados = ({ producto }) => {
 
     const { EliminarFavorito } = useContext(FavoritosContext);
-    console.log(producto)
+    const { AddFavorito } = useContext(FavoritosContext);
+    const {  isFavorite } = useContext(FavoritosContext);    
+    const {  favoritos } = useContext(FavoritosContext);  
+    console.log(favoritos)
+
+    const handlefav = (id) =>{
+
+
+    }
 
     return (
 
         <div className="CardFavs">
             <img className="FotoCard" src={producto.Foto} />
-            <BiSolidHeart className='Likeado' onClick={() => EliminarFavorito(producto.id)} />
+            
+            
+            {isFavorite(producto.Id) ? (
+                    <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(producto.Id)} />
+                  
+          ) : (
+           
+            <BiHeart className='FavPerfil' onClick={() => AddFavorito(producto)} />
+           
+          )
+          
+
+          /*
+          favoritos.map((f)=>{
+            <BiHeart className='icon-heart' onClick={() => AddFavorito(f.id)} />
+            
+            
+
+          })
+          */
+          }
 
         </div>
 
