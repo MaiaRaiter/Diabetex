@@ -8,8 +8,8 @@ import Buscador  from './Buscador'
 
 export const Home = () => {
   const IdUsuario = 2;
-  const MasLikeados = `http://a-phz2-cidi-023:3000/api/likesXProducto`;
-  const Recientes = `http://a-phz2-cidi-023:3000/api/accesoProducto/${IdUsuario}`;
+  const MasLikeados = `http://a-phz2-cidi-054:3000/api/likesXProducto`;
+  const Recientes = `http://a-phz2-cidi-054:3000/api/accesoProducto/${IdUsuario}`;
   const [productos, setProductos] = useState(null);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
 
@@ -60,7 +60,7 @@ export const Home = () => {
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
 
-        <Buscador productos={productos} />
+         <Buscador productos={productos} />
       
         </center>
       <div className='Carruseles'>
