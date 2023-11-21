@@ -1,8 +1,4 @@
-
-import React, { useState, useContext, useEffect } from 'react';
-
 import React, { useState, useContext, useEffect} from 'react';
-
 import axios from 'axios';
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoHeartOutline } from "react-icons/io5"
@@ -73,7 +69,7 @@ export default function Perfil() {
             <center>
               {carpetas.map((carpeta) => (
 
-                <CardCarpetas productos={carpeta} />
+                <CardCarpetas carpeta={carpeta} />
                 
               ))}
             </center>
