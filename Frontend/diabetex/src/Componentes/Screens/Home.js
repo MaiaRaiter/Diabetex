@@ -59,16 +59,12 @@ export const Home = () => {
            
         <center><img src="/img/logo.jpg" className="logoHome" alt=""></img></center>
         <br></br>
-
-        <div>
-          <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="widget-search-bar"  />
-          {productosFiltrados.map(producto => <p>{producto.Nombre}</p>)}
-        </div>
+        <Buscador />
       
         </center>
       <div className='Carruseles'>
         <p className='TituloHome'>Mas likeados</p>
-        <Buscador productos={productos} />
+       
         <Carrusel DatosCarrusel={MasLikeados} />
         <p className='TituloHome'>Recientes</p>
         <Carrusel DatosCarrusel={Recientes} />

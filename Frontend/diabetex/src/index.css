@@ -399,6 +399,9 @@ margin-top: 10px;
  width: 107px;
 height: 92px;
 }
-.FavPerfil{
-  margin-bottom: 100px;
+.listaBuscador{
+  border-radius: 15px;
+  border: 2px solid #316F6A;
+  background: #FFF;
+  width: 207px;
 }
