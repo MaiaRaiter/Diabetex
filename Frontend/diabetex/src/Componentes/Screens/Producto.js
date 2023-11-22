@@ -5,7 +5,9 @@ import '../../index.css'
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar.js';
 import { BiHeart } from 'react-icons/bi'
+import { CiBookmark } from "react-icons/ci";
 import { FavoritosContext } from '../../Context/FavoritosContext.js';
+import { CiShare2 } from "react-icons/ci";
 
 
 const Producto = () => {
@@ -32,7 +34,6 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
-        console.log(producto.etiquetas)
       } else {
         setError(true);
       }
@@ -135,16 +136,15 @@ const Producto = () => {
                   </tbody>
                 </table> </center>
                 <p>Analisís de Ingredientes</p>
-                <div className='AnalisisIngredientes'>
-                  <p>{producto.Etiquetas.IVegetariano}</p>
-                </div>
-                  <BiHeart  onClick={() => AddFavorito(producto)}> </BiHeart>
+                  <BiHeart className='Icono' onClick={() => AddFavorito(producto)}> </BiHeart>
+                  <CiBookmark className='Icono' />
+                  <CiShare2 className='Icono' />
                   </>
               }
             </center>
 
            
-           
+            <div className='AnalisisInge'></div>
           
           </>
         )}
