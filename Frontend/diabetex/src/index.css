@@ -411,7 +411,7 @@ tr {
 .FotoCard {
 
   border-radius: 15px;
-  width: 107px;
+  width: 110px;
   height: 92px;
 }
 
@@ -442,4 +442,21 @@ tr {
   line-height: normal;
   letter-spacing: 0.3px;
   margin-top: 188px;
+}
+.griila-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; /* Espacio entre las columnas y filas */
+}
+
+.columna {
+  width: 100%;
+}
+.AnalisisIngredientes{
+  width: 342px;
+height: 42px;
+flex-shrink: 0;
+fill: #FFF;
+stroke-width: 2px;
+stroke: #33847E;
 }

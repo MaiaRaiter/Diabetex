@@ -32,6 +32,7 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
+        console.log(producto.etiquetas)
       } else {
         setError(true);
       }
@@ -133,13 +134,17 @@ const Producto = () => {
                     </tr>
                   </tbody>
                 </table> </center>
+                <p>Analisís de Ingredientes</p>
+                <div className='AnalisisIngredientes'>
+                  <p>{producto.Etiquetas.IVegetariano}</p>
+                </div>
                   <BiHeart  onClick={() => AddFavorito(producto)}> </BiHeart>
                   </>
               }
             </center>
 
-            <p>Analisís de Ingredientes</p>
-            <div className='Contenedor'></div>
+           
+           
           
           </>
         )}
