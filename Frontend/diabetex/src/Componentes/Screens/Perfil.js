@@ -57,14 +57,17 @@ export default function Perfil() {
           <center>   <PiFolderSimpleBold onClick={MostrarCarpetas} className="Carpetas"> </PiFolderSimpleBold></center>
           <center>
           {mostrar === "likes" ? (
-  <div className="griila-container">
-    {favoritos.map((item, index) => (
-      <div key={index} className="columna">
-        <CardLikeados producto={item} />
-      </div>
-    ))}
+  <div className="scroll-container">
+    <div className="griila-container">
+      {favoritos.map((item, index) => (
+        <div key={index} className="columna">
+          <CardLikeados producto={item} />
+        </div>
+      ))}
+    </div>
   </div>
 ) : null}
+
 
           </center>
 

@@ -443,6 +443,11 @@ tr {
   letter-spacing: 0.3px;
   margin-top: 188px;
 }
+.scroll-container {
+  max-height: 400px; /* Ajusta la altura máxima según sea necesario */
+  overflow-y: auto; /* Agrega scroll vertical cuando es necesario */
+}
+
 .griila-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -452,6 +457,7 @@ tr {
 .columna {
   width: 100%;
 }
+
 .AnalisisIngredientes{
   width: 342px;
 height: 42px;
