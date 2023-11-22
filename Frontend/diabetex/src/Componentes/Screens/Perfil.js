@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoHeartOutline } from "react-icons/io5"
@@ -18,7 +18,7 @@ export default function Perfil() {
   const { likeados } = useContext(FavoritosContext);
   const [perfil, setPerfil] = useState("perfil");
   const { favoritos } = useContext(FavoritosContext);
-  
+
   useEffect(() => {
   }, [favoritos]);
 
@@ -36,7 +36,7 @@ export default function Perfil() {
     };
 
     cargarCarpetas();
-  }, []); 
+  }, []);
 
 
   const MostrarLikes = () => {
@@ -56,25 +56,27 @@ export default function Perfil() {
           <center>< IoHeartOutline className='LikePerfil' onClick={MostrarLikes} /></center>
           <center>   <PiFolderSimpleBold onClick={MostrarCarpetas} className="Carpetas"> </PiFolderSimpleBold></center>
           <center>
-          {mostrar === "likes" ? (
-  <div className="scroll-container">
-    <div className="griila-container">
-      {favoritos.map((item, index) => (
-        <div key={index} className="columna">
-          <CardLikeados producto={item} />
-        </div>
-      ))}
-    </div>
-  </div>
-) : null}
+            {mostrar === "likes" ? (
+              <div className="scroll-container">
+                <div className="griila-container">
+                  {favoritos.map((item, index) => (
+                    <div key={index} className="columna">
+                      <CardLikeados producto={item} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
 
           </center>
 
           {mostrar === "Carpetas" && (
             <center>
-              {carpetas.map((carpeta) => (
-                <CardCarpetas carpeta={carpeta} />
+              {carpetas.map((carpeta, index) => (
+                <div key={index}>
+                  <CardCarpetas carpeta={carpeta} />
+                </div>
               ))}
             </center>
           )}

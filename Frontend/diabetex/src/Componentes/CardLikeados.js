@@ -17,7 +17,7 @@ const CardLikeados = ({ producto }) => {
       <div className="CardFavs">
         <center> <img className="FotoCard" src={producto.Foto} /></center>
       </div>
-      <div class="col-sm">
+      <div className="col-sm">
         {isFavorite(producto.Id) ? (
           <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(producto.Id)} />
         ) : (

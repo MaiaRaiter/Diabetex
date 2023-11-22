@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 
 
-const CardCarpetas = ({ carpeta }) => {
+const CardCarpetas = ({ carpeta,index }) => {
 
     return (
-        <Link to={`/ProductosGuardados/${carpeta.Id}`}  >
+        <Link to={`/ProductosGuardados/${carpeta.Id}`+ "?idUsuario=2"}  >
 
-        <div className="CardCarpetas" >
+        <div key={index} className="CardCarpetas" >
             <p className='NombreCarpetas'> {carpeta.Nombre} </p>
         </div>
         </Link>

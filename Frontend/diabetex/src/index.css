@@ -466,3 +466,9 @@ fill: #FFF;
 stroke-width: 2px;
 stroke: #33847E;
 }
+.FotoCardProd{
+  border-radius: 15px;
+  width: 145px;
+  height: 170px;
+  margin-top: -300px;
+}

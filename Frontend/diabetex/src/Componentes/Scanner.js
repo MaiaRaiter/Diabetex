@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Html5QrcodePlugin from './ScannerPlugin'
-import Producto from './Screens/Producto'
+import {Navbar} from './Navbar'
 import { Link } from "react-router-dom";
 import { useNavigate  } from "react-router-dom";
 
@@ -86,7 +86,9 @@ const App = (props) => {
               />
 
           </section>
+          <Navbar />
       </div>
+      
        
   );
 

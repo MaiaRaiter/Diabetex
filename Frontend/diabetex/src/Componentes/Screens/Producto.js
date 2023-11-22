@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css'
@@ -15,7 +15,7 @@ const Producto = () => {
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
   const { CodigoB } = useParams();
   const navigate = useNavigate();
-  const {  AddFavorito } = useContext(FavoritosContext);  
+  const { AddFavorito } = useContext(FavoritosContext);
 
   useEffect(() => {
     CargarProductoxCodigo()
@@ -75,7 +75,7 @@ const Producto = () => {
             <center>
 
               {mostrar === "Nutrientes" && (
-                <center>  <table class="table table-bordered Tabla ">
+                <center>  <table className="table table-bordered Tabla ">
                   <thead>
                     <tr>
                       <th scope="col">Info Nutricional</th>
@@ -110,50 +110,50 @@ const Producto = () => {
                     </tr>
                   </tbody>
                 </table> </center>
-                
+
               )}
 
               {mostrar == "Resumen" &&
-<>
-                <center>  <table class="table table-bordered Tabla">
-                  <thead>
-                    <tr>
+                <>
+                  <center>  <table className="table table-bordered Tabla">
+                    <thead>
+                      <tr>
 
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">{producto.Cantidad}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Azúcares</th>
-                      <td>{producto.Marca} G</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">País de orígen</th>
-                      <td>{producto.LugarFabricacion} Mg</td>
-                    </tr>
-                  </tbody>
-                </table> </center>
-                <p>Analisís de Ingredientes</p>
-                <div className='AnalisisIngredientes'>
-                  <p>{producto.Etiquetas.IVegetariano}</p>
-                </div>
-                  <BiHeart  onClick={() => AddFavorito(producto)}> </BiHeart>
-                  </>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">{producto.Cantidad}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Azúcares</th>
+                        <td>{producto.Marca} G</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">País de orígen</th>
+                        <td>{producto.LugarFabricacion} Mg</td>
+                      </tr>
+                    </tbody>
+                  </table> </center>
+                  <p>Analisís de Ingredientes</p>
+                  <div className='AnalisisIngredientes'>
+                    <p>{producto.Etiquetas.IVegetariano}</p>
+                  </div>
+                  <BiHeart onClick={() => AddFavorito(producto)}> </BiHeart>
+                </>
               }
             </center>
 
-           
-           
-          
+
+
+
           </>
         )}
         {error &&
           navigate('/PantallaError')}
 
       </div >
-  <Navbar />
-  </>
+      <Navbar />
+    </>
   );
 };
 

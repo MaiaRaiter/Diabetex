@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Navbar } from '../Navbar';
 import CardProducto from '../CardProducto';
+import { IoSettingsOutline } from "react-icons/io5"
 
-const ProductosGuardadosXCarpeta = ( carpeta) => {
+const ProductosGuardadosXCarpeta = (carpeta) => {
+    console.log(carpeta);
+    
     const [productosGuardados, setProductosGuardados] = useState([]);
-    console.log(productosGuardados);
     
     useEffect(() => {
         const cargarProductosGuardadosXCarpeta = async () => {
@@ -23,6 +25,9 @@ const ProductosGuardadosXCarpeta = ( carpeta) => {
 
     return (
         <>
+         < IoSettingsOutline className='setting-icon icon' />
+          <img src="/img/logo.jpg" className="App-logo Posicion-logo" ></img>
+          <p className='Nombre-usuario'>${carpeta.Nombre}</p>
           <center>
               {productosGuardados.map((producto) => (
                 <CardProducto producto={producto} />
