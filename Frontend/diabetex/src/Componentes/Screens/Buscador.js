@@ -53,7 +53,7 @@ const Buscador = () => {
   return (
     <>
       <div>
-        <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="widget-search-bar" />
+        <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="buscador"  />
         {buscando && (
           productosFiltrados.map(producto => <p className="listaBuscador" key={producto.id}>{producto.Nombre}</p>)
 

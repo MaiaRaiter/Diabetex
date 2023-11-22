@@ -10,6 +10,7 @@ import { FavoritosContext } from '../../Context/FavoritosContext.js';
 import { CiShare2 } from "react-icons/ci";
 
 
+
 const Producto = () => {
   const [producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
@@ -34,6 +35,7 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
+        console.log("Calculo Carbohidratos"+producto.CalculoCarbohidratos)
       } else {
         setError(true);
       }
@@ -136,7 +138,7 @@ const Producto = () => {
                   </tbody>
                 </table> </center>
                 <p>Analisís de Ingredientes</p>
-                  <BiHeart className='Icono' onClick={() => AddFavorito(producto)}> </BiHeart>
+                  <BiHeart className="Icono" onClick={() => AddFavorito(producto)}> </BiHeart>
                   <CiBookmark className='Icono' />
                   <CiShare2 className='Icono' />
                   </>
