@@ -25,7 +25,7 @@ const Producto = () => {
     console.log('CargarProductoxCodigo');
     console.log(CodigoB);
     console.log(formData);
-    let url = "http://a-phz2-cidi-054:3000/api/producto/" + CodigoB + "?idUsuario=2";
+    let url = "http://a-phz2-cidi-028:3000/api/producto/" + CodigoB + "?idUsuario=2";
     console.log(CodigoB)
     try {
       const response = await axios.get(url);
