@@ -35,24 +35,6 @@ export const Home = () => {
     }
   };
 
-  const searchByName = (e) => {
-    const searchText = e.target.value.toLowerCase();
-
-    if (productos) {
-
-      //filter
-      //productos.filter(funcion -> boolean)
-
-      const productosFiltrados = productos.filter(product => {
-        const productName = product.Nombre ? product.Nombre.toLowerCase() : "Sin nombre";
-
-        return productName.startsWith(searchText);
-      });
-      setProductosFiltrados(productosFiltrados);
-      //Tengo una lista de productos filtrados que se actualiza cuando busco uno nuevo
-    }
-  };
-
   return (
     <div className="App-header d-flex flex-column justify-content-between vh-100">
          <center>

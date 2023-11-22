@@ -68,9 +68,7 @@ export default function Perfil() {
           {mostrar === "Carpetas" && (
             <center>
               {carpetas.map((carpeta) => (
-
                 <CardCarpetas carpeta={carpeta} />
-                
               ))}
             </center>
           )}

@@ -12,7 +12,7 @@ import Scanner from "../src/Componentes/Scanner.js"
 import Busacador from "./Componentes/Screens/Buscador.js";
 import { PantallaError } from "./Componentes/Screens/PantallaError.js";
 import FavoritosProvider from '../src/Context/FavoritosContext.js';
-import Layout from "./Componentes/Screens/Layout.js";
+import ProductosGuardados from "./Componentes/Screens/ProductosGuardados.js";
 
 const App = () => {
  /* const CargarProductos = async () => {
@@ -57,6 +57,7 @@ const App = () => {
           <Route path='/Scanner' element={<Scanner />}> </Route>
           <Route path='/PantallaError' element={<PantallaError />}> </Route>
           <Route path='/Buscador' element={<Busacador />}> </Route>
+          <Route path='/ProductosGuardados/:IdCarpeta' element={<ProductosGuardados />}> </Route>
 
         
       </Routes>
