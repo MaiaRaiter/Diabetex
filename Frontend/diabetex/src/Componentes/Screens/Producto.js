@@ -5,7 +5,10 @@ import '../../index.css'
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar.js';
 import { BiHeart } from 'react-icons/bi'
+import { CiBookmark } from "react-icons/ci";
 import { FavoritosContext } from '../../Context/FavoritosContext.js';
+import { CiShare2 } from "react-icons/ci";
+
 
 
 const Producto = () => {
@@ -32,7 +35,7 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
-        console.log(producto.etiquetas)
+        console.log("Calculo Carbohidratos"+producto.CalculoCarbohidratos)
       } else {
         setError(true);
       }

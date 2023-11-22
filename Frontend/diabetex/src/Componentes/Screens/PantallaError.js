@@ -14,6 +14,7 @@ export const PantallaError = () => {
 
 
         <center> <Link to="/Registrarse"><button type="submit" className="boton"onClick={navigate("/CargarProducto")}>+ Agregar Producto </button> </Link></center>
+        <center> <Link to="/Home"><button type="submit" className="boton"onClick={navigate("/Home")}>+ Volver a Home </button> </Link></center>
     </div> 
     </>
   )
