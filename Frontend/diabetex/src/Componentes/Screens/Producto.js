@@ -12,7 +12,7 @@ import { CiShare2 } from "react-icons/ci";
 
 
 const Producto = () => {
-  const [producto, setProducto] = useState(null);
+  const [producto, setProducto] = useState();
   const [error, setError] = useState(false);
   const [mostrar, setMostrar] = useState("Nutrientes");
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
@@ -35,8 +35,7 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
-        console.log("Calculo Carbohidratos"+producto.CalculoCarbohidratos)
-      } else {
+      } else {0
         setError(true);
       }
     } catch (error) {
