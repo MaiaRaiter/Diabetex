@@ -56,7 +56,7 @@ const Producto = () => {
   return (
     <>
 
-      <div id="listado" className="row">
+      <div id="listado" className="producto">
 
         {producto && (
           <>
@@ -67,6 +67,8 @@ const Producto = () => {
             <div className='Contenedor'>
               <center> <p className='TextOverley'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
             </div>
+
+            {console.log(producto.CalculoCarbohidratos)}
           
             
             <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>

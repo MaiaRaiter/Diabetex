@@ -8,7 +8,7 @@ import Buscador  from './Buscador'
 
 export const Home = () => {
   const IdUsuario = 2;
-  const MasLikeados = `http://a-phz2-cidi-009:3000/api/likesXProducto`;
+  const MasLikeados = `http://a-phz2-cidi-009:3000/api/meGustaXUsuario`;
   const Recientes = `http://a-phz2-cidi-009:3000/api/accesoProducto/${IdUsuario}`;
   const [productos, setProductos] = useState(null);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
