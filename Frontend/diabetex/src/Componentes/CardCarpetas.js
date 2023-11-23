@@ -7,6 +7,7 @@ const CardCarpetas = ({ carpeta, index }) => {
     return (
         <Link to={`/ProductosGuardados/${carpeta.Id}`}  >
 
+
         <div key={index} className="CardCarpetas" >
             <p className='NombreCarpetas'> {carpeta.Nombre} </p>
         </div>
@@ -14,4 +15,4 @@ const CardCarpetas = ({ carpeta, index }) => {
     );
 };
 
-export default CardCarpetas;
+export default CardCarpetas;        
