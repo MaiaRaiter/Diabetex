@@ -144,10 +144,15 @@ const Producto = () => {
                     
                   </div>
                   {isFavorite(producto.Id) ? (
-          <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(producto.Id)} />
+          <BiSolidHeart className='Icono' onClick={() => EliminarFavorito(producto.Id)} />
         ) : (
-          <BiHeart className='FavPerfil' onClick={() => AddFavorito(producto)} />
+          <BiHeart className='Icono' onClick={() => AddFavorito(producto)} />
         )}
+
+                  <CiBookmark className='Icono' />
+                  <CiShare2 className='Icono' />
+
+        
                 </>
               }
             </center>
