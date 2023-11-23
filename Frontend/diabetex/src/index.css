@@ -473,15 +473,14 @@ stroke: #33847E;
   margin-top: -300px;
 }
 
-.Icono{
 
-width: 55px;
-height: 37px;
-flex-shrink: 0;
-bottom: 30px;
-margin-left:60px;
-margin-top: 150px;
-color: white;}
+
+  .Icono {
+    width: 55px;
+    height: 37px;
+    color: black;
+  }
+  
 .CirculoFondo{
   width: 37.316px;
   height: 37.316px;
