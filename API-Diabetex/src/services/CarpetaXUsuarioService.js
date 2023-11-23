@@ -15,9 +15,8 @@ export default class CarpetaXUsuarioService{
             let pool= await sql.connect(config);
             let result = await pool.request()
                                 .input('pIdUsuario', sql.Int, id)
-                                .query(`SELECT Carpeta.Nombre, CarpetaXUsuario.IdUsuario, Carpeta.Id FROM Carpeta
-                                JOIN CarpetaXUsuario ON Carpeta.Id = CarpetaXUsuario.IdCarpeta
-                                WHERE CarpetaXUsuario.IdUsuario =  @pIdUsuario`)
+                                .query(`SELECT Carpeta.Nombre, Carpeta.IdUsuario, Carpeta.Id FROM Carpeta
+                                WHERE Carpeta.IdUsuario =  @pIdUsuario`)
             returnEntity=result.recordsets[0];
         } 
         catch(error) {
