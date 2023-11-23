@@ -41,7 +41,7 @@ export const Carrusel = ({ DatosCarrusel }) => {
 
     // Realiza una solicitud a la API para actualizar los likes
     try {
-      let url = `http://a-phz2-cidi-028:3000/api/meGustaXUsuario/${IdUsuario}/${Id}`;
+      let url = `http://a-phz2-cidi-009:3000/api/meGustaXUsuario/${IdUsuario}/${Id}`;
       console.log(url);
       const response = await axios.post(url, null);
 
