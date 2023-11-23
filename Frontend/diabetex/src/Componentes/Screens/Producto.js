@@ -36,7 +36,7 @@ const Producto = () => {
       if (response.data) {
         setProducto(response.data);
         setError(false);
-      } else {0
+      } else {
         setError(true);
       }
     } catch (error) {
@@ -118,7 +118,7 @@ const Producto = () => {
 
               )}
 
-              {mostrar == "Resumen" &&
+              {mostrar === "Resumen" &&
                 <>
                   <center>  <table className="table table-bordered Tabla">
                     <thead>

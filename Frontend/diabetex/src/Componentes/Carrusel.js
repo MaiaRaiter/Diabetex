@@ -73,10 +73,10 @@ export const Carrusel = ({ DatosCarrusel }) => {
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                {isFavorite(Producto.Id) ? (
-          <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(Producto.Id)} />
+                {isFavorite(P.Id) ? (
+          <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(P.Id)} />
         ) : (
-          <BiHeart className='FavPerfil' onClick={() => AddFavorito(Producto)} />
+          <BiHeart className='FavPerfil' onClick={() => AddFavorito(P)} />
         )}
               </div>
 
