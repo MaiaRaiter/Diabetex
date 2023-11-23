@@ -67,8 +67,8 @@ export default function InicioSesion() {
 
     return (
 
-        <div className=" App-header d-flex flex-column justify-content-between">
-            <img src="/img/logo.jpg" className="App-logo" alt=""></img>
+        <div className=" App-header d-flex flex-column align-items-center justify-content-center">
+          <center>  <img src="/img/logo.jpg" className="App-logo" alt=""></img></center>
             <br></br>
 
             <form onSubmit={ingresarCuenta}>
