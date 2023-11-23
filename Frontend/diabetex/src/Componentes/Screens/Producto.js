@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar.js';
 import { BiHeart } from 'react-icons/bi'
 import { CiBookmark } from "react-icons/ci";
+import { BiSolidHeart } from 'react-icons/bi'
 import { FavoritosContext } from '../../Context/FavoritosContext.js';
 import { CiShare2 } from "react-icons/ci";
 
@@ -18,7 +19,7 @@ const Producto = () => {
   const [formData, setFormData] = useState({ CodigoDeBarra: '' });
   const { CodigoB } = useParams();
   const navigate = useNavigate();
-  const { AddFavorito } = useContext(FavoritosContext);
+  const { AddFavorito, isFavorite, EliminarFavorito } = useContext(FavoritosContext);
 
   useEffect(() => {
     CargarProductoxCodigo()
@@ -66,6 +67,8 @@ const Producto = () => {
             <div className='Contenedor'>
               <center> <p className='TextOverley'>Este producto contiene {producto.CalculoCarbohidratos}de Carbohidratos finales </p></center>
             </div>
+          
+            
             <p className='Ingredientes'>Ingredientes:{producto.Ingredientes}</p>
             <div className='BarraGris'>
               <p onClick={MostrarNutrientes} className="Nutrientes">Nutrientes</p>
@@ -138,15 +141,16 @@ const Producto = () => {
                   </table> </center>
                   <p>Analisís de Ingredientes</p>
                   <div className='AnalisisIngredientes'>
-                    <p>{producto.Etiquetas.IVegetariano}</p>
+                    
                   </div>
-                  <BiHeart onClick={() => AddFavorito(producto)}> </BiHeart>
+                  {isFavorite(producto.Id) ? (
+          <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(producto.Id)} />
+        ) : (
+          <BiHeart className='FavPerfil' onClick={() => AddFavorito(producto)} />
+        )}
                 </>
               }
             </center>
-
-
-
 
           </>
         )}

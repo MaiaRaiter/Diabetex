@@ -1,11 +1,13 @@
 import axios from "axios"
 import React, { useState, useEffect } from 'react';
 import { Navbar } from "../Navbar";
-
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Buscador = () => {
   const [productos, setProductos] = useState(null);
   const [buscando, setBuscando] = useState(true);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     CargarProductos()
@@ -19,6 +21,7 @@ const Buscador = () => {
       const response = await axios.get(url);
       if (response.data) {
         setProductos(response.data);
+        console.log(productos.CodigoBarra)
 
       } else {
 
@@ -53,16 +56,29 @@ const Buscador = () => {
   return (
     <>
       <div>
-        <input onChange={(e) => searchByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className="buscador"  />
+        <center>
+          <input
+            onChange={(e) => searchByName(e)}
+            id="inputFiltro"
+            type="text"
+            placeholder="search..."
+            autoComplete="off"
+            className="buscador"
+          />
+        </center>
         {buscando && (
-          productosFiltrados.map(producto => <p className="listaBuscador" key={producto.id}>{producto.Nombre}</p>)
-
+          productosFiltrados.map((producto) => (
+            <Link to={`/Producto/${producto.CodigoBarra}`} key={producto.id}>
+              <p className="listaBuscador">{producto.Nombre}</p>
+            </Link>
+          ))
         )}
       </div>
       <Navbar />
     </>
-  )
-}
+  );
+          }
+  
 export default Buscador;
 
 

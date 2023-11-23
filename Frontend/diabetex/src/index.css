@@ -498,4 +498,7 @@ background: #FFF;
 width: 307px;
 height: 28px;
 flex-shrink: 0;
+display: flex;
+justify-content: center;
+margin-top: 5%;
 }
