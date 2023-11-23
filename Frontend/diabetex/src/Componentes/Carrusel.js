@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AiOutlineHeart } from "react-icons/ai";
 import { FavoritosContext } from '../Context/FavoritosContext.js';
+import { BiSolidHeart } from 'react-icons/bi'
+import { BiHeart } from 'react-icons/bi'
 
 
 
@@ -12,7 +14,7 @@ export const Carrusel = ({ DatosCarrusel }) => {
   const [Producto, setProducto] = useState(null);
   const [error, setError] = useState(false);
   const [likes, setLikes] = useState(false);
-  const { AddFavorito } = useContext(FavoritosContext);
+  const { AddFavorito,EliminarFavorito,isFavorite } = useContext(FavoritosContext);
 
   useEffect(() => {
     const CargarProductosRecientes = async () => {
@@ -71,8 +73,11 @@ export const Carrusel = ({ DatosCarrusel }) => {
                 <img src={P.Foto} className="FotoCarrusel" alt=""></img>
                 <p className='mx-auto NombreProductoCarrusel text-truncate '>{P.Nombre}</p>
                 <p className='MeGustas'>{P.CantMeGusta}</p>
-                {console.log(P)}
-                <AiOutlineHeart onClick={(e) => AddFavorito(P)/*handleLikes(IdUsuario,P.Id, e)*/} className={` heart-icon ${likes ? 'active' : ''}`} />
+                {isFavorite(Producto.Id) ? (
+          <BiSolidHeart className='FavPerfil' onClick={() => EliminarFavorito(Producto.Id)} />
+        ) : (
+          <BiHeart className='FavPerfil' onClick={() => AddFavorito(Producto)} />
+        )}
               </div>
 
             ))}
