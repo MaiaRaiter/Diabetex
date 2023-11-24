@@ -15,7 +15,7 @@ const Buscador = () => {
 
   const CargarProductos = async () => {
 
-    let url = "http://a-phz2-cidi-009:3000/api/producto";
+    let url = "http://a-phz2-cidi-023:3000/api/producto";
 
     try {
       const response = await axios.get(url);
